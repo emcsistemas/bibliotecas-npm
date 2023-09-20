@@ -4,6 +4,10 @@
   "description": "Biblioteca para estilização de apps",
   "main": "lib/index.js",
   "types": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/emc-native-ui"
+  },
   "scripts": {
     "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main",
     "build": "tsc -p ."

@@ -2,24 +2,34 @@
   "name": "@emcsistemas/emc-native-ui",
   "version": "1.0.0",
   "description": "Biblioteca para estilização de apps",
+  "author": "Leandro Fernandes <leo.desenvolvimento@emcsistemas.com.br>",
+  "license": "MIT",
   "main": "lib/index.js",
   "types": "lib",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/emc-native-ui"
   },
+  "keywords": [
+    "emc",
+    "sistemas",
+    "emc-sistemas",
+    "ui",
+    "react",
+    "native",
+    "react-native",
+    "react-component"
+  ],  
   "scripts": {
     "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main",
     "build": "tsc -p ."
-  },
-  "keywords": [
-    "emc sistemas",
-    "ui",
-    "react native"
-  ],
-  "author": "Leandro Fernandes <leo.desenvolvimento@emcsistemas.com.br>",
-  "license": "ISC",
+  },  
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "react": "*",
+    "react-native": "*"
   }
 }

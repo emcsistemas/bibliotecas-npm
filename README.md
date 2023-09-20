@@ -1,9 +1,5 @@
-# 🐰 Bibliotecas para Apps React Native
+# 🐰 Bibliotecas de componentes 🐰
 
-## Lista de bibliotecas
-
-<details>
+## React Native
 
 - **emc-native-ui:** Biblioteca de componentes para estilização de interface
-
-</details>

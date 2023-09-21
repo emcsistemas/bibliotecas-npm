@@ -2,7 +2,7 @@ import { Image, StyleSheet } from 'react-native'
 import Box from '../Box/Box'
 import { styles, makeBaseImageStyle } from '../../styles/styles'
 import { CustomImageProps } from '../../styles/ui-components.types'
-import { dimensionCalculate } from '../../styles/ui-components.util'
+import { convertBorderRadius, dimensionCalculate } from '../../styles/ui-components.util'
 
 const Avatar = (props: CustomImageProps) => {
   const containerStyles = StyleSheet.compose(
@@ -14,7 +14,13 @@ const Avatar = (props: CustomImageProps) => {
     <Box style={containerStyles}>
       <Image
         resizeMode='contain'
-        style={{width: dimensionCalculate(props.w), height: dimensionCalculate(props.h)}}
+        style={{
+            width: dimensionCalculate(props.w), 
+            height: dimensionCalculate(props.h), 
+            borderWidth: props.bWidth,
+            borderColor: props.bColor,
+            borderRadius: convertBorderRadius(props.rounded)
+        }}
         alt={props.alt}
         source={{ uri: props.source.uri }}
       />

@@ -7,7 +7,7 @@ const EMCText = (props: CustomTextProps) => {
 
   return (
     <Text
-      style={textStyles}
+      style={[textStyles, {fontWeight: '500'}]}
       maxFontSizeMultiplier={props.noAccessibility ? 1 : undefined}
       numberOfLines={props.wordWrap ? undefined : 1}
       {...props}

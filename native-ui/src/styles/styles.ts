@@ -15,8 +15,9 @@ import {
   convertFontSize,
 } from './ui-components.util'
 import { useMemo } from 'react'
-import { Colors, Fonts, Sizes } from '../theme'
+import { Colors, Sizes } from '../theme'
 import { DISABLED_OPACITY } from './ui-components.consts'
+import FontSizes from '../theme/FontSizes'
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -153,7 +154,9 @@ export function makeBaseTextStyle(props: CustomTextProps) {
 
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber ?? Fonts.font_size.md,
+    fontSize: fontSizeNumber ?? FontSizes.md,
+    fontFamily: props.fFamily,
+    fontWeight: props.softBold ? '500' : (props.bold ? '700' : 'normal'),    
     color: props.fColor || Colors.gray[800],
     textAlign: props.textAlign,
     margin: dimensionCalculate(props.m),

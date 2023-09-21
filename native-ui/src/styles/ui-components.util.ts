@@ -1,6 +1,7 @@
 import { DimensionValue } from 'react-native'
 import { UI_SIZE_MULTIPLIER } from './ui-components.consts'
 import { BorderSizeAcronymes, FontSizeAcronymes } from './ui-components.types'
+import FontSizes from '../theme/FontSizes'
 
 export function dimensionCalculate(dimension?: DimensionValue | 'full') {
   if (!dimension) return
@@ -52,40 +53,40 @@ export function convertFontSize(fontSize?: FontSizeAcronymes) {
 
   switch (fontSize) {
     case '2xs':
-      fontSizeNumber = 10
+      fontSizeNumber = FontSizes['2xs']
       break
     case 'xs':
-      fontSizeNumber = 12.5
+      fontSizeNumber = FontSizes.xs
       break
     case 'sm':
-      fontSizeNumber = 14
+      fontSizeNumber = FontSizes.sm 
       break
     case 'md':
-      fontSizeNumber = 16
+      fontSizeNumber = FontSizes.md
       break
     case 'lg':
-      fontSizeNumber = 18
+      fontSizeNumber = FontSizes.lg
       break
     case 'xl':
-      fontSizeNumber = 20
+      fontSizeNumber = FontSizes.xl
       break
     case '2xl':
-      fontSizeNumber = 22
+      fontSizeNumber = FontSizes['2xl']
       break
     case '3xl':
-      fontSizeNumber = 24
+      fontSizeNumber = FontSizes['3xl']
       break
     case '4xl':
-      fontSizeNumber = 26
+      fontSizeNumber = FontSizes['4xl']
       break
     case '5xl':
-      fontSizeNumber = 28
+      fontSizeNumber = FontSizes['5xl']
       break
     case '6xl':
-      fontSizeNumber = 30
+      fontSizeNumber = FontSizes['6xl']
       break
     case '7xl':
-      fontSizeNumber = 32
+      fontSizeNumber = FontSizes['7xl']
   }
 
   return fontSizeNumber

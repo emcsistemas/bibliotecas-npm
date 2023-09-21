@@ -275,8 +275,10 @@ export interface CustomScrollViewProps extends ScrollViewProps {
 
 export interface CustomTextProps extends TextProps {
   fSize?: FontSizeAcronymes | number
+  fFamily?: string
   fColor?: ColorValue
-  isBold?: boolean
+  bold?: boolean
+  softBold?: boolean
   wordWrap?: boolean
   noAccessibility?: boolean
   textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'

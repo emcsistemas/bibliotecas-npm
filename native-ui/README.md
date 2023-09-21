@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/native-ui.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/native-ui)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE)
 
-## Biblioteca de componentes react native para construção e estilização de interfaces de apps desenvolvidos pela empresa [**EMC Sistemas**](https://emcsistemas.com.br/)
+## Biblioteca de componentes react native para construção e estilização de interfaces de apps.
 
 [**EMC Sistemas Ltda**](https://emcsistemas.com.br/)
 

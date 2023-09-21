@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/native-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Biblioteca para estilização de apps",
   "author": "Leandro Fernandes <leo.desenvolvimento@emcsistemas.com.br>",
   "license": "MIT",
@@ -27,8 +27,10 @@
     "pub": "npm run build && npm version patch --force && npm publish --access public",
     "postpub": "echo 'package has been published'"
   },
-  "devDependencies": {
-    "@expo/vector-icons": "^13.0.0",
+  "dependencies": {
+    "@expo/vector-icons": "*"
+  },
+  "devDependencies": {    
     "@types/react": "^18.2.22",
     "react": "^18.2.0",
     "react-native": "^0.72.4",

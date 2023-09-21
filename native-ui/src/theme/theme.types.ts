@@ -62,20 +62,19 @@ export type EMCThemeColorProps = {
   cursor: string
 }
 
-export type EMCThemeFontsProps = {
-  font_family: {
-    heading: string
-    body: string
-  }
-  font_size: {
-    '2xs': number
-    xs: number
-    sm: number
-    md: number
-    lg: number
-    xl: number
-    '2xl': number
-  }
+export type EMCThemeFontSizesProps = {
+  '2xs': number
+  xs: number
+  sm: number
+  md: number
+  lg: number
+  xl: number
+  '2xl': number  
+  '3xl': number  
+  '4xl': number  
+  '5xl': number  
+  '6xl': number  
+  '7xl': number  
 }
 
 export type EMCThemeSizesProps = {

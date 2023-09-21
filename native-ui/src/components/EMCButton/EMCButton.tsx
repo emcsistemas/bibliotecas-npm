@@ -23,7 +23,7 @@ const EMCButton = (props: CustomButtonProps) => {
         opacity={DEFAULT_OPACITY_CLICK}
       >
         {props.isLoadingText ? (
-          <EMCText isBold>{props.isLoadingText}</EMCText>
+          <EMCText bold>{props.isLoadingText}</EMCText>
         ) : (
           <Spinner color={props.spinnerColor} />
         )}
@@ -35,7 +35,7 @@ const EMCButton = (props: CustomButtonProps) => {
     return <EMCText 
       fSize={props.textStyle?.fSize ?? 'md'}
       fColor={props.textStyle?.fColor ?? Colors.white}
-      isBold={props.textStyle?.isBold}
+      bold={props.textStyle?.bold}
       wordWrap={props.textStyle?.wordWrap}
       noAccessibility={props.textStyle?.noAccessibility}
       textAlign={props.textStyle?.textAlign}

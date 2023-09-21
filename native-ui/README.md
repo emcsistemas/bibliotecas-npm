@@ -8,7 +8,11 @@
 
 [**EMC Sistemas Ltda**](https://emcsistemas.com.br/)
 
-## 1. Instalação
+## 1. Dependências
+
+React Native, Expo
+
+## 2. Instalação
 
 ```sh
 npm i @emcsistemas/native-ui
@@ -22,7 +26,7 @@ or
 pnpm i @emcsistemas/native-ui
 ```
 
-## 2. Componentes
+## 3. Componentes
 
 - **Box**: implementa uma ```View``` nativa
 - **BoxSafe**: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
@@ -44,16 +48,16 @@ pnpm i @emcsistemas/native-ui
 - **Spinner**: implementa um ```ActivityIndicator``` nativo
 - **SafeArea**: implementa uma ```SafeAreaView```
 
-## 3. Tema
+## 4. Tema
 
 - **Colors**: padrão de cores utilizado pela empresa
 - **Fonts**: configurações de fontes de texto utilizadas pela empresa
 - **Sizes**: definições de tamanhos utilizados pela empresa
 
-## 4. Contribuição
+## 5. Contribuição
 
 Sinta-se à vontade para enviar um PR se quiser ajudar!
 
-## 5. Licença
+## 6. Licença
 
 Licenciado sob a licença MIT, Copyright © 2023 EMC Sistemas Ltda. Veja [LICENÇA](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE) para mais informações.

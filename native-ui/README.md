@@ -15,10 +15,13 @@ React Native, Expo
 ## 2. Componentes
 
 - Box: implementa uma ```View``` nativa
+- BoxSafe: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
 - VStack: implementa uma ```View``` nativa
 - VStackSafe: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
 - HStack: implementa uma ```View``` nativa com orientação horizontal
+- HStackSafe: implementa uma ```View``` nativa com orientação horizontal dentro de uma ```SafeAreaView```
 - Center: implementa uma ```View``` com orientação centralizada
+- CenterSafe: implementa uma ```View``` com orientação centralizada dentro de uma ```SafeAreaView```
 - Divider: linha fina horizontal para divisão de itens na tela
 - EMCButton: implementa um ```Pressed``` nativo que pode conter dentro outro componente
 - EMCScrollView: implementa uma ```ScrollView``` nativa sem barra de rolagem na vertical

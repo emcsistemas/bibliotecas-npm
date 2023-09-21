@@ -1,12 +1,10 @@
 {
-  "name": "bibliotecas-npm",
+  "name": "@emcsistemas/bibliotecas-npm",
   "version": "1.0.0",
   "description": "Bibliotecas EMC Sistemas",
-  "main": "index.js",
   "scripts": {
    "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main"
   },
-  "keywords": [],
   "author": "EMC Sistemas Ltda",
   "license": "MIT"
 }

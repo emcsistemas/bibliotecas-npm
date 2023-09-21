@@ -1,9 +1,23 @@
-# 📱 Native UI
+# Native UI
 
-## Componentes
+[![npm next package](https://img.shields.io/npm/v/@emcsistemas/native-ui/next.svg)](https://www.npmjs.com/package/@emcsistemas/native-ui)
+[![npm latest package](https://img.shields.io/npm/v/@emcsistemas/native-ui/latest.svg)](https://www.npmjs.com/package/@emcsistemas/native-ui)
+[![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/native-ui.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/native-ui)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/tree/main/LICENSE)
+
+## Biblioteca de componentes voltada para apps desenvolvidos em React Native pela empresa barsileira [**EMC Sistemas**].
+
+[**Website da Empresa**](https://emcsistemas.com.br/)
+
+## 1. Dependências
+
+React Native, Expo
+
+## 2. Componentes
 
 - Box: implementa uma ```View``` nativa
 - VStack: implementa uma ```View``` nativa
+- VStackSafe: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
 - HStack: implementa uma ```View``` nativa com orientação horizontal
 - Center: implementa uma ```View``` com orientação centralizada
 - Divider: linha fina horizontal para divisão de itens na tela
@@ -16,9 +30,14 @@
 - MaskedInput: implementa um ```TextInput``` nativo com máscara automática
 - MessageBox: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
 - Spinner: implementa um ```ActivityIndicator``` nativo
+- SafeArea: implementa uma ```SafeAreaView```
 
-## Tema
+## 3. Tema
 
 - Colors: padrão de cores utilizado pela empresa
 - Fonts: configurações de fontes de texto utilizadas pela empresa
 - Sizes: definições de tamanhos utilizados pela empresa
+
+## 4. Licença
+
+Licenciado sob a licença MIT, Copyright © 2023 EMC Sistemas Ltda. Veja [LICENÇA](https://github.com/emcsistemas/bibliotecas-npm/tree/main/LICENSE) para mais informações.

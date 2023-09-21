@@ -24,31 +24,31 @@ pnpm i @emcsistemas/native-ui
 
 ## 2. Componentes
 
-- **Box***: implementa uma ```View``` nativa
-- **BoxSafe***: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
-- **VStack***: implementa uma ```View``` nativa
-- **VStackSafe***: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
-- **HStack***: implementa uma ```View``` nativa com orientação horizontal
-- **HStackSafe***: implementa uma ```View``` nativa com orientação horizontal dentro de uma ```SafeAreaView```
-- **Center***: implementa uma ```View``` com orientação centralizada
-- **CenterSafe***: implementa uma ```View``` com orientação centralizada dentro de uma ```SafeAreaView```
-- **Divider***: linha fina horizontal para divisão de itens na tela
-- **EMCButton***: implementa um ```Pressed``` nativo que pode conter dentro outro componente
-- **EMCScrollView***: implementa uma ```ScrollView``` nativa sem barra de rolagem na vertical
-- **EMCText***: implementa um ```Text``` nativo
-- **EMCTextArea***: implementa um ```TextInput``` nativo com suporte a múltiplas linhas
-- **EMCTextInput***: implementa um ```TextInput``` nativo
-- **ExpoVectorIcon***: exibe na tela um ícone de qualquer família de ícones da biblioteca ```@expo/vector-i**cons***```
-- **MaskedInput***: implementa um ```TextInput``` nativo com máscara automática
-- **MessageBox***: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
-- **Spinner***: implementa um ```ActivityIndicator``` nativo
-- **SafeArea***: implementa uma ```SafeAreaView```
+- **Box**: implementa uma ```View``` nativa
+- **BoxSafe**: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
+- **VStack**: implementa uma ```View``` nativa
+- **VStackSafe**: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```
+- **HStack**: implementa uma ```View``` nativa com orientação horizontal
+- **HStackSafe**: implementa uma ```View``` nativa com orientação horizontal dentro de uma ```SafeAreaView```
+- **Center**: implementa uma ```View``` com orientação centralizada
+- **CenterSafe**: implementa uma ```View``` com orientação centralizada dentro de uma ```SafeAreaView```
+- **Divider**: linha fina horizontal para divisão de itens na tela
+- **EMCButton**: implementa um ```Pressed``` nativo que pode conter dentro outro componente
+- **EMCScrollView**: implementa uma ```ScrollView``` nativa sem barra de rolagem na vertical
+- **EMCText**: implementa um ```Text``` nativo
+- **EMCTextArea**: implementa um ```TextInput``` nativo com suporte a múltiplas linhas
+- **EMCTextInput**: implementa um ```TextInput``` nativo
+- **ExpoVectorIcon**: exibe na tela um ícone de qualquer família de ícones da biblioteca ```@expo/vector-i**cons**```
+- **MaskedInput**: implementa um ```TextInput``` nativo com máscara automática
+- **MessageBox**: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
+- **Spinner**: implementa um ```ActivityIndicator``` nativo
+- **SafeArea**: implementa uma ```SafeAreaView```
 
 ## 3. Tema
 
-- **Colors***: padrão de cores utilizado pela empresa
-- **Fonts***: configurações de fontes de texto utilizadas pela empresa
-- **Sizes***: definições de tamanhos utilizados pela empresa
+- **Colors**: padrão de cores utilizado pela empresa
+- **Fonts**: configurações de fontes de texto utilizadas pela empresa
+- **Sizes**: definições de tamanhos utilizados pela empresa
 
 ## 4. Contribuição
 

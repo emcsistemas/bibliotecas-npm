@@ -24,8 +24,8 @@
     "commit:main": "cd .. && git add . && git commit -m 'biblioteca atualizada' && git push origin main",
     "prebuild": "sudo rm -rf lib",
     "build": "tsc -p .",
-    "deploy": "npm run build && npm publish --access public",
-    "postdeploy": "echo 'package has been published'"
+    "pub": "npm run build && npm version patch --force && npm publish --access public",
+    "postpub": "echo 'package has been published'"
   },
   "devDependencies": {
     "@expo/vector-icons": "^13.0.0",

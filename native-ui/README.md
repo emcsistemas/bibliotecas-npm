@@ -4,13 +4,23 @@
 [![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/native-ui.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/native-ui)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE)
 
-## Biblioteca de componentes react native para construção e estilização de interfaces de apps.
+## Biblioteca de componentes react native para construção e estilização de interfaces.
 
 [**EMC Sistemas Ltda**](https://emcsistemas.com.br/)
 
-## 1. Dependências
+## 1. Instalação
 
-React Native, Expo
+```sh
+$ npm i @emcsistemas/native-ui
+```
+or
+```sh
+$ yarn add @emcsistemas/native-ui
+```
+or
+```sh
+$ pnpm i @emcsistemas/native-ui
+```
 
 ## 2. Componentes
 
@@ -40,6 +50,10 @@ React Native, Expo
 - Fonts: configurações de fontes de texto utilizadas pela empresa
 - Sizes: definições de tamanhos utilizados pela empresa
 
-## 4. Licença
+## 4. Contribuição
+
+Sinta-se à vontade para enviar um PR se quiser ajudar!
+
+## 5. Licença
 
 Licenciado sob a licença MIT, Copyright © 2023 EMC Sistemas Ltda. Veja [LICENÇA](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE) para mais informações.

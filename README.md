@@ -1,7 +1,7 @@
-# 🐰 Bibliotecas de componentes 🐰
+# 🐰 Bibliotecas de Componentes 🐰
 
-Coleção de bibliotecas desenvolvidas pela empresa EMC Sistemas para utilização em suas aplicações
+Coleção de bibliotecas desenvolvidas pela EMC Sistemas para utilização em suas aplicações.
 
 ## React Native
 
-- **native-ui:** Componentes para design e estilização de interfaces
+- **native-ui:** Componentes para construção e estilização de interfaces

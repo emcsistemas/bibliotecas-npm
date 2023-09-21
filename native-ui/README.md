@@ -11,15 +11,15 @@
 ## 1. Instalação
 
 ```sh
-$ npm i @emcsistemas/native-ui
+npm i @emcsistemas/native-ui
 ```
 or
 ```sh
-$ yarn add @emcsistemas/native-ui
+yarn add @emcsistemas/native-ui
 ```
 or
 ```sh
-$ pnpm i @emcsistemas/native-ui
+pnpm i @emcsistemas/native-ui
 ```
 
 ## 2. Componentes

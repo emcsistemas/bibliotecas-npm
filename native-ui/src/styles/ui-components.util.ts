@@ -4,6 +4,8 @@ import { BorderSizeAcronymes, FontSizeAcronymes } from './ui-components.types'
 import FontSizes from '../theme/FontSizes'
 
 export function dimensionCalculate(dimension?: DimensionValue | 'full') {
+  if (dimension === 0) return 0
+
   if (!dimension) return
 
   if (dimension === 'full') {

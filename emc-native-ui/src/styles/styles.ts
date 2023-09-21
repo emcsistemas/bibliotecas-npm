@@ -15,6 +15,8 @@ import {
   convertFontSize,
 } from './ui-components.util'
 import { useMemo } from 'react'
+import { Colors, Fonts, Sizes } from '../theme'
+import { DISABLED_OPACITY } from './ui-components.consts'
 
 export const styles = StyleSheet.create({
   box: {
@@ -38,7 +40,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    color: '#27272a',
+    color: Colors.gray[800],
   },
   textArea: {
     width: '100%',
@@ -60,6 +62,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     width: '100%',
     height: 40,
+    backgroundColor: Colors.gray[800],
   },
   textInput: {
     width: '100%',
@@ -117,7 +120,7 @@ export function makeBaseViewStyle(props: CustomViewProps) {
 
 export function makeBaseDividerStyle(props: CustomDividerProps) {
   return {
-    backgroundColor: props.bg || '#e4e4e7', // '#d6d3d1',
+    backgroundColor: props.bg || Colors.gray[200],
     margin: dimensionCalculate(props.m),
     marginHorizontal: dimensionCalculate(props.mx),
     marginVertical: dimensionCalculate(props.my),
@@ -147,8 +150,8 @@ export function makeBaseTextStyle(props: CustomTextProps) {
 
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber ?? 16,
-    color: props.fColor || '#27272a',
+    fontSize: fontSizeNumber ?? Fonts.font_size.md,
+    color: props.fColor || Colors.gray[800],
     textAlign: props.textAlign,
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
@@ -213,22 +216,22 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps) {
     paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
     backgroundColor: !props.isDisabled
-      ? props.fColor || '#fff'
+      ? props.fColor || Colors.white
       : props.hasBorder
       ? props.isInfo
         ? undefined
-        : '#e5e5e5'
+        : Colors.muted[200]
       : props.blueScreen
-      ? '#94a3b8'
-      : '#fff',
+      ? Colors.blueGray[400]
+      : Colors.white,
     borderColor: !props.isDisabled
       ? props.bColor
       : props.hasBorder
       ? props.isInfo
-        ? '#27272a'
-        : '#71717a'
+        ? Colors.gray[800]
+        : Colors.gray[500]
       : props.blueScreen
-      ? '#94a3b8'
+      ? Colors.blueGray[400]
       : undefined,
     borderWidth: props.hasBorder ? 1 : 0,
     opacity: !props.isDisabled
@@ -277,9 +280,9 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps) {
     paddingBottom: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
-    backgroundColor: !props.isDisabled ? props.fColor || '#fff' : '#e5e5e5',
-    opacity: !props.isDisabled ? 1 : 0.7,
-    borderColor: !props.isDisabled ? props.bColor : '#71717a',
+    backgroundColor: !props.isDisabled ? props.fColor || Colors.white : Colors.muted[200],
+    opacity: !props.isDisabled ? 1 : DISABLED_OPACITY,
+    borderColor: !props.isDisabled ? props.bColor : Colors.gray[500],
     borderWidth: 1,
   }
 }
@@ -306,9 +309,9 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps) {
     left: props.left,
     top: props.top,
     flex: props.flex,
-    backgroundColor: props.bg,
+    backgroundColor: props.bg ?? Colors.blue[400],
     width: props.w ? dimensionCalculate(props.w) : '100%',
-    height: props.h ? dimensionCalculate(props.h) : 40,
+    height: props.h ? dimensionCalculate(props.h) : Sizes[14],
     minWidth: dimensionCalculate(props.minW),
     minHeight: dimensionCalculate(props.minH),
     maxWidth: dimensionCalculate(props.maxWidth),
@@ -325,13 +328,13 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps) {
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
     borderLeftWidth: props.bLeftWidth,
-    borderRadius: props.rounded ? convertBorderRadius(props.rounded) : 8,
+    borderRadius: props.rounded ? convertBorderRadius(props.rounded) : convertBorderRadius('md'),
     borderColor: props.bColor,
     borderBottomColor: props.bBottomColor,
     borderTopColor: props.bTopColor,
     borderRightColor: props.bRightColor,
     borderLeftColor: props.bLeftColor,
-    opacity: props.isDisabled ? 0.7 : props.opacity,
+    opacity: props.isDisabled ? DISABLED_OPACITY : props.opacity,
     overflow: props.overflow,
     zIndex: props.zIndex,
   }

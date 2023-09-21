@@ -4,6 +4,7 @@ import { styles, makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../ExpoVectorIcon'
 import HStack from '../HStack'
+import { Colors } from '../../theme'
 
   const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
     const baseStyle = makeBaseTextInputStyle(props)
@@ -11,7 +12,7 @@ import HStack from '../HStack'
     const inputStyles = StyleSheet.compose(styles.textInput, baseStyle)
 
     return (
-      <HStack justifyContent="flex-end">
+      <HStack justifyContent='flex-end'>
         <TextInput
           ref={ref || undefined}
           style={inputStyles}
@@ -21,7 +22,7 @@ import HStack from '../HStack'
             props.noClear || props.isPassword ? 'never' : 'always'
           }
           autoComplete={props.autoCompleteType}
-          cursorColor="#323238"
+          cursorColor={Colors.cursor}
           selectionColor={undefined}
           editable={!props.isDisabled && !props.isInfo}
           autoCapitalize={
@@ -72,8 +73,8 @@ import HStack from '../HStack'
             <ExpoVectorIcon
               as={props.rightIcon.icon.as}
               name={props.rightIcon.icon.name}
-              size={7}
-              color={'#71717a'}
+              size={props.rightIcon.icon.size ?? 7}
+              color={props.rightIcon.icon.color ?? Colors.gray[500]}
             />
           </Pressable>
         )}

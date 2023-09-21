@@ -13,6 +13,7 @@ import {
   inputMaskNumbers,
   inputMaskPhone,
 } from '../../util/util.masks'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 type MaskedInputProps = CustomTextInputProps & {
   maskType?: INPUT_MASK_TYPES
@@ -65,7 +66,7 @@ const MaskedInput = (props: MaskedInputProps, ref: any) => {
           autoCorrect={false}
           clearButtonMode={props.noClear ? 'never' : 'always'}
           autoComplete={props.autoCompleteType}
-          cursorColor="#323238"
+          cursorColor={Colors.cursor}
           selectionColor={undefined}
           editable={!props.isDisabled && !props.isInfo}
           autoCapitalize="none"

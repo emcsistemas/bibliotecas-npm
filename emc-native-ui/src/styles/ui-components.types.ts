@@ -9,6 +9,7 @@ import {
   StyleProp,
   TextInputProps,
   TextProps,
+  TextStyle,
   ViewStyle,
 } from 'react-native'
 
@@ -200,7 +201,8 @@ export interface CustomImageProps extends ImageProps {
 }
 
 export interface CustomButtonProps extends PressableProps {
-  // children?: React.ReactNode | string
+  text?: string
+  textStyle?: StyleProp<TextStyle>
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue

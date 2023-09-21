@@ -9,6 +9,8 @@ const Avatar = (props: CustomImageProps) => {
       bg={props.bg}
       w={props.w}
       h={props.h}
+      alignItems='center'
+      justifyContent='center'
       m={props.m}  
       mt={props.mt}
       mb={props.mb}

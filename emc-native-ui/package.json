@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/emc-native-ui",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Biblioteca para estilização de apps",
   "author": "Leandro Fernandes <leo.desenvolvimento@emcsistemas.com.br>",
   "license": "MIT",
@@ -22,7 +22,10 @@
   ],
   "scripts": {
     "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main",
-    "build": "tsc -p ."
+    "prebuild": "sudo rm -rf lib",
+    "build": "tsc -p .",
+    "deploy": "npm run build && npm publish --access public",
+    "postdeploy": "echo 'package has been published'"
   },
   "devDependencies": {
     "@expo/vector-icons": "^13.0.0",

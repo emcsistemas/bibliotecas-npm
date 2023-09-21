@@ -200,7 +200,7 @@ export interface CustomImageProps extends ImageProps {
 }
 
 export interface CustomButtonProps extends PressableProps {
-  children?: React.ReactNode
+  // children?: React.ReactNode | string
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue
@@ -274,7 +274,6 @@ export interface CustomScrollViewProps extends ScrollViewProps {
 }
 
 export interface CustomTextProps extends TextProps {
-  children: React.ReactNode | string
   fSize?: FontSizeAcronymes | number
   fColor?: ColorValue
   isBold?: boolean

@@ -17,8 +17,6 @@ const Avatar = (props: CustomImageProps) => {
         style={{
             width: dimensionCalculate(props.w), 
             height: dimensionCalculate(props.h), 
-            borderWidth: props.bWidth,
-            borderColor: props.bColor,
             borderRadius: convertBorderRadius(props.rounded)
         }}
         alt={props.alt}

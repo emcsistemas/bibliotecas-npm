@@ -8,9 +8,7 @@ import {
   ScrollViewProps,
   StyleProp,
   TextInputProps,
-  TextProps,
-  TextStyle,
-  ViewStyle,
+  TextProps, ViewStyle
 } from 'react-native'
 
 export type FontSizeAcronymes =
@@ -202,7 +200,7 @@ export interface CustomImageProps extends ImageProps {
 
 export interface CustomButtonProps extends PressableProps {
   text?: string
-  textStyle?: StyleProp<TextStyle>
+  textStyle?: CustomTextProps
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue

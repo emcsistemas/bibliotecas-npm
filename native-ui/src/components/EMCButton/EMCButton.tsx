@@ -5,6 +5,7 @@ import Box from '../Box'
 import EMCText from '../EMCText'
 import Spinner from '../Spinner'
 import { DEFAULT_OPACITY_CLICK } from '../../styles/ui-components.consts'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 
 const EMCButton = (props: CustomButtonProps) => {
@@ -31,7 +32,21 @@ const EMCButton = (props: CustomButtonProps) => {
   }
 
   const textComponent = () => {
-    return <EMCText style={props.textStyle}>{props.text}</EMCText>
+    return <EMCText 
+      fSize={props.textStyle?.fSize ?? 'md'}
+      fColor={props.textStyle?.fColor ?? Colors.white}
+      isBold={props.textStyle?.isBold}
+      wordWrap={props.textStyle?.wordWrap}
+      noAccessibility={props.textStyle?.noAccessibility}
+      textAlign={props.textStyle?.textAlign}
+      textTransform={props.textStyle?.textTransform}
+      w={props.textStyle?.w}
+      m={props.textStyle?.m}
+      mt={props.textStyle?.mt}
+      mb={props.textStyle?.mb}
+      ml={props.textStyle?.ml}
+      mr={props.textStyle?.mr}
+      opacity={props.textStyle?.opacity}>{props.text}</EMCText>  
   }
 
   return (

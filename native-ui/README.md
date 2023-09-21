@@ -1,11 +1,10 @@
-# Native UI
+# 📱 Native UI
 
-[![npm next package](https://img.shields.io/npm/v/@emcsistemas/native-ui/next.svg)](https://www.npmjs.com/package/@emcsistemas/native-ui)
 [![npm latest package](https://img.shields.io/npm/v/@emcsistemas/native-ui/latest.svg)](https://www.npmjs.com/package/@emcsistemas/native-ui)
 [![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/native-ui.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/native-ui)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE)
 
-## Biblioteca de componentes para construção e estilização de interfaces de apps desenvolvidos pela empresa [**EMC Sistemas**](https://emcsistemas.com.br/) em React Native.
+## Biblioteca de componentes react native para construção e estilização de interfaces de apps desenvolvidos pela empresa [**EMC Sistemas**](https://emcsistemas.com.br/)
 
 [**EMC Sistemas Ltda**](https://emcsistemas.com.br/)
 

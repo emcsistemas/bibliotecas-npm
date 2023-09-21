@@ -19,6 +19,9 @@ import { Colors, Fonts, Sizes } from '../theme'
 import { DISABLED_OPACITY } from './ui-components.consts'
 
 export const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   box: {
     flexDirection: 'column',
   },

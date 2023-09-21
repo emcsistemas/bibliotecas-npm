@@ -223,7 +223,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps) {
     paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
     backgroundColor: !props.isDisabled
       ? props.fColor || Colors.white
-      : props.hasBorder
+      : !props.noBorder
       ? props.isInfo
         ? undefined
         : Colors.muted[200]
@@ -232,18 +232,18 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps) {
       : Colors.white,
     borderColor: !props.isDisabled
       ? props.bColor
-      : props.hasBorder
+      : !props.noBorder
       ? props.isInfo
         ? Colors.gray[800]
         : Colors.gray[500]
       : props.blueScreen
       ? Colors.blueGray[400]
       : undefined,
-    borderWidth: props.hasBorder ? 1 : 0,
+    borderWidth: props.noBorder ? 0 : 1,
     opacity: !props.isDisabled
       ? undefined
-      : (props.isInfo && props.hasBorder) ||
-        (!props.hasBorder && props.blueScreen)
+      : (props.isInfo && !props.noBorder) ||
+        (props.noBorder && props.blueScreen)
       ? 1
       : undefined,
   }

@@ -156,7 +156,7 @@ export interface CustomTextInputProps extends TextInputProps {
   mb?: DimensionValue
   ml?: DimensionValue
   mr?: DimensionValue
-  hasBorder?: boolean
+  noBorder?: boolean
   bColor?: ColorValue
   noMargin?: boolean
   small?: boolean

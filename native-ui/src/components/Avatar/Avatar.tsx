@@ -1,17 +1,23 @@
-import { Image, StyleSheet } from 'react-native'
+import { Image } from 'react-native'
 import Box from '../Box/Box'
-import { styles, makeBaseImageStyle } from '../../styles/styles'
 import { CustomImageProps } from '../../styles/ui-components.types'
 import { convertBorderRadius, dimensionCalculate } from '../../styles/ui-components.util'
 
 const Avatar = (props: CustomImageProps) => {
-  const containerStyles = StyleSheet.compose(
-    styles.box,
-    makeBaseImageStyle(props),
-  )
-
   return (
-    <Box style={containerStyles}>
+    <Box 
+      bg={props.bg}
+      w={props.w}
+      h={props.h}
+      m={props.m}  
+      mt={props.mt}
+      mb={props.mb}
+      ml={props.ml}
+      mr={props.mr}
+      bColor={props.bColor}
+      bWidth={props.bWidth}
+      rounded={props.rounded}
+    >
       <Image
         resizeMode='contain'
         style={{

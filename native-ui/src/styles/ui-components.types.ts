@@ -77,16 +77,16 @@ export interface CustomViewProps {
   mb?: DimensionValue
   ml?: DimensionValue
   mr?: DimensionValue
-  borderColor?: ColorValue
-  borderWidth?: number
-  borderLeftColor?: ColorValue
-  borderLeftWidth?: number
-  borderTopColor?: ColorValue
-  borderTopWidth?: number
-  borderRightColor?: ColorValue
-  borderRightWidth?: number
-  borderBottomColor?: ColorValue
-  borderBottomWidth?: number
+  bColor?: ColorValue
+  bWidth?: number
+  bLeftColor?: ColorValue
+  bLeftWidth?: number
+  bTopColor?: ColorValue
+  bTopWidth?: number
+  bRightColor?: ColorValue
+  bRightWidth?: number
+  bBottomColor?: ColorValue
+  bBottomWidth?: number
   rounded?: BorderSizeAcronymes
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'

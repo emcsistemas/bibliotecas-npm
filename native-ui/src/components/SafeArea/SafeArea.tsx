@@ -1,14 +1,11 @@
-import { StyleSheet } from "react-native";
-import { SafeAreaView, SafeAreaViewProps } from "react-native-safe-area-context";
-import { styles } from "../../styles/styles";
+import { SafeAreaView } from "react-native";
 
-const SafeArea = (props: SafeAreaViewProps) => {
-  const safeAreaStyles = StyleSheet.compose(
-    styles.safeArea,
-    props.style,    
-  )
+interface EMCSafeAreaProps {
+  children: React.ReactNode
+}
 
-  return <SafeAreaView style={safeAreaStyles}>{props.children}</SafeAreaView>
+const SafeArea = ({ children }: EMCSafeAreaProps) => {
+  return <SafeAreaView style={{flex: 1}}>{children}</SafeAreaView>
 }
 
 export default SafeArea

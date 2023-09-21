@@ -8,7 +8,7 @@
   "types": "lib",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/emc-native-ui"
+    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/native-ui"
   },
   "keywords": [
     "emc",

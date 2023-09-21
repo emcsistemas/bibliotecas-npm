@@ -1,9 +1,9 @@
 import { Image, StyleSheet } from 'react-native'
-import { Box } from '../Box'
-import { makeBaseImageStyle, styles } from '../styles'
-import { CustomImageProps } from '../ui-components.types'
+import Box from '../Box/Box'
+import { styles, makeBaseImageStyle } from '../../styles/styles'
+import { CustomImageProps } from '../../styles/ui-components.types'
 
-export function Avatar(props: CustomImageProps) {
+const Avatar = (props: CustomImageProps) => {
   const containerStyles = StyleSheet.compose(
     styles.box,
     makeBaseImageStyle(props),
@@ -15,3 +15,5 @@ export function Avatar(props: CustomImageProps) {
     </Box>
   )
 }
+
+export default Avatar

@@ -7,12 +7,14 @@ import {
   CustomButtonProps,
   CustomTextInputProps,
   CustomScrollViewProps,
+  CustomTextProps,
 } from './ui-components.types'
 import {
   dimensionCalculate,
   convertBorderRadius,
   convertFontSize,
 } from './ui-components.util'
+import { useMemo } from 'react'
 
 export const styles = StyleSheet.create({
   box: {
@@ -33,6 +35,10 @@ export const styles = StyleSheet.create({
   divider: {
     width: '100%',
     height: 1,
+  },
+  text: {
+    fontSize: 16,
+    color: '#27272a',
   },
   textArea: {
     width: '100%',
@@ -122,6 +128,37 @@ export function makeBaseDividerStyle(props: CustomDividerProps) {
   }
 }
 
+export function makeBaseTextStyle(props: CustomTextProps) {
+  function getFontSize() {
+    if (!props.fSize) {
+      return
+    }
+
+    if (typeof props.fSize === 'number') {
+      return props.fSize
+    }
+
+    return convertFontSize(props.fSize)
+  }
+
+  const fontSizeNumber = useMemo(() => {
+    return getFontSize()
+  }, [props.fSize])
+
+  return {
+    width: dimensionCalculate(props.w),
+    fontSize: fontSizeNumber ?? 16,
+    color: props.fColor || '#27272a',
+    textAlign: props.textAlign,
+    margin: dimensionCalculate(props.m),
+    marginTop: dimensionCalculate(props.mt),
+    marginBottom: dimensionCalculate(props.mb),
+    marginLeft: dimensionCalculate(props.ml),
+    marginRight: dimensionCalculate(props.mr),
+    textTransform: props.textTransform,
+  }
+}
+
 export function makeBaseTextAreaStyle(props: TextAreaProps) {
   return {
     fontSize: convertFontSize(props.fSize),
@@ -176,7 +213,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps) {
     paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
     backgroundColor: !props.isDisabled
-      ? props.textColor || '#fff'
+      ? props.fColor || '#fff'
       : props.hasBorder
       ? props.isInfo
         ? undefined
@@ -185,7 +222,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps) {
       ? '#94a3b8'
       : '#fff',
     borderColor: !props.isDisabled
-      ? props.borderColor
+      ? props.bColor
       : props.hasBorder
       ? props.isInfo
         ? '#27272a'
@@ -240,9 +277,9 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps) {
     paddingBottom: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
     paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
-    backgroundColor: !props.isDisabled ? props.textColor || '#fff' : '#e5e5e5',
+    backgroundColor: !props.isDisabled ? props.fColor || '#fff' : '#e5e5e5',
     opacity: !props.isDisabled ? 1 : 0.7,
-    borderColor: !props.isDisabled ? props.borderColor : '#71717a',
+    borderColor: !props.isDisabled ? props.bColor : '#71717a',
     borderWidth: 1,
   }
 }
@@ -257,8 +294,8 @@ export function makeBaseImageStyle(props: CustomImageProps) {
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
-    borderColor: props.borderColor,
-    borderWidth: props.borderWidth,
+    borderColor: props.bColor,
+    borderWidth: props.bWidth,
     borderRadius: convertBorderRadius(props.rounded),
   }
 }
@@ -283,17 +320,17 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps) {
     marginRight: dimensionCalculate(props.mr),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    borderWidth: props.borderWidth,
-    borderBottomWidth: props.borderBottomWidth,
-    borderTopWidth: props.borderTopWidth,
-    borderRightWidth: props.borderRightWidth,
-    borderLeftWidth: props.borderLeftWidth,
+    borderWidth: props.bWidth,
+    borderBottomWidth: props.bBottomWidth,
+    borderTopWidth: props.bTopWidth,
+    borderRightWidth: props.bRightWidth,
+    borderLeftWidth: props.bLeftWidth,
     borderRadius: props.rounded ? convertBorderRadius(props.rounded) : 8,
-    borderColor: props.borderColor,
-    borderBottomColor: props.borderBottomColor,
-    borderTopColor: props.borderTopColor,
-    borderRightColor: props.borderRightColor,
-    borderLeftColor: props.borderLeftColor,
+    borderColor: props.bColor,
+    borderBottomColor: props.bBottomColor,
+    borderTopColor: props.bTopColor,
+    borderRightColor: props.bRightColor,
+    borderLeftColor: props.bLeftColor,
     opacity: props.isDisabled ? 0.7 : props.opacity,
     overflow: props.overflow,
     zIndex: props.zIndex,

@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native'
 
-import { CustomViewProps } from '../ui-components.types'
-import { makeBaseViewStyle, styles } from '../styles'
+import { CustomViewProps } from '../../styles/ui-components.types'
+import { makeBaseViewStyle, styles } from '../../styles/styles'
 
-export function Center(props: CustomViewProps) {
+const Center = (props: CustomViewProps) => {
   const baseStyle = makeBaseViewStyle(props)
   let centerStyles = StyleSheet.compose(baseStyle, styles.center)
 
@@ -13,3 +13,5 @@ export function Center(props: CustomViewProps) {
 
   return <View style={centerStyles}>{props.children}</View>
 }
+
+export default Center

@@ -1,11 +1,12 @@
 import { Pressable, StyleSheet } from 'react-native'
-import { styles, makeBaseEMCButtonStyle } from '../styles'
-import { CustomButtonProps } from '../ui-components.types'
-import { Box } from '../Box'
-import { Text } from '@components/Text'
-import { Spinner } from '../Spinner'
+import { styles, makeBaseEMCButtonStyle } from '../../styles/styles'
+import { CustomButtonProps } from '../../styles/ui-components.types'
+import Box from '../Box'
+import EMCText from '../EMCText'
+import Spinner from '../Spinner'
 
-export function EMCButton(props: CustomButtonProps) {
+
+const EMCButton = (props: CustomButtonProps) => {
   const buttonStyles = StyleSheet.compose(
     styles.button,
     makeBaseEMCButtonStyle(props),
@@ -15,7 +16,7 @@ export function EMCButton(props: CustomButtonProps) {
     return (
       <Box flex={1} alignItems="center" justifyContent="center" opacity={0.7}>
         {props.isLoadingText ? (
-          <Text isBold>{props.isLoadingText}</Text>
+          <EMCText isBold>{props.isLoadingText}</EMCText>
         ) : (
           <Spinner color={props.spinnerColor} />
         )}
@@ -35,3 +36,5 @@ export function EMCButton(props: CustomButtonProps) {
     </Pressable>
   )
 }
+
+export default EMCButton

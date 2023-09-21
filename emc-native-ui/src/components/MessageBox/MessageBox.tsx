@@ -35,7 +35,7 @@ function showSimpleMessageBox(props: MessageBoxProps) {
   return Alert.alert(title, props.message)
 }
 
-export function MessageBox(props: MessageBoxProps) {
+const MessageBox = (props: MessageBoxProps) => {
   if (!props.buttons) {
     return showSimpleMessageBox(props)
   }
@@ -44,3 +44,5 @@ export function MessageBox(props: MessageBoxProps) {
 
   return Alert.alert(title, props.message, props.buttons)
 }
+
+export default MessageBox

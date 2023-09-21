@@ -8,6 +8,7 @@ import {
   ScrollViewProps,
   StyleProp,
   TextInputProps,
+  TextProps,
   ViewStyle,
 } from 'react-native'
 
@@ -47,7 +48,7 @@ type JustifyContentAcronymes =
 
 type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
 
-export type CustomViewProps = {
+export interface CustomViewProps {
   children?: React.ReactNode
   style?: StyleProp<ViewStyle>
   bg?: ColorValue
@@ -95,7 +96,7 @@ export type CustomViewProps = {
   shadowKeyboard?: boolean
 }
 
-export type CustomDividerProps = {
+export interface CustomDividerProps {
   bg?: ColorValue
   m?: DimensionValue
   mx?: DimensionValue
@@ -107,7 +108,7 @@ export type CustomDividerProps = {
 }
 
 /* eslint-disable */
-export type CustomIconProps = {
+export interface CustomIconProps {
   as: any
   name: any
   color?: ColorValue
@@ -121,7 +122,7 @@ export type CustomIconProps = {
 }
 /* eslint-enable */
 
-export type TextAreaProps = TextInputProps & {
+export interface TextAreaProps extends TextInputProps {
   fFamily?: string
   fSize?: FontSizeAcronymes
   textColor?: ColorValue
@@ -136,10 +137,10 @@ export type TextAreaProps = TextInputProps & {
   bColor?: ColorValue
 }
 
-export type CustomTextInputProps = TextInputProps & {
+export interface CustomTextInputProps extends TextInputProps {
   fFamily?: string
   fSize?: FontSizeAcronymes
-  textColor?: ColorValue
+  fColor?: ColorValue
   autoCompleteType?: TextInputProps['autoComplete']
   flex?: number
   w?: DimensionValue | 'full'
@@ -157,7 +158,7 @@ export type CustomTextInputProps = TextInputProps & {
   ml?: DimensionValue
   mr?: DimensionValue
   hasBorder?: boolean
-  borderColor?: ColorValue
+  bColor?: ColorValue
   noMargin?: boolean
   small?: boolean
   isInfo?: boolean
@@ -172,6 +173,7 @@ export type CustomTextInputProps = TextInputProps & {
   blueScreen?: boolean
   isDisabled?: boolean
   isTablet?: boolean
+  defaultKeyboard?: boolean
   rightIcon?: {
     icon: CustomIconProps
     showOpacity?: boolean
@@ -179,7 +181,7 @@ export type CustomTextInputProps = TextInputProps & {
   }
 }
 
-export type CustomImageProps = ImageProps & {
+export interface CustomImageProps extends ImageProps {
   alt: string
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
@@ -189,15 +191,15 @@ export type CustomImageProps = ImageProps & {
   mb?: DimensionValue
   ml?: DimensionValue
   mr?: DimensionValue
-  borderColor?: ColorValue
-  borderWidth?: number
+  bColor?: ColorValue
+  bWidth?: number
   rounded?: BorderSizeAcronymes
   source: {
     uri: string
   }
 }
 
-export type CustomButtonProps = PressableProps & {
+export interface CustomButtonProps extends PressableProps {
   children?: React.ReactNode
   bg?: ColorValue
   position?: 'absolute' | 'relative'
@@ -226,16 +228,16 @@ export type CustomButtonProps = PressableProps & {
   mb?: DimensionValue
   ml?: DimensionValue
   mr?: DimensionValue
-  borderColor?: ColorValue
-  borderWidth?: number
-  borderLeftColor?: ColorValue
-  borderLeftWidth?: number
-  borderTopColor?: ColorValue
-  borderTopWidth?: number
-  borderRightColor?: ColorValue
-  borderRightWidth?: number
-  borderBottomColor?: ColorValue
-  borderBottomWidth?: number
+  bColor?: ColorValue
+  bWidth?: number
+  bLeftColor?: ColorValue
+  bLeftWidth?: number
+  bTopColor?: ColorValue
+  bTopWidth?: number
+  bRightColor?: ColorValue
+  bRightWidth?: number
+  bBottomColor?: ColorValue
+  bBottomWidth?: number
   rounded?: BorderSizeAcronymes
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'
@@ -250,7 +252,7 @@ export type CustomButtonProps = PressableProps & {
   noPressedEffect?: boolean
 }
 
-export type CustomScrollViewProps = ScrollViewProps & {
+export interface CustomScrollViewProps extends ScrollViewProps {
   children: React.ReactNode
   flex?: number
   w?: DimensionValue | 'full'
@@ -269,4 +271,22 @@ export type CustomScrollViewProps = ScrollViewProps & {
   pb?: DimensionValue
   pl?: DimensionValue
   pr?: DimensionValue
+}
+
+export interface CustomTextProps extends TextProps {
+  children: React.ReactNode | string
+  fSize?: FontSizeAcronymes | number
+  fColor?: ColorValue
+  isBold?: boolean
+  wordWrap?: boolean
+  noAccessibility?: boolean
+  textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
+  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | undefined
+  w?: DimensionValue | 'full'
+  m?: number
+  mt?: number
+  mb?: number
+  mr?: number
+  ml?: number
+  opacity?: number
 }

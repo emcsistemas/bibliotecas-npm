@@ -1,31 +1,20 @@
 import React, { forwardRef } from 'react'
-import {
-  Platform,
-  Pressable,
-  TextInput as RNTextInput,
-  StyleSheet,
-} from 'react-native'
-import { useAuth } from '@hooks/authContext'
-import { CustomTextInputProps } from '@ui-components/ui-components.types'
-import { styles, makeBaseTextInputStyle } from '../styles'
-import { MAX_ACCESSIBILITY_MULTIPLIER } from '@global/consts.general'
-import { Icon } from '@ui-components/Icon'
-import { HStack } from '@ui-components/HStack'
+import { Platform, Pressable, TextInput, StyleSheet, TextInputProps } from 'react-native'
+import { styles, makeBaseTextInputStyle } from '../../styles/styles'
+import { CustomTextInputProps } from '../../styles/ui-components.types'
+import ExpoVectorIcon from '../ExpoVectorIcon'
+import HStack from '../HStack'
 
-export const TextInput = forwardRef<RNTextInput, CustomTextInputProps>(
-  function TextInput(props: CustomTextInputProps, ref) {
-    const { config } = useAuth()
-
+  const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
     const baseStyle = makeBaseTextInputStyle(props)
 
     const inputStyles = StyleSheet.compose(styles.textInput, baseStyle)
 
     return (
       <HStack justifyContent="flex-end">
-        <RNTextInput
+        <TextInput
           ref={ref || undefined}
           style={inputStyles}
-          maxFontSizeMultiplier={MAX_ACCESSIBILITY_MULTIPLIER}
           numberOfLines={1}
           autoCorrect={false}
           clearButtonMode={
@@ -35,37 +24,6 @@ export const TextInput = forwardRef<RNTextInput, CustomTextInputProps>(
           cursorColor="#323238"
           selectionColor={undefined}
           editable={!props.isDisabled && !props.isInfo}
-          // InputRightElement={
-          //   props.isDisabled
-          //     ? undefined
-          //     : props.rightIcon && (
-          //         <TouchableOpacity
-          //           activeOpacity={
-          //             props.rightIcon.showOpacity ? DEFAULT_OPACITY_CLICK : 1
-          //           }
-          //           onPress={
-          //             props.rightIcon.onClick
-          //               ? () =>
-          //                   props.rightIcon.onClick
-          //                     ? props.rightIcon.onClick()
-          //                     : null
-          //               : undefined
-          //           }
-          //         >
-          //           <Icon
-          //             as={props.rightIcon.icon.as}
-          //             name={props.rightIcon.icon.name}
-          //             size={6}
-          //             mr={2}
-          //             color={
-          //               props.rightIcon.icon.color
-          //                 ? props.rightIcon.icon.color
-          //                 : colors.gray[500]
-          //             }
-          //           />
-          //         </TouchableOpacity>
-          //       )
-          // }
           autoCapitalize={
             props.onlyNumbers ||
             props.isDecimal ||
@@ -89,7 +47,7 @@ export const TextInput = forwardRef<RNTextInput, CustomTextInputProps>(
             props.isDecimal
               ? Platform.OS === 'ios'
                 ? 'decimal-pad'
-                : config.teclado_padrao
+                : props.defaultKeyboard
                 ? 'numbers-and-punctuation'
                 : 'decimal-pad'
               : props.isPhoneNumber
@@ -111,7 +69,7 @@ export const TextInput = forwardRef<RNTextInput, CustomTextInputProps>(
               props.rightIcon.onClick ? props.rightIcon.onClick : undefined
             }
           >
-            <Icon
+            <ExpoVectorIcon
               as={props.rightIcon.icon.as}
               name={props.rightIcon.icon.name}
               size={7}
@@ -121,5 +79,6 @@ export const TextInput = forwardRef<RNTextInput, CustomTextInputProps>(
         )}
       </HStack>
     )
-  },
-)
+  }
+
+  export default forwardRef<TextInputProps, CustomTextInputProps>(EMCTextInput)

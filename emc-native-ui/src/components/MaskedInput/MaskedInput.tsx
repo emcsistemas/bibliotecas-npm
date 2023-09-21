@@ -1,27 +1,25 @@
 import React, { forwardRef } from 'react'
 import { TextInput, StyleSheet } from 'react-native'
-import { MAX_ACCESSIBILITY_MULTIPLIER } from '@global/consts.general'
-import { CustomTextInputProps } from '@ui-components/ui-components.types'
-import { styles, makeBaseMaskedInputStyle } from '../styles'
+import { styles, makeBaseMaskedInputStyle } from '../../styles/styles'
+import { CustomTextInputProps } from '../../styles/ui-components.types'
+import Box from '../Box/Box'
 import {
-  MASK_TYPES,
-  maskCEP,
-  maskCNPJ,
-  maskCPF,
-  maskCPFCNPJ,
-  maskCurrency,
-  maskNumbers,
-  maskPhone,
-} from '@global/util.masks'
-import { Box } from '@ui-components/Box'
+  INPUT_MASK_TYPES,
+  inputMaskCEP,
+  inputMaskCNPJ,
+  inputMaskCPF,
+  inputMaskCPFCNPJ,
+  inputMaskCurrency,
+  inputMaskNumbers,
+  inputMaskPhone,
+} from '../../util/util.masks'
 
 type MaskedInputProps = CustomTextInputProps & {
-  maskType?: MASK_TYPES
+  maskType?: INPUT_MASK_TYPES
   onChangeValue(value: string): void
 }
 
-export const MaskedInput = forwardRef<TextInput, MaskedInputProps>(
-  function MaskedInput(props: MaskedInputProps, ref) {
+const MaskedInput = (props: MaskedInputProps, ref: any) => {
     const inputStyles = StyleSheet.compose(
       styles.textInput,
       makeBaseMaskedInputStyle(props),
@@ -31,25 +29,25 @@ export const MaskedInput = forwardRef<TextInput, MaskedInputProps>(
       if (props.maskType) {
         switch (props.maskType) {
           case 'cep':
-            value = maskCEP(value)
+            value = inputMaskCEP(value)
             break
           case 'cnpj':
-            value = maskCNPJ(value)
+            value = inputMaskCNPJ(value)
             break
           case 'cpf':
-            value = maskCPF(value)
+            value = inputMaskCPF(value)
             break
           case 'cpfcnpj':
-            value = maskCPFCNPJ(value)
+            value = inputMaskCPFCNPJ(value)
             break
           case 'currency':
-            value = maskCurrency(value, false)
+            value = inputMaskCurrency(value, false)
             break
           case 'numbers':
-            value = maskNumbers(value)
+            value = inputMaskNumbers(value)
             break
           case 'telephone':
-            value = maskPhone(value)
+            value = inputMaskPhone(value)
             break
         }
         props.onChangeValue(value)
@@ -63,7 +61,6 @@ export const MaskedInput = forwardRef<TextInput, MaskedInputProps>(
         <TextInput
           ref={ref || undefined}
           style={inputStyles}
-          maxFontSizeMultiplier={MAX_ACCESSIBILITY_MULTIPLIER}
           numberOfLines={1}
           autoCorrect={false}
           clearButtonMode={props.noClear ? 'never' : 'always'}
@@ -74,9 +71,10 @@ export const MaskedInput = forwardRef<TextInput, MaskedInputProps>(
           autoCapitalize="none"
           keyboardType="number-pad"
           onChangeText={(value) => handleChangeText(value)}
-          {...props}          
+          {...props}
         />
       </Box>
     )
-  },
-)
+  }
+
+export default forwardRef<TextInput, MaskedInputProps>(MaskedInput)

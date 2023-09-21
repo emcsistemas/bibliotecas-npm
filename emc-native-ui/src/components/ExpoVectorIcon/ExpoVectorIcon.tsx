@@ -1,6 +1,6 @@
-import { Box } from '../Box'
-import { CustomIconProps } from '../ui-components.types'
-import { iconSizeCalculate } from '../ui-components.util'
+import Box from '../Box/Box'
+import { CustomIconProps } from '../../styles/ui-components.types'
+import { iconSizeCalculate } from '../../styles/ui-components.util'
 import {
   AntDesign,
   Entypo,
@@ -18,7 +18,7 @@ import {
   Zocial,
 } from '@expo/vector-icons'
 
-export function Icon(props: CustomIconProps) {
+const ExpoVectorIcon = (props: CustomIconProps) => {
   let icon: React.JSX.Element = <></>
 
   switch (props.as) {
@@ -197,3 +197,5 @@ export function Icon(props: CustomIconProps) {
     </Box>
   )
 }
+
+export default ExpoVectorIcon

@@ -19,17 +19,16 @@
     "native",
     "react-native",
     "react-component"
-  ],  
+  ],
   "scripts": {
     "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main",
     "build": "tsc -p ."
-  },  
-  "devDependencies": {
-    "typescript": "^5.2.2"
   },
-  "peerDependencies": {
-    "@types/react": "*",
-    "react": "*",
-    "react-native": "*"
+  "devDependencies": {
+    "@expo/vector-icons": "^13.0.0",
+    "@types/react": "^18.2.22",
+    "react": "^18.2.0",
+    "react-native": "^0.72.4",
+    "typescript": "^5.2.2"
   }
 }

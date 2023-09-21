@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native'
 
-import { CustomViewProps } from '../ui-components.types'
-import { makeBaseViewStyle, styles } from '../styles'
+import { CustomViewProps } from '../../styles/ui-components.types'
+import { makeBaseViewStyle, styles } from '../../styles/styles'
 
-export function VStack(props: CustomViewProps) {
+const VStack = (props: CustomViewProps) => {
   let viewStyles = StyleSheet.compose(makeBaseViewStyle(props), styles.vstack)
 
   if (props.style) {
@@ -12,3 +12,5 @@ export function VStack(props: CustomViewProps) {
 
   return <View style={viewStyles}>{props.children}</View>
 }
+
+export default VStack

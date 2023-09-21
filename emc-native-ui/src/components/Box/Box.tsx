@@ -1,9 +1,9 @@
 import { View, StyleSheet } from 'react-native'
 
-import { CustomViewProps } from '../ui-components.types'
-import { makeBaseViewStyle, styles } from '../styles'
+import { CustomViewProps } from '../../styles/ui-components.types'
+import { styles, makeBaseViewStyle } from '../../styles/styles'
 
-export function Box(props: CustomViewProps) {
+const Box = (props: CustomViewProps) => {
   let boxStyles = StyleSheet.compose(styles.box, makeBaseViewStyle(props))
 
   if (props.style) {
@@ -12,3 +12,5 @@ export function Box(props: CustomViewProps) {
 
   return <View style={boxStyles}>{props.children}</View>
 }
+
+export default Box

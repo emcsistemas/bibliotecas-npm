@@ -1,5 +1,5 @@
 import { ActivityIndicator, ColorValue, DimensionValue } from 'react-native'
-import { Box } from '../Box'
+import Box from '../Box/Box'
 
 type SpinnerProps = {
   children?: React.ReactNode
@@ -14,7 +14,7 @@ type SpinnerProps = {
   mr?: DimensionValue
 }
 
-export function Spinner(props: SpinnerProps) {
+const Spinner = (props: SpinnerProps) => {
   return (
     <Box
       m={props.m}
@@ -33,3 +33,5 @@ export function Spinner(props: SpinnerProps) {
     </Box>
   )
 }
+
+export default Spinner

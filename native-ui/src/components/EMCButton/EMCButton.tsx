@@ -1,31 +1,28 @@
-import { Pressable, StyleSheet } from 'react-native'
-import { styles, makeBaseEMCButtonStyle } from '../../styles/styles'
+import { Pressable, StyleProp, ViewProps } from 'react-native'
+import { makeBaseEMCButtonStyle } from '../../styles/styles'
 import { CustomButtonProps } from '../../styles/ui-components.types'
-import Box from '../Box'
+import Box from '../EMCBox'
 import EMCText from '../EMCText'
-import Spinner from '../Spinner'
+import Spinner from '../EMCSpinner'
 import { DEFAULT_OPACITY_CLICK } from '../../styles/ui-components.consts'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 
 const EMCButton = (props: CustomButtonProps) => {
-  const buttonStyles = StyleSheet.compose(
-    styles.button,
-    makeBaseEMCButtonStyle(props),
-  )
+  const baseStyle: StyleProp<ViewProps> = makeBaseEMCButtonStyle(props)  
 
   const loadingComponent = () => {
     return (
       <Box
         flex={1}
-        alignItems='center'
-        justifyContent='center'
+        align='center'
+        justify='center'
         opacity={DEFAULT_OPACITY_CLICK}
       >
-        {props.isLoadingText ? (
-          <EMCText bold>{props.isLoadingText}</EMCText>
+        {props.loadingText ? (
+          <EMCText fWeight='bold'>{props.loadingText}</EMCText>
         ) : (
-          <Spinner color={props.spinnerColor} />
+          <Spinner color={props.loadingSpinnerColor} />
         )}
       </Box>
     )
@@ -33,31 +30,35 @@ const EMCButton = (props: CustomButtonProps) => {
 
   const textComponent = () => {
     return <EMCText 
-      fSize={props.textStyle?.fSize ?? 'md'}
-      fColor={props.textStyle?.fColor ?? Colors.white}
-      bold={props.textStyle?.bold}
-      wordWrap={props.textStyle?.wordWrap}
-      noAccessibility={props.textStyle?.noAccessibility}
-      textAlign={props.textStyle?.textAlign}
-      textTransform={props.textStyle?.textTransform}
-      w={props.textStyle?.w}
-      m={props.textStyle?.m}
-      mt={props.textStyle?.mt}
-      mb={props.textStyle?.mb}
-      ml={props.textStyle?.ml}
-      mr={props.textStyle?.mr}
-      opacity={props.textStyle?.opacity}>{props.text}</EMCText>  
+      fSize={props.titleStyle?.fSize ?? 'md'}
+      fColor={props.titleStyle?.fColor ?? Colors.white}
+      fWeight={props.titleStyle?.fWeight ?? 'normal'}
+      wordWrap={props.titleStyle?.wordWrap}
+      noAccessibility={props.titleStyle?.noAccessibility}
+      textAlign={props.titleStyle?.textAlign}
+      textTransform={props.titleStyle?.textTransform}
+      w={props.titleStyle?.w}
+      m={props.titleStyle?.m}
+      mt={props.titleStyle?.mt}
+      mb={props.titleStyle?.mb}
+      ml={props.titleStyle?.ml}
+      mr={props.titleStyle?.mr}
+      opacity={props.titleStyle?.opacity}>{props.title}</EMCText>  
   }
 
   return (
     <Pressable
       style={({ pressed }) => [
-        buttonStyles,
+        baseStyle,
         { opacity: !props.noPressedEffect && pressed ? 0.8 : 1 },
       ]}
       {...props}
     >
-      {props.isLoading ? loadingComponent() : props.text ? textComponent() : props.children}
+      {props.loading
+        ? loadingComponent()
+        : props.title
+        ? textComponent()
+        : props.children}
     </Pressable>
   )
 }

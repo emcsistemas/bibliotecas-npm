@@ -1,15 +1,15 @@
 import { ScrollView } from 'react-native'
-import { CustomScrollViewProps } from '../../styles/ui-components.types'
-import { makeBaseScrollViewContainerStyle } from '../../styles/styles'
+import { CustomScrollViewContainerProps } from '../../styles/ui-components.types'
+import { makeBaseScrollViewContainerStyle, styles } from '../../styles/styles'
 
-const EMCScrollView = (props: CustomScrollViewProps) => {
-  const scrollViewStyle = makeBaseScrollViewContainerStyle(props)
+const EMCScrollView = (props: CustomScrollViewContainerProps) => {
+  const scrollViewContainerStyle = props.contentContainerStyle ?? makeBaseScrollViewContainerStyle(props)
 
   return (
     <ScrollView
-      style={{ flex: props.flex }}
+      style={styles.scrollView}
+      contentContainerStyle={scrollViewContainerStyle}
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={scrollViewStyle}
       {...props}
     >
       {props.children}

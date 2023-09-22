@@ -1,30 +1,28 @@
 import React, { forwardRef } from 'react'
-import { Platform, Pressable, TextInput, StyleSheet, TextInputProps } from 'react-native'
-import { styles, makeBaseTextInputStyle } from '../../styles/styles'
+import { Platform, Pressable, TextInput, TextInputProps } from 'react-native'
+import { makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../ExpoVectorIcon'
-import HStack from '../HStack'
+import HStack from '../EMCHStack'
 import { Colors } from '../../theme'
 
   const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
-    const baseStyle = makeBaseTextInputStyle(props)
-
-    const inputStyles = StyleSheet.compose(styles.textInput, baseStyle)
+    const baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
     return (
-      <HStack justifyContent='flex-end'>
+      <HStack justify='flex-end'>
         <TextInput
           ref={ref || undefined}
-          style={inputStyles}
+          style={baseStyle}
           numberOfLines={1}
           autoCorrect={false}
           clearButtonMode={
             props.noClear || props.isPassword ? 'never' : 'always'
           }
-          autoComplete={props.autoCompleteType}
+          autoComplete={props.autoComplete}
           cursorColor={Colors.cursor}
           selectionColor={undefined}
-          editable={!props.isDisabled && !props.isInfo}
+          editable={!props.readOnly}
           autoCapitalize={
             props.onlyNumbers ||
             props.isDecimal ||
@@ -63,7 +61,7 @@ import { Colors } from '../../theme'
           }
           {...props}
         />
-        {!props.isDisabled && props.rightIcon && (
+        {!props.readOnly && props.rightIcon && (
           <Pressable
             style={{ position: 'absolute', paddingRight: 12 }}
             onPress={

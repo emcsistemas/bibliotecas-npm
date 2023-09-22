@@ -1,15 +1,12 @@
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 
 import { CustomDividerProps } from '../../styles/ui-components.types'
-import { makeBaseDividerStyle, styles } from '../../styles/styles'
+import { makeBaseDividerStyle } from '../../styles/styles'
 
 const Divider = (props: CustomDividerProps) => {
-  const dividerProps = StyleSheet.compose(
-    makeBaseDividerStyle(props),
-    styles.divider,
-  )
+  const dividerStyle = props.style ?? makeBaseDividerStyle(props)
 
-  return <View style={dividerProps} />
+  return <View style={dividerStyle} {...props}/>
 }
 
 export default Divider

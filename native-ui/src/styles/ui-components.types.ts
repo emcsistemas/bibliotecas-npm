@@ -5,10 +5,8 @@ import {
   DimensionValue,
   ImageProps,
   PressableProps,
-  ScrollViewProps,
-  StyleProp,
-  TextInputProps,
-  TextProps, ViewStyle
+  ScrollViewProps, TextInputProps,
+  TextProps, ViewProps
 } from 'react-native'
 
 export type FontSizeAcronymes =
@@ -47,22 +45,20 @@ type JustifyContentAcronymes =
 
 type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
 
-export interface CustomViewProps {
-  children?: React.ReactNode
-  style?: StyleProp<ViewStyle>
+export interface CustomViewProps extends ViewProps {
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue
   top?: DimensionValue
   flex?: number
-  justifyContent?: JustifyContentAcronymes
-  alignItems?: AlignItemsAcronymes
+  justify?: JustifyContentAcronymes
+  align?: AlignItemsAcronymes
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
   minW?: DimensionValue
   minH?: DimensionValue
-  maxWidth?: DimensionValue
-  maxHeight?: DimensionValue
+  maxW?: DimensionValue
+  maxH?: DimensionValue
   p?: DimensionValue
   px?: DimensionValue
   py?: DimensionValue
@@ -91,12 +87,12 @@ export interface CustomViewProps {
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'
   zIndex?: number
-  showShadow?: boolean
-  shadowKeyboard?: boolean
+  showShadow?: boolean  
 }
 
-export interface CustomDividerProps {
+export interface CustomDividerProps extends ViewProps {
   bg?: ColorValue
+  w?: DimensionValue | 'full'
   m?: DimensionValue
   mx?: DimensionValue
   my?: DimensionValue
@@ -106,7 +102,6 @@ export interface CustomDividerProps {
   mr?: DimensionValue
 }
 
-/* eslint-disable */
 export interface CustomIconProps {
   as: any
   name: any
@@ -119,38 +114,35 @@ export interface CustomIconProps {
   mr?: DimensionValue
   opacity?: AnimatableNumericValue
 }
-/* eslint-enable */
 
-export interface TextAreaProps extends TextInputProps {
+export interface CustomTextProps extends TextProps {
+  fSize?: FontSizeAcronymes | number
   fFamily?: string
-  fSize?: FontSizeAcronymes
-  textColor?: ColorValue
-  autoCompleteType?: TextInputProps['autoComplete']
+  fColor?: ColorValue
+  fWeight?: 'normal' | 'lightBold' | 'semiBold' | 'bold' | 'extraBold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+  wordWrap?: boolean
+  noAccessibility?: boolean
+  textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
+  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | undefined
   w?: DimensionValue | 'full'
-  h?: DimensionValue | 'full'
-  m?: DimensionValue
-  mt?: DimensionValue
-  mb?: DimensionValue
-  ml?: DimensionValue
-  mr?: DimensionValue
-  bColor?: ColorValue
+  m?: number
+  mt?: number
+  mb?: number
+  mr?: number
+  ml?: number
+  opacity?: number
 }
 
-export interface CustomTextInputProps extends TextInputProps {
+export interface CustomTextAreaProps extends TextInputProps {
+  bg?: ColorValue
   fFamily?: string
   fSize?: FontSizeAcronymes
   fColor?: ColorValue
-  autoCompleteType?: TextInputProps['autoComplete']
-  flex?: number
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
-  p?: DimensionValue
   px?: DimensionValue
-  py?: DimensionValue
   pt?: DimensionValue
   pb?: DimensionValue
-  pl?: DimensionValue
-  pr?: DimensionValue
   m?: DimensionValue
   mt?: DimensionValue
   mb?: DimensionValue
@@ -158,9 +150,30 @@ export interface CustomTextInputProps extends TextInputProps {
   mr?: DimensionValue
   noBorder?: boolean
   bColor?: ColorValue
-  noMargin?: boolean
-  small?: boolean
-  isInfo?: boolean
+  rounded?: BorderSizeAcronymes
+  readOnly?: boolean
+  disableOpacity?: boolean
+  opacity?: AnimatableNumericValue
+}
+
+export interface CustomTextInputProps extends TextInputProps {
+  bg?: ColorValue
+  fFamily?: string
+  fSize?: FontSizeAcronymes
+  fColor?: ColorValue
+  w?: DimensionValue | 'full'
+  h?: DimensionValue | 'full'
+  p?: DimensionValue
+  px?: DimensionValue
+  pt?: DimensionValue
+  pb?: DimensionValue
+  m?: DimensionValue
+  mt?: DimensionValue
+  mb?: DimensionValue
+  ml?: DimensionValue
+  mr?: DimensionValue
+  noBorder?: boolean
+  bColor?: ColorValue
   isUpperCase?: boolean
   isLowerCase?: boolean
   onlyNumbers?: boolean
@@ -169,9 +182,10 @@ export interface CustomTextInputProps extends TextInputProps {
   capitalizeWords?: boolean
   isPassword?: boolean
   isPhoneNumber?: boolean
-  blueScreen?: boolean
-  isDisabled?: boolean
-  isTablet?: boolean
+  readOnly?: boolean
+  disableOpacity?: boolean
+  opacity?: AnimatableNumericValue
+  rounded?: BorderSizeAcronymes
   defaultKeyboard?: boolean
   rightIcon?: {
     icon: CustomIconProps
@@ -181,10 +195,16 @@ export interface CustomTextInputProps extends TextInputProps {
 }
 
 export interface CustomImageProps extends ImageProps {
-  alt: string
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
   bg?: ColorValue
+  p?: DimensionValue
+  px?: DimensionValue
+  py?: DimensionValue
+  pt?: DimensionValue
+  pb?: DimensionValue
+  pl?: DimensionValue
+  pr?: DimensionValue
   m?: DimensionValue
   mt?: DimensionValue
   mb?: DimensionValue
@@ -199,21 +219,21 @@ export interface CustomImageProps extends ImageProps {
 }
 
 export interface CustomButtonProps extends PressableProps {
-  text?: string
-  textStyle?: CustomTextProps
+  title?: string
+  titleStyle?: CustomTextProps
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue
   top?: DimensionValue
   flex?: number
-  justifyContent?: JustifyContentAcronymes
-  alignItems?: AlignItemsAcronymes
+  justify?: JustifyContentAcronymes
+  align?: AlignItemsAcronymes
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
   minW?: DimensionValue
   minH?: DimensionValue
-  maxWidth?: DimensionValue
-  maxHeight?: DimensionValue
+  maxW?: DimensionValue
+  maxH?: DimensionValue
   p?: DimensionValue
   px?: DimensionValue
   py?: DimensionValue
@@ -241,29 +261,20 @@ export interface CustomButtonProps extends PressableProps {
   rounded?: BorderSizeAcronymes
   opacity?: AnimatableNumericValue
   overflow?: 'visible' | 'hidden'
-  zIndex?: number
+  zIndex?: number  
+  loading?: boolean
+  loadingText?: string
+  loadingTextColor?: ColorValue
+  loadingSpinnerColor?: ColorValue
+  noPressedEffect?: boolean
   leftIcon?: ReactElement
   rightIcon?: ReactElement
-  isLoading?: boolean
-  isLoadingText?: string
-  isLoadingTextColor?: ColorValue
-  isDisabled?: boolean
-  spinnerColor?: ColorValue
-  noPressedEffect?: boolean
 }
 
-export interface CustomScrollViewProps extends ScrollViewProps {
-  children: React.ReactNode
-  flex?: number
-  w?: DimensionValue | 'full'
-  h?: DimensionValue | 'full'
-  m?: DimensionValue
-  mx?: DimensionValue
-  my?: DimensionValue
-  mt?: DimensionValue
-  mb?: DimensionValue
-  ml?: DimensionValue
-  mr?: DimensionValue
+export interface CustomScrollViewContainerProps extends ScrollViewProps {
+  bg?: ColorValue
+  align?: AlignItemsAcronymes
+  justify?: JustifyContentAcronymes
   p?: DimensionValue
   px?: DimensionValue
   py?: DimensionValue
@@ -271,23 +282,4 @@ export interface CustomScrollViewProps extends ScrollViewProps {
   pb?: DimensionValue
   pl?: DimensionValue
   pr?: DimensionValue
-}
-
-export interface CustomTextProps extends TextProps {
-  fSize?: FontSizeAcronymes | number
-  fFamily?: string
-  fColor?: ColorValue
-  bold?: boolean
-  softBold?: boolean
-  wordWrap?: boolean
-  noAccessibility?: boolean
-  textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
-  textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | undefined
-  w?: DimensionValue | 'full'
-  m?: number
-  mt?: number
-  mb?: number
-  mr?: number
-  ml?: number
-  opacity?: number
 }

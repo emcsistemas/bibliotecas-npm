@@ -1,6 +1,6 @@
 # 🐰 Bibliotecas de Componentes 🐰
 
-Coleção de bibliotecas desenvolvidas pela EMC Sistemas para utilização em suas aplicações.
+Coleção de bibliotecas desenvolvidas pela EMC Sistemas para utilização em suas aplicações
 
 ## React Native
 

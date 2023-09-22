@@ -1,4 +1,4 @@
-import Box from '../Box/Box'
+import EMCBox from '../EMCBox/EMCBox'
 import { CustomIconProps } from '../../styles/ui-components.types'
 import { iconSizeCalculate } from '../../styles/ui-components.util'
 import {
@@ -192,9 +192,9 @@ const ExpoVectorIcon = (props: CustomIconProps) => {
   }
 
   return (
-    <Box m={props.m} mt={props.mt} mb={props.mb} ml={props.ml} mr={props.mr}>
+    <EMCBox m={props.m} mt={props.mt} mb={props.mb} ml={props.ml} mr={props.mr}>
       {icon}
-    </Box>
+    </EMCBox>
   )
 }
 

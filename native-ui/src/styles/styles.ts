@@ -1,13 +1,12 @@
-import { StyleSheet } from 'react-native'
+import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 import {
-  CustomImageProps,
   CustomDividerProps,
   CustomViewProps,
-  TextAreaProps,
+  CustomTextAreaProps,
   CustomButtonProps,
   CustomTextInputProps,
-  CustomScrollViewProps,
-  CustomTextProps,
+  CustomScrollViewContainerProps,
+  CustomTextProps
 } from './ui-components.types'
 import {
   dimensionCalculate,
@@ -15,7 +14,7 @@ import {
   convertFontSize,
 } from './ui-components.util'
 import { useMemo } from 'react'
-import { Colors, Sizes } from '../theme'
+import { Colors } from '../theme'
 import { DISABLED_OPACITY } from './ui-components.consts'
 import FontSizes from '../theme/FontSizes'
 
@@ -23,74 +22,35 @@ export const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
-  box: {
-    flexDirection: 'column',
-  },
   center: {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  vstack: {
-    flexDirection: 'column',
-  },
   hstack: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  divider: {
+  scrollView: {
     width: '100%',
-    height: 1,
-  },
-  text: {
-    fontSize: 16,
-    color: Colors.gray[800],
-  },
-  textArea: {
-    width: '100%',
-    borderWidth: 1,
-    borderRadius: 4,
-    paddingHorizontal: 8,
-    paddingTop: 8,
-    paddingBottom: 8,
-    textAlignVertical: 'top',
-  },
-  avatar: {
-    borderRadius: 999,
-  },
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 8,
-    borderRadius: 8,
-    width: '100%',
-    height: 40,
-    backgroundColor: Colors.gray[800],
-  },
-  textInput: {
-    width: '100%',
-    height: 48,
-    fontSize: 15.5,
-    borderRadius: 4,
-  },
+  }
 })
 
-export function makeBaseViewStyle(props: CustomViewProps) {
+export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> {
   return {
     position: props.position,
     left: props.left,
     top: props.top,
     flex: props.flex,
-    justifyContent: props.justifyContent,
-    alignItems: props.alignItems,
+    justifyContent: props.justify,
+    alignItems: props.align,
     backgroundColor: props.bg,
     width: dimensionCalculate(props.w),
     height: dimensionCalculate(props.h),
     minWidth: dimensionCalculate(props.minW),
     minHeight: dimensionCalculate(props.minH),
-    maxWidth: dimensionCalculate(props.maxWidth),
-    maxHeight: dimensionCalculate(props.maxHeight),
+    maxWidth: dimensionCalculate(props.maxW),
+    maxHeight: dimensionCalculate(props.maxH),
     padding: dimensionCalculate(props.p),
     paddingHorizontal: dimensionCalculate(props.px),
     paddingVertical: dimensionCalculate(props.py),
@@ -110,7 +70,7 @@ export function makeBaseViewStyle(props: CustomViewProps) {
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
     borderLeftWidth: props.bLeftWidth,
-    borderRadius: convertBorderRadius(props.rounded),
+    borderRadius: props.rounded ? convertBorderRadius(props.rounded) : undefined,
     borderColor: props.bColor,
     borderBottomColor: props.bBottomColor,
     borderTopColor: props.bTopColor,
@@ -122,12 +82,14 @@ export function makeBaseViewStyle(props: CustomViewProps) {
   }
 }
 
-export function makeBaseDividerStyle(props: CustomDividerProps) {
+export function makeBaseDividerStyle(props: CustomDividerProps): StyleProp<ViewStyle> {
   return {
-    backgroundColor: props.bg || Colors.gray[200],
+    backgroundColor: props.bg ?? Colors.gray[200],
+    width: props.w ? dimensionCalculate(props.w) : '100%',
+    height: 1,
     margin: dimensionCalculate(props.m),
     marginHorizontal: dimensionCalculate(props.mx),
-    marginVertical: dimensionCalculate(props.my),
+    marginVertical: props.my ? dimensionCalculate(props.my) : 16,
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
@@ -135,10 +97,10 @@ export function makeBaseDividerStyle(props: CustomDividerProps) {
   }
 }
 
-export function makeBaseTextStyle(props: CustomTextProps) {
+export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> {
   function getFontSize() {
     if (!props.fSize) {
-      return
+      return FontSizes.md
     }
 
     if (typeof props.fSize === 'number') {
@@ -148,16 +110,39 @@ export function makeBaseTextStyle(props: CustomTextProps) {
     return convertFontSize(props.fSize)
   }
 
+  function getFontWeight() {
+    if (!props.fWeight || props.fWeight === 'normal') {
+      return 'normal'
+    }
+
+    switch (props.fWeight) {
+      case 'lightBold':
+        return '500'
+      case 'semiBold':
+        return '600'
+      case 'bold':
+        return '700'
+      case 'extraBold':
+        return '800'
+      default:
+        return props.fWeight 
+    }
+  }
+
   const fontSizeNumber = useMemo(() => {
     return getFontSize()
   }, [props.fSize])
 
+  const fontWeight = useMemo(() => {
+    return getFontWeight()    
+  }, [props.fWeight])
+
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber ?? FontSizes.md,
+    fontSize: fontSizeNumber,
     fontFamily: props.fFamily,
-    fontWeight: props.softBold ? '500' : (props.bold ? '700' : 'normal'),    
-    color: props.fColor || Colors.gray[800],
+    fontWeight: fontWeight,    
+    color: props.fColor ?? Colors.gray[800],
     textAlign: props.textAlign,
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
@@ -168,160 +153,141 @@ export function makeBaseTextStyle(props: CustomTextProps) {
   }
 }
 
-export function makeBaseTextAreaStyle(props: TextAreaProps) {
+export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<TextStyle> {
   return {
     fontSize: convertFontSize(props.fSize),
-    color: props.textColor,
+    color: props.fColor,
     fontFamily: props.fFamily,
-    width: dimensionCalculate(props.w),
-    height: dimensionCalculate(props.h),
+    textAlignVertical: props.textAlignVertical ?? 'top',
+    width: props.w ? dimensionCalculate(props.w) : '100%',
+    height: dimensionCalculate(props.h ?? 24),
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
-    borderColor: props.bColor,
-  }
-}
-
-export function makeBaseTextInputStyle(props: CustomTextInputProps) {
-  const fontSizeAcronyme =
-    props.fSize ||
-    (props.small
-      ? props.isTablet
-        ? 'md'
-        : 'sm'
-      : props.isTablet
-      ? 'lg'
-      : 'md')
-
-  return {
-    fontFamily: props.fFamily,
-    fontSize: convertFontSize(fontSizeAcronyme),
-    flex: props.flex,
-    width: props.w ? dimensionCalculate(props.w) : '100%',
-    height: dimensionCalculate(props.h ? props.h : props.small ? 11 : 12),
-    margin: dimensionCalculate(props.noMargin ? 0 : props.m),
-    marginTop: dimensionCalculate(props.noMargin ? 0 : props.mt),
-    marginBottom: dimensionCalculate(
-      props.mb || props.mb === 0
-        ? props.mb
-        : props.noMargin
-        ? 0
-        : props.small
-        ? 2
-        : 4,
-    ),
-    marginLeft: dimensionCalculate(props.noMargin ? 0 : props.ml),
-    marginRight: dimensionCalculate(props.noMargin ? 0 : props.mr),
-    padding: dimensionCalculate(props.p),
-    paddingHorizontal: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingVertical: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingTop: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingBottom: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
-    backgroundColor: !props.isDisabled
-      ? props.fColor || Colors.white
-      : !props.noBorder
-      ? props.isInfo
-        ? undefined
-        : Colors.muted[200]
-      : props.blueScreen
-      ? Colors.blueGray[400]
+    paddingHorizontal: dimensionCalculate(props.px ?? 2),
+    paddingTop: dimensionCalculate(props.pt ?? 2),
+    paddingBottom: dimensionCalculate(props.pb ?? 2),
+    backgroundColor: props.bg 
+      ? props.bg
+      : props.readOnly 
+      ? Colors.muted[200]
       : Colors.white,
-    borderColor: !props.isDisabled
-      ? props.bColor
-      : !props.noBorder
-      ? props.isInfo
-        ? Colors.gray[800]
-        : Colors.gray[500]
-      : props.blueScreen
-      ? Colors.blueGray[400]
-      : undefined,
-    borderWidth: props.noBorder ? 0 : 1,
-    opacity: !props.isDisabled
+    borderColor: props.noBorder
       ? undefined
-      : (props.isInfo && !props.noBorder) ||
-        (props.noBorder && props.blueScreen)
-      ? 1
-      : undefined,
+      : props.bColor
+      ? props.bColor
+      : Colors.gray[500],      
+    borderWidth: props.noBorder ? 0 : 1,
+    borderRadius: convertBorderRadius(props.rounded),
+    opacity: props.disableOpacity
+      ? 1 
+      : props.opacity 
+      ? props.opacity
+      : props.readOnly
+      ? DISABLED_OPACITY
+      : 1,
   }
 }
 
-export function makeBaseMaskedInputStyle(props: CustomTextInputProps) {
-  const fontSizeAcronyme =
-    props.fSize ||
-    (props.small
-      ? props.isTablet
-        ? 'md'
-        : 'sm'
-      : props.isTablet
-      ? 'lg'
-      : 'md')
-
+export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
   return {
     fontFamily: props.fFamily,
-    fontSize: convertFontSize(fontSizeAcronyme),
-    flex: props.flex,
+    fontSize: convertFontSize(props.fSize),
+    color: props.fColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
-    height: dimensionCalculate(props.h ? props.h : props.small ? 11 : 12),
-    margin: dimensionCalculate(props.noMargin ? 0 : props.m),
-    marginTop: dimensionCalculate(props.noMargin ? 0 : props.mt),
-    marginBottom: dimensionCalculate(
-      props.mb || props.mb === 0
-        ? props.mb
-        : props.noMargin
-        ? 0
-        : props.small
-        ? 2
-        : 4,
-    ),
-    marginLeft: dimensionCalculate(props.noMargin ? 0 : props.ml),
-    marginRight: dimensionCalculate(props.noMargin ? 0 : props.mr),
-    padding: dimensionCalculate(props.p),
-    paddingHorizontal: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingVertical: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingTop: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingBottom: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingLeft: dimensionCalculate(props.isInfo ? 2 : 3),
-    paddingRight: dimensionCalculate(props.isInfo ? 2 : 3),
-    backgroundColor: !props.isDisabled ? props.fColor || Colors.white : Colors.muted[200],
-    opacity: !props.isDisabled ? 1 : DISABLED_OPACITY,
-    borderColor: !props.isDisabled ? props.bColor : Colors.gray[500],
-    borderWidth: 1,
-  }
-}
-
-export function makeBaseImageStyle(props: CustomImageProps) {
-  return {
-    width: dimensionCalculate(props.w),
-    height: dimensionCalculate(props.h),
-    backgroundColor: props.bg,
+    height: dimensionCalculate(props.h ?? 12),
     margin: dimensionCalculate(props.m),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
-    borderColor: props.bColor,
-    borderWidth: props.bWidth,
+    paddingHorizontal: dimensionCalculate(props.px ?? 3),
+    paddingTop: dimensionCalculate(props.pt ?? 3),
+    paddingBottom: dimensionCalculate(props.pb ?? 3),
+    backgroundColor: props.bg 
+      ? props.bg
+      : props.readOnly 
+      ? Colors.muted[200]
+      : Colors.white,
+    borderColor: props.noBorder
+      ? undefined
+      : props.bColor
+      ? props.bColor
+      : Colors.gray[500],      
+    borderWidth: props.noBorder ? 0 : 1,
     borderRadius: convertBorderRadius(props.rounded),
+    opacity: props.disableOpacity
+      ? 1 
+      : props.opacity 
+      ? props.opacity
+      : props.readOnly
+      ? DISABLED_OPACITY
+      : 1,
   }
 }
 
-export function makeBaseEMCButtonStyle(props: CustomButtonProps) {
+export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
+  return {
+    fontFamily: props.fFamily,
+    fontSize: convertFontSize(props.fSize),
+    color: props.fColor,
+    width: props.w ? dimensionCalculate(props.w) : '100%',
+    height: dimensionCalculate(props.h ?? 12),
+    margin: dimensionCalculate(props.m),
+    marginTop: dimensionCalculate(props.mt),
+    marginBottom: dimensionCalculate(props.mb),
+    marginLeft: dimensionCalculate(props.ml),
+    marginRight: dimensionCalculate(props.mr),
+    paddingHorizontal: dimensionCalculate(props.px ?? 3),
+    paddingTop: dimensionCalculate(props.pt ?? 3),
+    paddingBottom: dimensionCalculate(props.pb ?? 3),
+    backgroundColor: props.bg 
+      ? props.bg
+      : props.readOnly 
+      ? Colors.muted[200]
+      : Colors.white,
+    borderColor: props.noBorder
+      ? undefined
+      : props.bColor
+      ? props.bColor
+      : Colors.gray[500],      
+    borderWidth: props.noBorder ? 0 : 1,
+    borderRadius: convertBorderRadius(props.rounded),
+    opacity: props.disableOpacity
+      ? 1 
+      : props.opacity 
+      ? props.opacity
+      : props.readOnly
+      ? DISABLED_OPACITY
+      : 1,
+  }
+}
+
+export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
   return {
     position: props.position,
     left: props.left,
     top: props.top,
     flex: props.flex,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',    
     backgroundColor: props.bg ?? Colors.blue[400],
     width: props.w ? dimensionCalculate(props.w) : '100%',
-    height: props.h ? dimensionCalculate(props.h) : Sizes[14],
+    height: dimensionCalculate(props.h ?? 14),
     minWidth: dimensionCalculate(props.minW),
     minHeight: dimensionCalculate(props.minH),
-    maxWidth: dimensionCalculate(props.maxWidth),
-    maxHeight: dimensionCalculate(props.maxHeight),
+    maxWidth: dimensionCalculate(props.maxW),
+    maxHeight: dimensionCalculate(props.maxH),
+    padding: dimensionCalculate(props.p ?? 2),
+    paddingHorizontal: dimensionCalculate(props.px),
+    paddingVertical: dimensionCalculate(props.py),
+    paddingTop: dimensionCalculate(props.pt),
+    paddingBottom: dimensionCalculate(props.pb),
+    paddingLeft: dimensionCalculate(props.pl),
+    paddingRight: dimensionCalculate(props.pr),
     margin: dimensionCalculate(props.m),
     marginHorizontal: dimensionCalculate(props.mx),
     marginVertical: dimensionCalculate(props.my),
@@ -340,24 +306,21 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps) {
     borderTopColor: props.bTopColor,
     borderRightColor: props.bRightColor,
     borderLeftColor: props.bLeftColor,
-    opacity: props.isDisabled ? DISABLED_OPACITY : props.opacity,
+    opacity: props.opacity
+      ? props.opacity 
+      : props.disabled
+      ? DISABLED_OPACITY 
+      : 1,
     overflow: props.overflow,
     zIndex: props.zIndex,
   }
 }
 
-export function makeBaseScrollViewContainerStyle(props: CustomScrollViewProps) {
+export function makeBaseScrollViewContainerStyle(props: CustomScrollViewContainerProps): StyleProp<ViewStyle> {
   return {
-    flex: props.flex,
-    width: dimensionCalculate(props.w),
-    height: dimensionCalculate(props.h),
-    margin: dimensionCalculate(props.m),
-    marginHorizontal: dimensionCalculate(props.mx),
-    marginVertical: dimensionCalculate(props.my),
-    marginTop: dimensionCalculate(props.mt),
-    marginBottom: dimensionCalculate(props.mb),
-    marginLeft: dimensionCalculate(props.ml),
-    marginRight: dimensionCalculate(props.mr),
+    backgroundColor: props.bg,
+    alignItems: props.align,
+    justifyContent: props.justify,
     padding: dimensionCalculate(props.p),
     paddingHorizontal: dimensionCalculate(props.px),
     paddingVertical: dimensionCalculate(props.py),

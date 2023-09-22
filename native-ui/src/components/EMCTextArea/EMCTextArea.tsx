@@ -1,14 +1,17 @@
-import { TextInput, StyleSheet } from 'react-native'
-import { TextAreaProps } from '../../styles/ui-components.types'
-import { makeBaseTextAreaStyle, styles } from '../../styles/styles'
+import { TextInput } from 'react-native'
+import { CustomTextAreaProps } from '../../styles/ui-components.types'
+import { makeBaseTextAreaStyle } from '../../styles/styles'
 
-const EMCTextArea = (props: TextAreaProps) => {
-  const textAreaStyle = StyleSheet.compose(
-    styles.textArea,
-    makeBaseTextAreaStyle(props),
+const EMCTextArea = (props: CustomTextAreaProps) => {
+  const baseStyle = props.style ?? makeBaseTextAreaStyle(props)
+
+  return (
+    <TextInput
+      multiline
+      style={baseStyle}
+      {...props}
+    />
   )
-
-  return <TextInput multiline style={textAreaStyle} {...props} />
 }
 
 export default EMCTextArea

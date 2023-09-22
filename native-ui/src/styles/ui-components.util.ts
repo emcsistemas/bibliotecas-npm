@@ -24,7 +24,7 @@ export function iconSizeCalculate(size?: number) {
 }
 
 export function convertBorderRadius(borderRadius?: BorderSizeAcronymes) {
-  if (!borderRadius) return
+  if (!borderRadius) return 4
 
   switch (borderRadius) {
     case 'xs':
@@ -49,9 +49,9 @@ export function convertBorderRadius(borderRadius?: BorderSizeAcronymes) {
 }
 
 export function convertFontSize(fontSize?: FontSizeAcronymes) {
-  if (!fontSize) return
+  let fontSizeNumber = FontSizes.md
 
-  let fontSizeNumber = 15.5
+  if (!fontSize) return fontSizeNumber
 
   switch (fontSize) {
     case '2xs':

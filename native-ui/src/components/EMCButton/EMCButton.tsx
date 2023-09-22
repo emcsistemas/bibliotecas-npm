@@ -53,7 +53,7 @@ const EMCButton = (props: CustomButtonProps) => {
         {
           opacity: props.disabled 
             ? DISABLED_OPACITY 
-            : props.noPressedEffect
+            : props.loading || props.noPressedEffect
             ? 1
             : pressed
             ? DEFAULT_OPACITY_CLICK

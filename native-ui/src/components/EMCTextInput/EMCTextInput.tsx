@@ -5,6 +5,7 @@ import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../EMCIcon'
 import HStack from '../EMCHStack'
 import { Colors } from '../../theme'
+import { dimensionCalculate } from '../../styles/ui-components.util'
 
   const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
     const baseStyle = props.style ?? makeBaseTextInputStyle(props)
@@ -63,7 +64,12 @@ import { Colors } from '../../theme'
         />
         {!props.readOnly && props.rightIcon && (
           <Pressable
-            style={{ position: 'absolute', height: '100%', justifyContent: 'center', paddingRight: 12 }}
+            style={{ 
+                position: 'absolute', 
+                height: '100%', 
+                justifyContent: 'center', 
+                paddingRight: 12,
+                paddingBottom: dimensionCalculate(props.mb) }}
             onPress={
               props.rightIcon.onClick ? props.rightIcon.onClick : undefined
             }

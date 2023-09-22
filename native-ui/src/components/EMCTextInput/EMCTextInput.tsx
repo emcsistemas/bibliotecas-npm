@@ -18,7 +18,9 @@ import { dimensionCalculate } from '../../styles/ui-components.util'
           numberOfLines={1}
           autoCorrect={false}
           clearButtonMode={
-            props.noClear || props.isPassword ? 'never' : 'always'
+            props.noClear || props.isPassword || props.rightIcon
+              ? 'never'
+              : 'always'
           }
           autoComplete={props.autoComplete}
           cursorColor={Colors.cursor}
@@ -64,12 +66,13 @@ import { dimensionCalculate } from '../../styles/ui-components.util'
         />
         {!props.readOnly && props.rightIcon && (
           <Pressable
-            style={{ 
-                position: 'absolute', 
-                height: '100%', 
-                justifyContent: 'center', 
-                paddingRight: 12,
-                paddingBottom: dimensionCalculate(props.mb) }}
+            style={{
+              position: 'absolute',
+              height: '100%',
+              justifyContent: 'center',
+              paddingRight: 12,
+              paddingBottom: dimensionCalculate(props.mb),
+            }}
             onPress={
               props.rightIcon.onClick ? props.rightIcon.onClick : undefined
             }

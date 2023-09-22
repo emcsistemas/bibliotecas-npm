@@ -1,8 +1,8 @@
 {
-  "name": "@emcsistemas/test-ui",
-  "version": "0.0.30",
+  "name": "@emcsistemas/native-ui",
+  "version": "1.0.0",
   "description": "Biblioteca de componentes react native",
-  "author": "Leandro Fernandes <leo.desenvolvimento@emcsistemas.com.br>",
+  "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib",

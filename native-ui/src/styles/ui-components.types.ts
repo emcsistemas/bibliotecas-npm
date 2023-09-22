@@ -1,4 +1,3 @@
-import { ReactElement } from 'react'
 import {
   AnimatableNumericValue,
   ColorValue,
@@ -266,9 +265,7 @@ export interface CustomButtonProps extends PressableProps {
   loadingText?: string
   loadingTextColor?: ColorValue
   loadingSpinnerColor?: ColorValue
-  noPressedEffect?: boolean
-  leftIcon?: ReactElement
-  rightIcon?: ReactElement
+  noPressedEffect?: boolean  
 }
 
 export interface CustomScrollViewContainerProps extends ScrollViewProps {

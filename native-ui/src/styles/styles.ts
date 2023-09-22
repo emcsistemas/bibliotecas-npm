@@ -196,7 +196,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     if (props.rightIcon) {
       const paddingRight = 
         (props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE) + 
-        (Number(props.px) ?? 3) + 1
+        (props.px ? Number(props.px) : 3) + 1
 
       return dimensionCalculate(paddingRight)
     } else {

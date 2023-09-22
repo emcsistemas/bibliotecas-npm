@@ -15,7 +15,7 @@ import {
 } from './ui-components.util'
 import { useMemo } from 'react'
 import { Colors } from '../theme'
-import { DISABLED_OPACITY } from './ui-components.consts'
+import { DEFAULT_ICON_SIZE, DISABLED_OPACITY } from './ui-components.consts'
 import FontSizes from '../theme/FontSizes'
 
 export const styles = StyleSheet.create({
@@ -192,6 +192,18 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
 }
 
 export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
+  const paddingRightCalculate = useMemo(() => {
+    if (props.rightIcon) {
+      const paddingRight = 
+        (props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE) + 
+        (Number(props.px) ?? 3) + 1
+
+      return dimensionCalculate(paddingRight)
+    } else {
+      return dimensionCalculate(props.px ?? 3)
+    }
+  },[props.px, props.rightIcon])
+  
   return {
     fontFamily: props.fFamily,
     fontSize: convertFontSize(props.fSize),
@@ -203,7 +215,8 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     marginBottom: dimensionCalculate(props.mb),
     marginLeft: dimensionCalculate(props.ml),
     marginRight: dimensionCalculate(props.mr),
-    paddingHorizontal: dimensionCalculate(props.px ?? 3),
+    paddingLeft: dimensionCalculate(props.px ?? 3),
+    paddingRight: paddingRightCalculate,
     paddingTop: dimensionCalculate(props.pt ?? 3),
     paddingBottom: dimensionCalculate(props.pb ?? 3),
     backgroundColor: props.bg 

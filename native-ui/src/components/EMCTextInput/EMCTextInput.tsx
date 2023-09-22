@@ -6,9 +6,10 @@ import ExpoVectorIcon from '../EMCIcon'
 import HStack from '../EMCHStack'
 import { Colors } from '../../theme'
 import { dimensionCalculate } from '../../styles/ui-components.util'
+import { DEFAULT_ICON_SIZE } from '../../styles/ui-components.consts'
 
   const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
-    const baseStyle = props.style ?? makeBaseTextInputStyle(props)
+    let baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
     return (
       <HStack justify='flex-end'>
@@ -68,8 +69,6 @@ import { dimensionCalculate } from '../../styles/ui-components.util'
           <Pressable
             style={{
               position: 'absolute',
-              height: '100%',
-              justifyContent: 'center',
               paddingRight: 12,
               paddingBottom: dimensionCalculate(props.mb),
             }}
@@ -80,7 +79,7 @@ import { dimensionCalculate } from '../../styles/ui-components.util'
             <ExpoVectorIcon
               as={props.rightIcon.icon.as}
               name={props.rightIcon.icon.name}
-              size={props.rightIcon.icon.size ?? 7}
+              size={props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE}
               color={props.rightIcon.icon.color ?? Colors.gray[500]}
             />
           </Pressable>

@@ -19,5 +19,5 @@
     "strict": true,           
     "skipLibCheck": true
   },
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js"]
+  "exclude": ["lib", "node_modules", "babel.config.js", "metro.config.js"]
 }

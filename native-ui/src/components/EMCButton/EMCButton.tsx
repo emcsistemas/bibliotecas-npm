@@ -4,7 +4,7 @@ import { CustomButtonProps } from '../../styles/ui-components.types'
 import Box from '../EMCBox'
 import EMCText from '../EMCText'
 import Spinner from '../EMCSpinner'
-import { DEFAULT_OPACITY_CLICK } from '../../styles/ui-components.consts'
+import { DEFAULT_OPACITY_CLICK, DISABLED_OPACITY } from '../../styles/ui-components.consts'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 
@@ -50,9 +50,20 @@ const EMCButton = (props: CustomButtonProps) => {
     <Pressable
       style={({ pressed }) => [
         baseStyle,
-        { opacity: !props.noPressedEffect && pressed ? 0.8 : 1 },
+        {
+          opacity: props.disabled 
+            ? DISABLED_OPACITY 
+            : props.noPressedEffect
+            ? 1
+            : pressed
+            ? DEFAULT_OPACITY_CLICK
+            : 1,
+        },
       ]}
       {...props}
+      onPress={props.disabled || props.loading ? undefined : props.onPress}
+      onPressIn={props.disabled || props.loading ? undefined : props.onPressIn}
+      onPressOut={props.disabled || props.loading ? undefined : props.onPressOut}
     >
       {props.loading
         ? loadingComponent()

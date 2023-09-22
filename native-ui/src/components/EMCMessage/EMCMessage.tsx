@@ -35,7 +35,7 @@ function showSimpleMessageBox(props: MessageBoxProps) {
   return Alert.alert(title, props.message)
 }
 
-const MessageBox = (props: MessageBoxProps) => {
+const EMCMessageBox = (props: MessageBoxProps) => {
   if (!props.buttons) {
     return showSimpleMessageBox(props)
   }
@@ -45,4 +45,4 @@ const MessageBox = (props: MessageBoxProps) => {
   return Alert.alert(title, props.message, props.buttons)
 }
 
-export default MessageBox
+export default EMCMessageBox

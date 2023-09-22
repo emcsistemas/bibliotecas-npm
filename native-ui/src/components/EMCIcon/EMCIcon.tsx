@@ -18,7 +18,7 @@ import {
   Zocial,
 } from '@expo/vector-icons'
 
-const ExpoVectorIcon = (props: CustomIconProps) => {
+const EMCIcon = (props: CustomIconProps) => {
   let icon: React.JSX.Element = <></>
 
   switch (props.as) {
@@ -198,4 +198,4 @@ const ExpoVectorIcon = (props: CustomIconProps) => {
   )
 }
 
-export default ExpoVectorIcon
+export default EMCIcon

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { Platform, Pressable, TextInput, TextInputProps } from 'react-native'
 import { makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
-import ExpoVectorIcon from '../ExpoVectorIcon'
+import ExpoVectorIcon from '../EMCIcon'
 import HStack from '../EMCHStack'
 import { Colors } from '../../theme'
 
@@ -63,7 +63,7 @@ import { Colors } from '../../theme'
         />
         {!props.readOnly && props.rightIcon && (
           <Pressable
-            style={{ position: 'absolute', paddingRight: 12 }}
+            style={{ position: 'absolute', height: '100%', justifyContent: 'center', paddingRight: 12 }}
             onPress={
               props.rightIcon.onClick ? props.rightIcon.onClick : undefined
             }

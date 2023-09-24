@@ -42,9 +42,9 @@ pnpm i @emcsistemas/native-ui
 - **EMCText**: implementa um ```Text``` nativo
 - **EMCTextArea**: implementa um ```TextInput``` nativo com suporte a múltiplas linhas
 - **EMCTextInput**: implementa um ```TextInput``` nativo
-- **EMCExpoVectorIcon**: exibe na tela um ícone de qualquer família de ícones da biblioteca ```@expo/vector-icons```
+- **EMCIcon**: exibe na tela um ícone de qualquer família de ícones da biblioteca ```@expo/vector-icons```
 - **EMCMaskedInput**: implementa um ```TextInput``` nativo com máscara automática
-- **EMCMessageBox**: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
+- **EMCMessage**: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
 - **EMCSpinner**: implementa um ```ActivityIndicator``` nativo
 - **EMCSafeArea**: implementa uma ```SafeAreaView```
 

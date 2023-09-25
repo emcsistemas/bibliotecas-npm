@@ -32,6 +32,13 @@ pnpm i -D eslint @emcsistemas/eslint-config
 }
 ```
 
+- Crie também o arquivo `.eslintignore` com o seguinte conteúdo:
+
+```
+node_modules
+build
+```
+
 ## 3. Contribuição
 
 Sinta-se à vontade para enviar um PR se quiser ajudar!

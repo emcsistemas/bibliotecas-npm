@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/eslint-config",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Configuração ESLint utilizada pela EMC Sistemas",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",

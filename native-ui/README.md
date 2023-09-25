@@ -17,11 +17,11 @@ React Native, Expo
 ```sh
 npm i @emcsistemas/native-ui
 ```
-or
+ou
 ```sh
 yarn add @emcsistemas/native-ui
 ```
-or
+ou
 ```sh
 pnpm i @emcsistemas/native-ui
 ```

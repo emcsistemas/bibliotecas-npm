@@ -24,15 +24,9 @@ pnpm i @emcsistemas/ui-theme
 
 ## 2. O que está incluído?
 
-- **consts.general**: constantes gerais utilizadas nos apps da empresa
-- **consts.regex**: constantes de expressão regular utilizadas na validação de dados
-- **util.dates**: funções para manipulação e validação de datas
-- **util.format**: funções para formatação de dados diversos
-- **util.general**: funções gerais utilizadas nos apps da empresa
-- **util.masks**: funções para aplicação de máscara em determinadas informações (telefone, cpf, etc)
-- **util.network**: funções para manipulação de dados de rede
-- **util.numbers**: funções para manipulação de dados numéricos
-- **util.validation**: funções para validação de dados diversos 
+- **Colors**: tokens de cores padrão das aplicações
+- **FontSizes**: tokens de tamanhos de fonte
+- **Sizes**: tokens de tamanhos de componentes e espaçamento
 
 ## 3. Contribuição
 

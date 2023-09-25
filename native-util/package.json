@@ -21,7 +21,7 @@
     "react-component"
   ],
   "scripts": {
-    "commit:main": "cd .. && git add . && git commit -m 'biblioteca native-util atualizada' && git push origin main",
+    "commit:main": "cd .. && git add . && git commit -m 'bibliotecas atualizadas' && git push origin main",
     "prebuild": "sudo rm -rf lib",
     "build": "tsc -p .",
     "pub": "npm run build && npm version patch --force && npm publish --access public",

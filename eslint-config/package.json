@@ -22,7 +22,7 @@
     "react-component"
   ],
   "scripts": {
-    "commit:main": "cd .. && git add . && git commit -m 'biblioteca eslint-config atualizada' && git push origin main",
+    "commit:main": "cd .. && git add . && git commit -m 'bibliotecas atualizadas' && git push origin main",
     "pub": "npm version patch --force && npm publish --access public",
     "postpub": "echo 'package has been published'"
   },

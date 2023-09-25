@@ -1,19 +1,21 @@
 {
-  "name": "@emcsistemas/native-ui",
-  "version": "1.0.11",
-  "description": "Biblioteca de componentes react native",
+  "name": "@emcsistemas/ui-theme",
+  "version": "0.0.1",
+  "description": "Biblioteca de tema das aplicações EMC Sistemas",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/native-ui"
+    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/ui-theme"
   },
   "keywords": [
     "emc",
     "sistemas",
     "emc-sistemas",
+    "theme",
+    "tema",
     "ui",
     "react",
     "native",
@@ -21,23 +23,13 @@
     "react-component"
   ],
   "scripts": {
-    "commit:main": "cd .. && git add . && git commit -m 'biblioteca native-ui atualizada' && git push origin main",
+    "commit:main": "cd .. && git add . && git commit -m 'biblioteca ui-theme atualizada' && git push origin main",
     "prebuild": "sudo rm -rf lib",
     "build": "tsc -p .",
     "pub": "npm run build && npm version patch --force && npm publish --access public",
     "postpub": "echo 'package has been published'"
   },
   "devDependencies": {
-    "@expo/vector-icons": "^13.0.0",
-    "@types/react": "^18.2.22",
-    "react": "^18.2.0",
-    "react-native": "^0.72.4",
     "typescript": "^5.2.2"
-  },
-  "peerDependencies": {
-    "@expo/vector-icons": "*",
-    "@types/react": "*",
-    "react": "*",
-    "react-native": "*"
   }
 }

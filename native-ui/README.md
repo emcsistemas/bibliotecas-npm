@@ -26,7 +26,7 @@ ou
 pnpm i @emcsistemas/native-ui
 ```
 
-## 3. Componentes
+## 3. O que está incluído?
 
 - **EMCBox**: implementa uma ```View``` nativa
 - **EMCBoxSafe**: implementa uma ```View``` nativa dentro de uma ```SafeAreaView```

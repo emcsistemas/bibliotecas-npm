@@ -1,26 +1,41 @@
 # EMC Sistemas ESLint config
 
-## O que está incluído?
+[![npm latest package](https://img.shields.io/npm/v/@emcsistemas/eslint-config/latest.svg)](https://www.npmjs.com/package/@emcsistemas/eslint-config)
+[![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/eslint-config.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/eslint-config)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE)
 
-- Standard config base;
-- React plugin;
-- React Hooks plugin;
-- JSX a11y plugin;
-- Prettier;
+## 1. Utilização
 
-## Setup
+- Instalação das dependências
 
-1. Install the dependencies
+```sh
+npm i -D eslint @emcsistemas/eslint-config
 ```
-npm i -D eslint @rocketseat/eslint-config
+ou
+```sh
+yarn i -D eslint @emcsistemas/eslint-config
+```
+ou
+```sh
+pnpm i -D eslint @emcsistemas/eslint-config
 ```
 
-2. Create a `.eslintrc.json` file extending the config:
+## 2. Configuração
+
+- Crie o arquivo `.eslintrc.json` na raiz do projeto e adicione o seguinte conteúdo:
+
 ```
 {
-  "extends": "@rocketseat/eslint-config/react"
-  // "extends": "@rocketseat/eslint-config/node"
+  "extends": "@emcsistemas/eslint-config/react"
+  // "extends": "@emcsistemas/eslint-config/next"
+  // "extends": "@emcsistemas/eslint-config/node"
 }
 ```
 
-> You can also use a `.eslintrc.js` instead of JSON if you prefer.
+## 3. Contribuição
+
+Sinta-se à vontade para enviar um PR se quiser ajudar!
+
+## 4. Licença
+
+Licenciado sob a licença MIT, Copyright © 2023 EMC Sistemas Ltda. Veja [LICENÇA](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE) para mais informações.

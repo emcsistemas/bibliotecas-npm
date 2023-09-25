@@ -21,8 +21,8 @@ module.exports = {
         arrowParens: 'always',
         semi: false,
         camelcase: ["error", {"properties": "never", "ignoreImports": true, "ignoreDestructuring": true, "ignoreGlobals": true}],
-        'no-useless-constructor': "off",
-        'prefix-types/prefer-interface-prefix': ["error", { "allow": "always" }]
+        "no-useless-constructor": "off",
+        "prefix-types/prefer-interface-prefix": ["error", { "allow": "always" }]
       },
     ],
   },

@@ -1,0 +1,53 @@
+{
+  "name": "@emcsistemas/eslint-config",
+  "version": "0.0.2",
+  "description": "Configuração ESLint utilizada pela EMC Sistemas",
+  "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emcsistemas/bibliotecas-npm/tree/main/eslint-config"
+  },
+  "keywords": [
+    "emc",
+    "sistemas",
+    "emc-sistemas",
+    "es",
+    "lint",
+    "es-lin",
+    "react",
+    "native",
+    "react-native",
+    "react-component"
+  ],
+  "scripts": {
+    "commit:main": "cd .. && git add . && git commit -m 'biblioteca eslint-config atualizada' && git push origin main",
+    "pub": "npm version patch --force && npm publish --access public",
+    "postpub": "echo 'package has been published'"
+  },
+  "peerDependencies": {
+    "eslint": "^8.0.0",
+    "typescript": ">=4"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.25.0",
+    "@typescript-eslint/parser": "^5.25.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "prettier": "^3.0.0",
+    "eslint-plugin-prettier": "5.0.0-alpha.2"
+  }
+}

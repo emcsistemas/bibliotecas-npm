@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Bibliotecas EMC Sistemas",
   "scripts": {
-   "commit:main": "git add . && git commit -m 'biblioteca atualizada' && git push origin main"
+   "commit:main": "git add . && git commit -m 'bibliotecas atualizadas' && git push origin main"
   },
   "author": "EMC Sistemas Ltda",
   "license": "MIT"

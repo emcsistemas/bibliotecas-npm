@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/native-util",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Biblioteca de utilidades para react native",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
@@ -36,11 +36,11 @@
     "expo-clipboard": "~4.3.1",
     "expo-constants": "~14.4.2",
     "expo-crypto": "~12.4.1",
-    "expo-device": "~5.4.0", 
-    "expo-splash-screen": "~0.20.5", 
-    "react-native-format-currency": "^0.0.3"  
+    "expo-device": "~5.4.0",
+    "expo-splash-screen": "~0.20.5",
+    "react-native-format-currency": "^0.0.3"
   },
-  "peerDependencies": {    
+  "peerDependencies": {
     "@types/react": "*",
     "react": "*",
     "react-native": "*",
@@ -48,8 +48,8 @@
     "expo-clipboard": "*",
     "expo-constants": "*",
     "expo-crypto": "*",
-    "expo-device": "*", 
-    "expo-splash-screen": "*", 
-    "react-native-format-currency": "*"  
+    "expo-device": "*",
+    "expo-splash-screen": "*",
+    "react-native-format-currency": "*"
   }
 }

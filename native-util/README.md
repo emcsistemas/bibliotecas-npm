@@ -1,24 +1,36 @@
-# EMC Sistemas Util
+# 🛠️ Native Util
 
-[![npm latest package](https://img.shields.io/npm/v/@emcsistemas/util/latest.svg)](https://www.npmjs.com/package/@emcsistemas/util)
-[![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/util.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/util)
+[![npm latest package](https://img.shields.io/npm/v/@emcsistemas/native-util/latest.svg)](https://www.npmjs.com/package/@emcsistemas/native-util)
+[![npm downloads](https://img.shields.io/npm/dm/@emcsistemas/native-util.svg)](https://npm-stat.com/charts.html?package=@emcsistemas/native-util)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE)
+
+## Biblioteca de utilidades react native
+
+[**EMC Sistemas Ltda**](https://emcsistemas.com.br/)
 
 ## 1. Instalação
 
 ```sh
-npm i -D eslint @emcsistemas/util
+npm i @emcsistemas/native-util
 ```
 ou
 ```sh
-yarn i -D eslint @emcsistemas/util
+yarn i @emcsistemas/native-util
 ```
 ou
 ```sh
-pnpm i -D eslint @emcsistemas/util
+pnpm i @emcsistemas/native-util
 ```
 
-## 2. O que está incluído?
+## 2. Dependências
+
+> Caso tenha utilizado um gerenciador de pacotes difente do npm no passo 2, utilize-o também no comando abaixo 
+
+```sh
+npm i expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen date-fns react-native-format-currency
+```
+
+## 3. O que está incluído?
 
 - **consts.general**: constantes gerais utilizadas nos apps da empresa
 - **consts.regex**: constantes de expressão regular utilizadas na validação de dados
@@ -30,10 +42,10 @@ pnpm i -D eslint @emcsistemas/util
 - **util.numbers**: funções para manipulação de dados numéricos
 - **util.validation**: funções para validação de dados diversos 
 
-## 3. Contribuição
+## 4. Contribuição
 
 Sinta-se à vontade para enviar um PR se quiser ajudar!
 
-## 4. Licença
+## 5. Licença
 
 Licenciado sob a licença MIT, Copyright © 2023 EMC Sistemas Ltda. Veja [LICENÇA](https://github.com/emcsistemas/bibliotecas-npm/blob/4a3c9e66ebf043c80b428829457d2d7374c6b744/LICENCE) para mais informações.

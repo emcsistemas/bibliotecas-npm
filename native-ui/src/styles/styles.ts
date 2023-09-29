@@ -279,7 +279,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
 }
 
 export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
-  const bgColor = useMemo(() => {
+  const variantBgColor = useMemo(() => {
     if (!props.variant){
       return Colors.blue[400]
     }
@@ -304,7 +304,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     }
   },[props.variant])
 
-  const borderColor = useMemo(() => {
+  const variantBorderColor = useMemo(() => {
     if (!props.variant){
       return
     }
@@ -319,7 +319,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     }
   },[props.variant])
 
-  const borderWidth = useMemo(() => {
+  const variantBorderWidth = useMemo(() => {
     if (!props.variant){
       return 0
     }
@@ -342,7 +342,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.bg ?? bgColor,
+    backgroundColor: props.bg ?? variantBgColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 14),
     minWidth: dimensionCalculate(props.minW),
@@ -363,13 +363,13 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     marginRight: dimensionCalculate(props.mr),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    borderWidth: props.bWidth ?? borderWidth,
+    borderWidth: props.bWidth ?? variantBorderWidth,
     borderBottomWidth: props.bBottomWidth,
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
     borderLeftWidth: props.bLeftWidth,
     borderRadius: props.rounded ? convertBorderRadius(props.rounded) : convertBorderRadius('md'),
-    borderColor: props.bColor ?? borderColor,
+    borderColor: props.bColor ?? variantBorderColor,
     borderBottomColor: props.bBottomColor,
     borderTopColor: props.bTopColor,
     borderRightColor: props.bRightColor,

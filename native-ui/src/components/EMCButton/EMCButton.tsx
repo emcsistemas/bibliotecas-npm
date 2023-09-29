@@ -6,8 +6,7 @@ import Box from '../EMCBox'
 import EMCText from '../EMCText'
 import Spinner from '../EMCSpinner'
 import { DEFAULT_OPACITY_CLICK, DISABLED_OPACITY } from '../../styles/ui-components.consts'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
-
+import { Colors } from '../../theme'
 
 const EMCButton = (props: CustomButtonProps) => {
   const baseStyle: StyleProp<ViewProps> = makeBaseEMCButtonStyle(props)  

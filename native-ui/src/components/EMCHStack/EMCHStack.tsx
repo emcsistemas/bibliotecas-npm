@@ -8,11 +8,14 @@ const EMCHStack = (props: CustomViewProps) => {
     ? StyleSheet.compose(props.style, styles.hstack)
     : StyleSheet.compose(makeBaseViewStyle(props), styles.hstack)
 
-  if (props.style) {  
-    console.log(baseStyle)
-  }
-  
-  return <View style={baseStyle} {...props}>{props.children}</View>
+  return (
+    <View
+      {...props}
+      style={baseStyle}
+    >
+      {props.children}
+    </View>
+  )
 }
 
 export default EMCHStack

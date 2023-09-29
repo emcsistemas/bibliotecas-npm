@@ -6,7 +6,7 @@ import { makeBaseViewStyle } from '../../styles/styles'
 const EMCVStack = (props: CustomViewProps) => {
   let baseStyle = props.style ?? makeBaseViewStyle(props)
 
-  return <View style={baseStyle} {...props}>{props.children}</View>
+  return <View style={[baseStyle, { flexDirection: 'column' }]} {...props}>{props.children}</View>
 }
 
 export default EMCVStack

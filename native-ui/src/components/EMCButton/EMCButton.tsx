@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { Pressable, StyleProp, ViewProps } from 'react-native'
 import { makeBaseEMCButtonStyle } from '../../styles/styles'
 import { CustomButtonProps } from '../../styles/ui-components.types'
@@ -29,21 +30,41 @@ const EMCButton = (props: CustomButtonProps) => {
   }
 
   const textComponent = () => {
-    return <EMCText 
-      fSize={props.titleStyle?.fSize ?? 'md'}
-      fColor={props.titleStyle?.fColor ?? Colors.white}
-      fWeight={props.titleStyle?.fWeight ?? 'normal'}
-      wordWrap={props.titleStyle?.wordWrap}
-      noAccessibility={props.titleStyle?.noAccessibility}
-      textAlign={props.titleStyle?.textAlign}
-      textTransform={props.titleStyle?.textTransform}
-      w={props.titleStyle?.w}
-      m={props.titleStyle?.m}
-      mt={props.titleStyle?.mt}
-      mb={props.titleStyle?.mb}
-      ml={props.titleStyle?.ml}
-      mr={props.titleStyle?.mr}
-      opacity={props.titleStyle?.opacity}>{props.title}</EMCText>  
+    const fontColor = useMemo(() => {
+      if (!props.variant) {
+        return Colors.white
+      }
+
+      switch (props.variant) {
+        case 'outline':
+          return Colors.blue[400]
+        case 'outline-red':
+          return Colors.danger[600]
+        default:
+          return Colors.white
+      }
+    },[props.variant])
+
+    return (
+      <EMCText
+        fSize={props.titleStyle?.fSize ?? 'md'}
+        fColor={props.titleStyle?.fColor ?? fontColor}
+        fWeight={props.titleStyle?.fWeight ?? 'normal'}
+        wordWrap={props.titleStyle?.wordWrap}
+        noAccessibility={props.titleStyle?.noAccessibility}
+        textAlign={props.titleStyle?.textAlign}
+        textTransform={props.titleStyle?.textTransform}
+        w={props.titleStyle?.w}
+        m={props.titleStyle?.m}
+        mt={props.titleStyle?.mt}
+        mb={props.titleStyle?.mb}
+        ml={props.titleStyle?.ml}
+        mr={props.titleStyle?.mr}
+        opacity={props.titleStyle?.opacity}
+      >
+        {props.title}
+      </EMCText>
+    )  
   }
 
   return (

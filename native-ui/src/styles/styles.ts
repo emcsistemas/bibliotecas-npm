@@ -279,6 +279,61 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
 }
 
 export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<ViewStyle> {
+  const bgColor = useMemo(() => {
+    if (!props.variant){
+      return Colors.blue[400]
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return Colors.white
+      case 'outline-red':
+        return Colors.white
+      case 'inactive':
+        return Colors.gray[200]
+      case 'red':
+        return Colors.danger[600]
+      case 'alert':
+        return Colors.warning[600]
+      case 'light-blue':
+        return Colors.blue[200]
+      case 'medium-blue':
+        return Colors.blue[300]
+      default:
+        return Colors.blue[400]
+    }
+  },[props.variant])
+
+  const borderColor = useMemo(() => {
+    if (!props.variant){
+      return
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return Colors.blue[400]
+      case 'outline-red':
+        return Colors.danger[600]
+      default:
+        return
+    }
+  },[props.variant])
+
+  const borderWidth = useMemo(() => {
+    if (!props.variant){
+      return 0
+    }
+
+    switch (props.variant) {
+      case 'outline':
+        return 2
+      case 'outline-red':
+        return 2
+      default:
+        return 0
+    }
+  },[props.variant])
+
   return {
     position: props.position,
     left: props.left,
@@ -287,7 +342,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',    
-    backgroundColor: props.bg ?? Colors.blue[400],
+    backgroundColor: props.bg ?? bgColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 14),
     minWidth: dimensionCalculate(props.minW),
@@ -308,13 +363,13 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     marginRight: dimensionCalculate(props.mr),
     marginTop: dimensionCalculate(props.mt),
     marginBottom: dimensionCalculate(props.mb),
-    borderWidth: props.bWidth,
+    borderWidth: props.bWidth ?? borderWidth,
     borderBottomWidth: props.bBottomWidth,
     borderTopWidth: props.bTopWidth,
     borderRightWidth: props.bRightWidth,
     borderLeftWidth: props.bLeftWidth,
     borderRadius: props.rounded ? convertBorderRadius(props.rounded) : convertBorderRadius('md'),
-    borderColor: props.bColor,
+    borderColor: props.bColor ?? borderColor,
     borderBottomColor: props.bBottomColor,
     borderTopColor: props.bTopColor,
     borderRightColor: props.bRightColor,

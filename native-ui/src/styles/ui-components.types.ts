@@ -42,6 +42,15 @@ type JustifyContentAcronymes =
   | 'space-around'
   | 'space-evenly'
 
+type ButtonVariants = 'medium-blue'
+    | 'light-blue'
+    | 'blue'
+    | 'red'
+    | 'alert'
+    | 'inactive'
+    | 'outline'
+    | 'outline-red'
+
 type AlignItemsAcronymes = 'flex-start' | 'center' | 'flex-end'
 
 export interface CustomViewProps extends ViewProps {
@@ -218,6 +227,7 @@ export interface CustomImageProps extends ImageProps {
 }
 
 export interface CustomButtonProps extends PressableProps {
+  variant?: ButtonVariants
   title?: string
   titleStyle?: CustomTextProps
   bg?: ColorValue

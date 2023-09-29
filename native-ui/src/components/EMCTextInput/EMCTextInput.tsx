@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Platform, Pressable, TextInput, TextInputProps } from 'react-native'
+import { Platform, Pressable, TextInput } from 'react-native'
 import { makeBaseTextInputStyle } from '../../styles/styles'
 import { CustomTextInputProps } from '../../styles/ui-components.types'
 import ExpoVectorIcon from '../EMCIcon'
@@ -13,7 +13,7 @@ import EMCHStack from '../EMCHStack'
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
 
     return (
-      <EMCBox flex={props.w ? undefined : 1}>
+      <EMCBox w={props.w ? undefined : '100%'}>
         <EMCHStack
           align='center'
           justify={!props.readOnly && props.rightIcon ? 'flex-end' : undefined}
@@ -94,4 +94,4 @@ import EMCHStack from '../EMCHStack'
     )
   }
 
-  export default forwardRef<TextInputProps, CustomTextInputProps>(EMCTextInput)
+  export default forwardRef<TextInput, CustomTextInputProps>(EMCTextInput)

@@ -1,4 +1,3 @@
-import { useMemo } from 'react'
 import { Pressable, StyleProp, ViewProps } from 'react-native'
 import { makeBaseEMCButtonStyle } from '../../styles/styles'
 import { CustomButtonProps } from '../../styles/ui-components.types'
@@ -29,25 +28,25 @@ const EMCButton = (props: CustomButtonProps) => {
   }
 
   const textComponent = () => {
-    const fontColor = useMemo(() => {
+    const variantFontColor = () => {
       if (!props.variant) {
         return Colors.white
       }
 
       switch (props.variant) {
         case 'outline':
-          return Colors.blue[400]
+          return Colors.button
         case 'outline-red':
           return Colors.danger[600]
         default:
           return Colors.white
       }
-    },[props.variant])
+    }
 
     return (
       <EMCText
         fSize={props.titleStyle?.fSize ?? 'md'}
-        fColor={props.titleStyle?.fColor ?? fontColor}
+        fColor={props.titleStyle?.fColor ?? variantFontColor()}
         fWeight={props.titleStyle?.fWeight ?? 'normal'}
         wordWrap={props.titleStyle?.wordWrap}
         noAccessibility={props.titleStyle?.noAccessibility}
@@ -68,11 +67,12 @@ const EMCButton = (props: CustomButtonProps) => {
 
   return (
     <Pressable
+      {...props}
       style={({ pressed }) => [
         baseStyle,
         {
-          opacity: props.disabled 
-            ? DISABLED_OPACITY 
+          opacity: props.disabled
+            ? DISABLED_OPACITY
             : props.loading || props.noPressedEffect
             ? 1
             : pressed
@@ -80,10 +80,11 @@ const EMCButton = (props: CustomButtonProps) => {
             : 1,
         },
       ]}
-      {...props}
       onPress={props.disabled || props.loading ? undefined : props.onPress}
       onPressIn={props.disabled || props.loading ? undefined : props.onPressIn}
-      onPressOut={props.disabled || props.loading ? undefined : props.onPressOut}
+      onPressOut={
+        props.disabled || props.loading ? undefined : props.onPressOut
+      }
     >
       {props.loading
         ? loadingComponent()

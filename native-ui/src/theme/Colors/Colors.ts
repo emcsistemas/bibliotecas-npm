@@ -7,6 +7,7 @@ const EMCColors: EMCThemeColorProps = {
   black: '#000000',
   whatsapp: '#128c6e',
   cursor: '#323238',
+  button: '#0d426b',
   light: {
     50: '#fafaf9',
     100: '#f2f2f7',

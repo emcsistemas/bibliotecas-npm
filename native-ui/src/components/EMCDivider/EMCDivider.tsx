@@ -6,7 +6,12 @@ import { makeBaseDividerStyle } from '../../styles/styles'
 const EMCDivider = (props: CustomDividerProps) => {
   const dividerStyle = props.style ?? makeBaseDividerStyle(props)
 
-  return <View style={dividerStyle} {...props}/>
+  return (
+    <View
+      {...props}
+      style={dividerStyle}
+    />
+  )
 }
 
 export default EMCDivider

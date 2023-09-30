@@ -3,6 +3,7 @@ export type EMCThemeColorProps = {
   black: string
   whatsapp: string
   cursor: string
+  button: string
   light: {
     50: string
     100: string

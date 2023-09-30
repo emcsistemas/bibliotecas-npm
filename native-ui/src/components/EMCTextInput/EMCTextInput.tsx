@@ -21,6 +21,7 @@ import EMCHStack from '../EMCHStack'
           <TextInput
             ref={ref || undefined}
             style={baseStyle}
+            {...props}
             numberOfLines={1}
             autoCorrect={false}
             clearButtonMode={
@@ -68,7 +69,6 @@ import EMCHStack from '../EMCHStack'
                 ? 'visible-password'
                 : 'default'
             }
-            {...props}
           />
           {!props.readOnly && props.rightIcon && (
             <Pressable

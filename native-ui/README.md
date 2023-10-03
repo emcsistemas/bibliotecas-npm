@@ -10,20 +10,15 @@
 
 ## 1. Dependências
 
-React Native, Expo
+React Native, Expo, expo-haptics, react-native-safe-area-context
 
 ## 2. Instalação
 
 ```sh
 npm i @emcsistemas/native-ui
 ```
-ou
 ```sh
-yarn add @emcsistemas/native-ui
-```
-ou
-```sh
-pnpm i @emcsistemas/native-ui
+npx expo install expo-haptics react-native-safe-area-context
 ```
 
 ## 3. O que está incluído?
@@ -47,6 +42,7 @@ pnpm i @emcsistemas/native-ui
 - **EMCMessage**: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
 - **EMCSpinner**: implementa um ```ActivityIndicator``` nativo
 - **EMCSafeArea**: implementa uma ```SafeAreaView```
+- **EMCDecimalKeyboard**: teclado customizado para digitação de valores numéricos
 
 ## 4. Tema
 

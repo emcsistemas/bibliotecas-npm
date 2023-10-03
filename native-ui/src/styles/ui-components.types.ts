@@ -5,7 +5,7 @@ import {
   ImageProps,
   PressableProps,
   ScrollViewProps, TextInputProps,
-  TextProps, ViewProps
+  TextProps, TouchableOpacityProps, ViewProps
 } from 'react-native'
 
 export type FontSizeAcronymes =
@@ -290,3 +290,24 @@ export interface CustomScrollViewContainerProps extends ScrollViewProps {
   pl?: DimensionValue
   pr?: DimensionValue
 }
+
+interface DecimalKeyboardFooterButtonProps extends TouchableOpacityProps {
+  title: string
+}
+
+export interface CustomDecimalKeyboardProps {
+  currentFieldValue?: string
+  decimals?: number
+  maxLength?: number  
+  slim?: boolean
+  footerButtonDisabled?: boolean
+  aditionalButtonDisabled?: boolean
+  noComma?: boolean
+  readOnly?: boolean
+  noMargim?: boolean
+  isString?: boolean
+  isTablet?: boolean
+  footerButton?: DecimalKeyboardFooterButtonProps
+  aditionalFooterButton?: DecimalKeyboardFooterButtonProps  
+  onChangeFieldValue?(value: string): void
+} 

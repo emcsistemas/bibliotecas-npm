@@ -276,6 +276,8 @@ export interface CustomButtonProps extends PressableProps {
   loadingTextColor?: ColorValue
   loadingSpinnerColor?: ColorValue
   noPressedEffect?: boolean
+  isTablet?: boolean
+  isDialog?: boolean
   leftIcon?: CustomIconProps
   rightIcon?: CustomIconProps
 }

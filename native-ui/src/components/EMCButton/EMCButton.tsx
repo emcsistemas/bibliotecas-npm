@@ -73,11 +73,11 @@ const EMCButton = (props: CustomButtonProps) => {
         mr={props.titleStyle?.mr}
       >
         <EMCText
-          fSize={props.titleStyle?.fSize ?? 'md'}
+          fSize={props.titleStyle?.fSize ?? props.isDialog ? (props.isTablet ? 'md' : 'sm') : props.isTablet ? 'lg' : 'md'}
           fColor={props.titleStyle?.fColor ?? variantFontColor()}
           fWeight={props.titleStyle?.fWeight ?? 'normal'}
           wordWrap={props.titleStyle?.wordWrap}
-          noAccessibility={props.titleStyle?.noAccessibility}
+          noAccessibility={props.isDialog || props.titleStyle?.noAccessibility}
           textAlign={props.titleStyle?.textAlign}
           textTransform={props.titleStyle?.textTransform}
           w={props.titleStyle?.w}

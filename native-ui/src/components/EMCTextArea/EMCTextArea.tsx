@@ -10,6 +10,7 @@ const EMCTextArea = (props: CustomTextAreaProps) => {
       style={baseStyle}
       {...props}
       multiline
+      autoComplete='off'
     />
   )
 }

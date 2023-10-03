@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { TextInput } from 'react-native'
-import { makeBaseMaskedInputStyle } from '../../styles/styles'
-import { CustomTextInputProps } from '../../styles/ui-components.types'
+import { makeBaseMaskedInputStyle } from '../../styles/styles.factory'
+import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
 import EMCBox from '../EMCBox/EMCBox'
 import {
   INPUT_MASK_TYPES,

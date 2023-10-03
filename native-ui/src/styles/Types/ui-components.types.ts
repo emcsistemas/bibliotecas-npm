@@ -275,7 +275,9 @@ export interface CustomButtonProps extends PressableProps {
   loadingText?: string
   loadingTextColor?: ColorValue
   loadingSpinnerColor?: ColorValue
-  noPressedEffect?: boolean  
+  noPressedEffect?: boolean
+  leftIcon?: CustomIconProps
+  rightIcon?: CustomIconProps
 }
 
 export interface CustomScrollViewContainerProps extends ScrollViewProps {

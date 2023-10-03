@@ -1,7 +1,7 @@
 import { Image } from 'react-native'
 import EMCBox from '../EMCBox/EMCBox'
-import { CustomImageProps } from '../../styles/ui-components.types'
-import { convertBorderRadius, dimensionCalculate } from '../../styles/ui-components.util'
+import { CustomImageProps } from '../../styles/Types/ui-components.types'
+import { convertBorderRadius, dimensionCalculate } from '../../styles/styles.util'
 
 const EMCAvatar = (props: CustomImageProps) => {
   return (

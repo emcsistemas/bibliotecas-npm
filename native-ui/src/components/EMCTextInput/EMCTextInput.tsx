@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react'
 import { Platform, Pressable, TextInput } from 'react-native'
-import { makeBaseTextInputStyle } from '../../styles/styles'
-import { CustomTextInputProps } from '../../styles/ui-components.types'
+import { makeBaseTextInputStyle } from '../../styles/styles.factory'
+import { CustomTextInputProps } from '../../styles/Types/ui-components.types'
 import ExpoVectorIcon from '../EMCIcon'
 import { Colors } from '../../theme'
-import { dimensionCalculate } from '../../styles/ui-components.util'
-import { DEFAULT_ICON_SIZE } from '../../styles/ui-components.consts'
+import { dimensionCalculate } from '../../styles/styles.util'
 import EMCBox from '../EMCBox'
 import EMCHStack from '../EMCHStack'
+import Consts from '../../styles/Consts'
 
   const EMCTextInput = (props: CustomTextInputProps, ref: any) => {
     let baseStyle = props.style ?? makeBaseTextInputStyle(props)
@@ -84,7 +84,7 @@ import EMCHStack from '../EMCHStack'
               <ExpoVectorIcon
                 as={props.rightIcon.icon.as}
                 name={props.rightIcon.icon.name}
-                size={props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE}
+                size={props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE}
                 color={props.rightIcon.icon.color ?? Colors.gray[500]}
               />
             </Pressable>

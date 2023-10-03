@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 
-import { CustomDividerProps } from '../../styles/ui-components.types'
-import { makeBaseDividerStyle } from '../../styles/styles'
+import { CustomDividerProps } from '../../styles/Types/ui-components.types'
+import { makeBaseDividerStyle } from '../../styles/styles.factory'
 
 const EMCDivider = (props: CustomDividerProps) => {
   const dividerStyle = props.style ?? makeBaseDividerStyle(props)

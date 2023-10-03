@@ -1,5 +1,5 @@
 import { SafeAreaView } from "react-native";
-import { styles } from "../../styles/styles";
+import { styles } from "../../styles/styles.factory";
 
 interface EMCSafeAreaProps {
   children: React.ReactNode

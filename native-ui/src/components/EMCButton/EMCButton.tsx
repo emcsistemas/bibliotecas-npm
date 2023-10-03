@@ -1,33 +1,36 @@
-import { Pressable, StyleProp, ViewProps } from 'react-native'
-import { makeBaseEMCButtonStyle } from '../../styles/styles'
-import { CustomButtonProps } from '../../styles/ui-components.types'
-import Box from '../EMCBox'
+import { Pressable, StyleProp, View, ViewProps } from 'react-native'
+import { makeBaseEMCButtonStyle } from '../../styles/styles.factory'
+import { CustomButtonProps } from '../../styles/Types/ui-components.types'
+import EMCBox from '../EMCBox'
 import EMCText from '../EMCText'
-import Spinner from '../EMCSpinner'
-import { DEFAULT_OPACITY_CLICK, DISABLED_OPACITY } from '../../styles/ui-components.consts'
+import EMCSpinner from '../EMCSpinner'
 import { Colors } from '../../theme'
+import Consts from '../../styles/Consts'
+import EMCHStack from '../EMCHStack'
+import EMCIcon from '../EMCIcon'
+import { dimensionCalculate } from '../../styles/styles.util'
 
 const EMCButton = (props: CustomButtonProps) => {
   const baseStyle: StyleProp<ViewProps> = makeBaseEMCButtonStyle(props)  
 
-  const loadingComponent = () => {
+  const LoadingComponent = () => {
     return (
-      <Box
+      <EMCBox
         flex={1}
         align='center'
         justify='center'
-        opacity={DEFAULT_OPACITY_CLICK}
+        opacity={Consts.DEFAULT_OPACITY_CLICK}
       >
         {props.loadingText ? (
           <EMCText fWeight='bold'>{props.loadingText}</EMCText>
         ) : (
-          <Spinner color={props.loadingSpinnerColor} />
+          <EMCSpinner color={props.loadingSpinnerColor} />
         )}
-      </Box>
+      </EMCBox>
     )
   }
 
-  const textComponent = () => {
+  const TextComponent = () => {
     const variantFontColor = () => {
       if (!props.variant) {
         return Colors.white
@@ -43,25 +46,46 @@ const EMCButton = (props: CustomButtonProps) => {
       }
     }
 
+    const paddingTextLeftCalculate = () => {
+      if (props.leftIcon) {
+        return dimensionCalculate(2)
+      }
+      return 3
+    }
+
+    const paddingTextRightCalculate = () => {
+      if (props.rightIcon) {
+        return dimensionCalculate(2)
+      }
+      return 3
+    }
+
     return (
-      <EMCText
-        fSize={props.titleStyle?.fSize ?? 'md'}
-        fColor={props.titleStyle?.fColor ?? variantFontColor()}
-        fWeight={props.titleStyle?.fWeight ?? 'normal'}
-        wordWrap={props.titleStyle?.wordWrap}
-        noAccessibility={props.titleStyle?.noAccessibility}
-        textAlign={props.titleStyle?.textAlign}
-        textTransform={props.titleStyle?.textTransform}
-        w={props.titleStyle?.w}
+      <EMCBox
+        flex={1}
+        align='center'
+        pl={paddingTextLeftCalculate()}
+        pr={paddingTextRightCalculate()}
         m={props.titleStyle?.m}
         mt={props.titleStyle?.mt}
         mb={props.titleStyle?.mb}
         ml={props.titleStyle?.ml}
         mr={props.titleStyle?.mr}
-        opacity={props.titleStyle?.opacity}
       >
-        {props.title}
-      </EMCText>
+        <EMCText
+          fSize={props.titleStyle?.fSize ?? 'md'}
+          fColor={props.titleStyle?.fColor ?? variantFontColor()}
+          fWeight={props.titleStyle?.fWeight ?? 'normal'}
+          wordWrap={props.titleStyle?.wordWrap}
+          noAccessibility={props.titleStyle?.noAccessibility}
+          textAlign={props.titleStyle?.textAlign}
+          textTransform={props.titleStyle?.textTransform}
+          w={props.titleStyle?.w}
+          opacity={props.titleStyle?.opacity}
+        >
+          {props.title}
+        </EMCText>
+      </EMCBox>
     )  
   }
 
@@ -72,11 +96,11 @@ const EMCButton = (props: CustomButtonProps) => {
         baseStyle,
         {
           opacity: props.disabled
-            ? DISABLED_OPACITY
+            ? Consts.DISABLED_OPACITY
             : props.loading || props.noPressedEffect
             ? 1
             : pressed
-            ? DEFAULT_OPACITY_CLICK
+            ? Consts.DEFAULT_OPACITY_CLICK
             : 1,
         },
       ]}
@@ -86,11 +110,56 @@ const EMCButton = (props: CustomButtonProps) => {
         props.disabled || props.loading ? undefined : props.onPressOut
       }
     >
-      {props.loading
-        ? loadingComponent()
-        : props.title
-        ? textComponent()
-        : props.children}
+      {props.loading || (!props.leftIcon && !props.rightIcon) ? (
+        props.loading ? (
+          <LoadingComponent />
+        ) : props.title ? (
+          <TextComponent />
+        ) : (
+          props.children
+        )
+      ) : (
+        <EMCHStack
+          flex={1}
+          align='center'
+        >
+          {props.leftIcon && (
+            <View
+              style={{
+                position: 'absolute',
+                left: 0,
+                paddingBottom: dimensionCalculate(props.mb),
+              }}
+            >
+              <EMCIcon
+                as={props.leftIcon.as}
+                name={props.leftIcon.name}
+                size={props.leftIcon.size ?? Consts.DEFAULT_ICON_SIZE}
+                color={props.leftIcon.color ?? Colors.white}
+              />
+            </View>
+          )}
+
+          <TextComponent />
+
+          {props.rightIcon && (
+            <View
+              style={{
+                position: 'absolute',
+                right: 0,
+                paddingBottom: dimensionCalculate(props.mb),
+              }}
+            >
+              <EMCIcon
+                as={props.rightIcon.as}
+                name={props.rightIcon.name}
+                size={props.rightIcon.size ?? Consts.DEFAULT_ICON_SIZE}
+                color={props.rightIcon.color ?? Colors.white}
+              />
+            </View>
+          )}
+        </EMCHStack>
+      )}
     </Pressable>
   )
 }

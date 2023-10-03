@@ -1,6 +1,6 @@
 import EMCBox from '../EMCBox/EMCBox'
-import { CustomIconProps } from '../../styles/ui-components.types'
-import { iconSizeCalculate } from '../../styles/ui-components.util'
+import { CustomIconProps } from '../../styles/Types/ui-components.types'
+import { iconSizeCalculate } from '../../styles/styles.util'
 import {
   AntDesign,
   Entypo,

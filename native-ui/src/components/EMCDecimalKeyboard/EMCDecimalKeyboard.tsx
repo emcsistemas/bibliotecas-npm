@@ -4,14 +4,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import * as Haptics from 'expo-haptics'
 import { Ionicons } from '@expo/vector-icons'
 
-import { CustomDecimalKeyboardProps } from '../../styles/ui-components.types'
+import { CustomDecimalKeyboardProps } from '../../styles/Types/ui-components.types'
 import EMCColors from '../../theme/Colors'
 import EMCIcon from '../EMCIcon'
 import EMCVStack from '../EMCVStack'
-import { DEFAULT_OPACITY_CLICK, OPACITY_CLICK_HARD } from '../../styles/ui-components.consts'
 import EMCText from '../EMCText'
 import EMCBox from '../EMCBox'
 import EMCHStack from '../EMCHStack'
+import Consts from '../../styles/Consts'
 
 const EMCDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
   const insets = useSafeAreaInsets()  
@@ -59,7 +59,9 @@ const EMCDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
     return (
       <TouchableOpacity
         activeOpacity={
-          props.readOnly || numberButtonText === '' ? 1 : OPACITY_CLICK_HARD
+          props.readOnly || numberButtonText === ''
+            ? 1
+            : Consts.OPACITY_CLICK_HARD
         }
         delayPressIn={0}
         onPressIn={
@@ -76,13 +78,19 @@ const EMCDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
           }
         >
           {!isBackSpace && (
-            <EMCText style={props.slim ? styles.primaryTextSlim : styles.primaryText}>
+            <EMCText
+              style={props.slim ? styles.primaryTextSlim : styles.primaryText}
+            >
               {numberButtonText}
             </EMCText>
           )}
-          {!props.slim && !isBackSpace && (numberButtonText || topAlignment) && (
-            <EMCText style={styles.footerText}>{numberButtonFooterText}</EMCText>
-          )}
+          {!props.slim &&
+            !isBackSpace &&
+            (numberButtonText || topAlignment) && (
+              <EMCText style={styles.footerText}>
+                {numberButtonFooterText}
+              </EMCText>
+            )}
           {isBackSpace && (
             <EMCIcon
               as={Ionicons}
@@ -286,7 +294,7 @@ const EMCDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
             <TouchableOpacity
               style={{ flex: 1 }}
               activeOpacity={
-                props.footerButtonDisabled ? 1 : DEFAULT_OPACITY_CLICK
+                props.footerButtonDisabled ? 1 : Consts.DEFAULT_OPACITY_CLICK
               }
               {...props.footerButton}
             >
@@ -320,7 +328,7 @@ const EMCDecimalKeyboard = (props: CustomDecimalKeyboardProps) => {
             <TouchableOpacity
               style={{ flex: 1 }}
               activeOpacity={
-                props.aditionalButtonDisabled ? 1 : DEFAULT_OPACITY_CLICK
+                props.aditionalButtonDisabled ? 1 : Consts.DEFAULT_OPACITY_CLICK
               }
               {...props.aditionalFooterButton}
             >

@@ -1,4 +1,4 @@
-import { CustomViewProps } from '../../styles/ui-components.types'
+import { CustomViewProps } from '../../styles/Types/ui-components.types'
 import EMCBox from '../EMCBox/EMCBox'
 import SafeArea from '../EMCSafeArea'
 

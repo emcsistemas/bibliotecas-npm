@@ -7,15 +7,15 @@ import {
   CustomTextInputProps,
   CustomScrollViewContainerProps,
   CustomTextProps
-} from './ui-components.types'
+} from './Types/ui-components.types'
 import {
   dimensionCalculate,
   convertBorderRadius,
   convertFontSize,
-} from './ui-components.util'
+} from './styles.util'
 import { Colors } from '../theme'
-import { DEFAULT_ICON_SIZE, DISABLED_OPACITY } from './ui-components.consts'
 import FontSizes from '../theme/FontSizes'
+import Consts from './Consts'
 
 export const styles = StyleSheet.create({
   safeArea: {
@@ -185,7 +185,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -194,7 +194,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   const paddingRightCalculate = () => {
     if (props.rightIcon) {
       const paddingRight = 
-        (props.rightIcon.icon.size ?? DEFAULT_ICON_SIZE) + 
+        (props.rightIcon.icon.size ?? Consts.DEFAULT_ICON_SIZE) + 
         (props.px ? Number(props.px) : 3) + 1
 
       return dimensionCalculate(paddingRight)
@@ -235,7 +235,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -272,7 +272,7 @@ export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp
       : props.opacity 
       ? props.opacity
       : props.readOnly
-      ? DISABLED_OPACITY
+      ? Consts.DISABLED_OPACITY
       : 1,
   }
 }
@@ -333,6 +333,22 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     }
   }
 
+  const paddingButtonLeftCalculate = () => {
+      if (props.leftIcon) {
+        return dimensionCalculate(3)
+      } else {
+        return props.pl ? props.pl : props.px ?? 0
+      }
+    }    
+
+    const paddingButtonRightCalculate = () => {
+      if (props.rightIcon) {
+        return dimensionCalculate(3)
+      } else {
+        return props.pr ? props.pr : (props.px ?? 0)
+      }
+    }
+
   return {
     position: props.position,
     left: props.left,
@@ -349,12 +365,11 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     maxWidth: dimensionCalculate(props.maxW),
     maxHeight: dimensionCalculate(props.maxH),
     padding: dimensionCalculate(props.p ?? 2),
-    paddingHorizontal: dimensionCalculate(props.px),
     paddingVertical: dimensionCalculate(props.py),
     paddingTop: dimensionCalculate(props.pt),
     paddingBottom: dimensionCalculate(props.pb),
-    paddingLeft: dimensionCalculate(props.pl),
-    paddingRight: dimensionCalculate(props.pr),
+    paddingLeft: paddingButtonLeftCalculate(),
+    paddingRight: paddingButtonRightCalculate(),
     margin: dimensionCalculate(props.m),
     marginHorizontal: dimensionCalculate(props.mx),
     marginVertical: dimensionCalculate(props.my),
@@ -376,7 +391,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     opacity: props.opacity
       ? props.opacity 
       : props.disabled
-      ? DISABLED_OPACITY 
+      ? Consts.DISABLED_OPACITY 
       : 1,
     overflow: props.overflow,
     zIndex: props.zIndex,

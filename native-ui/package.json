@@ -38,8 +38,10 @@
   },
   "peerDependencies": {
     "@expo/vector-icons": "*",
+    "expo-haptics": "*",
     "@types/react": "*",
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-safe-area-context": "*"
   }
 }

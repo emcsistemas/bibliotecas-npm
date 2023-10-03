@@ -51,8 +51,7 @@ import Consts from '../../styles/Consts'
                 : Platform.OS === 'ios' || props.onlyNumbers || props.isDecimal
                 ? false
                 : !!(props.isUpperCase || props.isLowerCase)
-            }
-            keyboardType={
+            }            keyboardType={
               props.isDecimal
                 ? Platform.OS === 'ios'
                   ? 'decimal-pad'

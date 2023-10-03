@@ -12,9 +12,10 @@ import {
   dimensionCalculate,
   convertBorderRadius,
   convertFontSize,
+  marginCalculate,
+  getFontFamily,
 } from './styles.util'
 import { Colors } from '../theme'
-import FontSizes from '../theme/FontSizes'
 import Consts from './Consts'
 
 export const styles = StyleSheet.create({
@@ -78,6 +79,11 @@ export function makeBaseViewStyle(props: CustomViewProps): StyleProp<ViewStyle> 
     opacity: props.opacity,
     overflow: props.overflow,
     zIndex: props.zIndex,
+    shadowColor: props.showShadow ? Colors.black : undefined,
+    shadowOffset: props.showShadow ? { width: -1, height: 5 } : undefined,
+    shadowOpacity: props.showShadow ? 0.4 : undefined,
+    shadowRadius: props.showShadow ? 4 : undefined,
+    elevation: props.showShadow ? 5 : undefined,
   }
 }
 
@@ -86,35 +92,22 @@ export function makeBaseDividerStyle(props: CustomDividerProps): StyleProp<ViewS
     backgroundColor: props.bg ?? Colors.gray[200],
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: 1,
-    margin: dimensionCalculate(props.m),
-    marginHorizontal: dimensionCalculate(props.mx),
-    marginVertical: (props.my || props.my === 0) ? dimensionCalculate(props.my) : 16,
-    marginTop: dimensionCalculate(props.mt),
-    marginBottom: dimensionCalculate(props.mb),
-    marginLeft: dimensionCalculate(props.ml),
-    marginRight: dimensionCalculate(props.mr),
+    marginTop: marginCalculate(props.m, props.my, props.mt),
+    marginBottom: marginCalculate(props.m, props.my, props.mb),
+    marginLeft: marginCalculate(props.m, props.mx, props.ml),
+    marginRight: marginCalculate(props.m, props.mx, props.mr),
   }
 }
 
 export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> {
-  function getFontSize() {
-    if (!props.fSize) {
-      return FontSizes.md
-    }
-
-    if (typeof props.fSize === 'number') {
-      return props.fSize
-    }
-
-    return convertFontSize(props.fSize)
-  }
-
-  function getFontWeight() {
-    if (!props.fWeight || props.fWeight === 'normal') {
-      return 'normal'
+  const fontWeight = () => {
+    if (!props.fFamily) {
+      return undefined
     }
 
     switch (props.fWeight) {
+      case 'normal':
+        return '400'
       case 'lightBold':
         return '500'
       case 'semiBold':
@@ -124,22 +117,14 @@ export function makeBaseTextStyle(props: CustomTextProps): StyleProp<TextStyle> 
       case 'extraBold':
         return '800'
       default:
-        return props.fWeight 
+        return undefined
     }
-  }
-
-  const fontSizeNumber = () => {
-    return getFontSize()
-  }
-
-  const fontWeight = () => {
-    return getFontWeight()    
   }
 
   return {
     width: dimensionCalculate(props.w),
-    fontSize: fontSizeNumber(),
-    fontFamily: props.fFamily,
+    fontSize: convertFontSize(props.fSize),
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontWeight: fontWeight(),    
     color: props.fColor ?? Colors.gray[800],
     textAlign: props.textAlign,
@@ -156,7 +141,7 @@ export function makeBaseTextAreaStyle(props: CustomTextAreaProps): StyleProp<Tex
   return {
     fontSize: convertFontSize(props.fSize),
     color: props.fColor,
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     textAlignVertical: props.textAlignVertical ?? 'top',
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 24),
@@ -204,7 +189,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   }
   
   return {
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
     color: props.fColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
@@ -242,7 +227,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
 
 export function makeBaseMaskedInputStyle(props: CustomTextInputProps): StyleProp<TextStyle> {
   return {
-    fontFamily: props.fFamily,
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
     color: props.fColor,
     width: props.w ? dimensionCalculate(props.w) : '100%',
@@ -359,7 +344,7 @@ export function makeBaseEMCButtonStyle(props: CustomButtonProps): StyleProp<View
     justifyContent: 'center',    
     backgroundColor: props.bg ?? variantBgColor(),
     width: props.w ? dimensionCalculate(props.w) : props.isDialog ? (props.isTablet ? dimensionCalculate(30) : dimensionCalculate(23)) : '100%',
-    height: props.h ? dimensionCalculate(props.h) : props.isDialog ? 12 : props.isTablet ? dimensionCalculate(15) : dimensionCalculate(14),
+    height: props.h ? dimensionCalculate(props.h) : props.isDialog ? dimensionCalculate(12) : props.isTablet ? dimensionCalculate(15) : dimensionCalculate(14),
     minWidth: dimensionCalculate(props.minW),
     minHeight: dimensionCalculate(props.minH),
     maxWidth: dimensionCalculate(props.maxW),

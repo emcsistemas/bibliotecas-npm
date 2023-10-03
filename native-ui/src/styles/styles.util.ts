@@ -1,5 +1,5 @@
 import { DimensionValue } from 'react-native'
-import { BorderSizeAcronymes, FontSizeAcronymes } from './Types/ui-components.types'
+import { BorderSizeAcronymes, FontSizeAcronymes, FontWeightAcronymes } from './Types/ui-components.types'
 import FontSizes from '../theme/FontSizes'
 import Consts from './Consts'
 
@@ -48,10 +48,14 @@ export function convertBorderRadius(borderRadius?: BorderSizeAcronymes) {
   }
 }
 
-export function convertFontSize(fontSize?: FontSizeAcronymes) {
+export function convertFontSize(fontSize?: FontSizeAcronymes | number) {
   let fontSizeNumber = FontSizes.md
 
   if (!fontSize) return fontSizeNumber
+
+  if (typeof fontSize === 'number') {
+    return fontSize
+  }
 
   switch (fontSize) {
     case '2xs':
@@ -92,4 +96,40 @@ export function convertFontSize(fontSize?: FontSizeAcronymes) {
   }
 
   return fontSizeNumber
+}
+
+export function getFontFamily(fFamily?: string, fWeight?: FontWeightAcronymes) {
+    if (fFamily) {
+      return fFamily
+    }
+
+    if (fWeight === 'semiBold'){
+      return 'Roboto_500Medium'
+    }
+
+    if (fWeight === 'bold'){
+      return 'Roboto_700Bold'
+    }
+
+    return 'Roboto_400Regular'  
+}
+
+export function marginCalculate(
+    generalMargin?: DimensionValue, 
+    axisMargin?: DimensionValue, 
+    sideMargin?: DimensionValue) 
+{
+  if (sideMargin || sideMargin === 0) {
+    return dimensionCalculate(sideMargin)
+  }
+
+  if (axisMargin || axisMargin === 0) {
+    return dimensionCalculate(axisMargin)
+  }
+
+  if (generalMargin || generalMargin === 0) {
+    return dimensionCalculate(generalMargin)
+  }
+
+  return undefined
 }

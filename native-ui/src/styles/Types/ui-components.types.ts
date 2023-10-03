@@ -24,6 +24,13 @@ export type FontSizeAcronymes =
   | '8xl'
   | '9xl'
 
+export type FontWeightAcronymes =
+  | 'normal'
+  | 'lightBold'
+  | 'semiBold'
+  | 'bold'
+  | 'extraBold'  
+
 export type BorderSizeAcronymes =
   | 'xs'
   | 'sm'
@@ -127,7 +134,7 @@ export interface CustomTextProps extends TextProps {
   fSize?: FontSizeAcronymes | number
   fFamily?: string
   fColor?: ColorValue
-  fWeight?: 'normal' | 'lightBold' | 'semiBold' | 'bold' | 'extraBold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900'
+  fWeight?: FontWeightAcronymes
   wordWrap?: boolean
   noAccessibility?: boolean
   textAlign?: 'left' | 'center' | 'right' | 'justify' | 'auto'
@@ -144,7 +151,8 @@ export interface CustomTextProps extends TextProps {
 export interface CustomTextAreaProps extends TextInputProps {
   bg?: ColorValue
   fFamily?: string
-  fSize?: FontSizeAcronymes
+  fWeight?: FontWeightAcronymes
+  fSize?: FontSizeAcronymes | number
   fColor?: ColorValue
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'
@@ -167,7 +175,8 @@ export interface CustomTextAreaProps extends TextInputProps {
 export interface CustomTextInputProps extends TextInputProps {
   bg?: ColorValue
   fFamily?: string
-  fSize?: FontSizeAcronymes
+  fWeight?: FontWeightAcronymes
+  fSize?: FontSizeAcronymes | number
   fColor?: ColorValue
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'

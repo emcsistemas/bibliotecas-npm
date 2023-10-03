@@ -6,7 +6,7 @@ const EMCFontSizes: EMCThemeFontSizesProps = {
   '2xs': 11,
   xs: 12.5,
   sm: 14,
-  md: 16,
+  md: 15,
   lg: 18,
   xl: 20,
   '2xl': 24,  

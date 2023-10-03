@@ -30,7 +30,7 @@ const EMCButton = (props: CustomButtonProps) => {
     )
   }
 
-  const TextComponent = () => {
+  const TitleComponent = () => {
     const variantFontColor = () => {
       if (!props.variant) {
         return Colors.white
@@ -64,6 +64,7 @@ const EMCButton = (props: CustomButtonProps) => {
       <EMCBox
         flex={1}
         align='center'
+        justify='center'
         pl={paddingTextLeftCalculate()}
         pr={paddingTextRightCalculate()}
         m={props.titleStyle?.m}
@@ -87,6 +88,76 @@ const EMCButton = (props: CustomButtonProps) => {
         </EMCText>
       </EMCBox>
     )  
+  }
+
+  const SubTitleComponent = () => {
+    const variantFontColor = () => {
+      if (!props.variant) {
+        return Colors.white
+      }
+
+      switch (props.variant) {
+        case 'outline':
+          return Colors.button
+        case 'outline-red':
+          return Colors.danger[600]
+        default:
+          return Colors.white
+      }
+    }
+
+    const paddingTextLeftCalculate = () => {
+      if (props.leftIcon) {
+        return dimensionCalculate(2)
+      }
+      return 3
+    }
+
+    const paddingTextRightCalculate = () => {
+      if (props.rightIcon) {
+        return dimensionCalculate(2)
+      }
+      return 3
+    }
+
+    return (
+      <EMCBox
+        flex={1}
+        align='center'
+        justify='center'
+        pl={paddingTextLeftCalculate()}
+        pr={paddingTextRightCalculate()}
+        m={props.subtitleStyle?.m}
+        mt={props.subtitleStyle?.mt}
+        mb={props.subtitleStyle?.mb}
+        ml={props.subtitleStyle?.ml}
+        mr={props.subtitleStyle?.mr}
+      >
+        <EMCText
+          fSize={
+            props.subtitleStyle?.fSize ?? props.isDialog
+              ? props.isTablet
+                ? 'md'
+                : 'sm'
+              : props.isTablet
+              ? 'lg'
+              : 'md'
+          }
+          fColor={props.subtitleStyle?.fColor ?? variantFontColor()}
+          fWeight={props.subtitleStyle?.fWeight ?? 'normal'}
+          wordWrap={props.subtitleStyle?.wordWrap}
+          noAccessibility={
+            props.isDialog || props.subtitleStyle?.noAccessibility
+          }
+          textAlign={props.subtitleStyle?.textAlign}
+          textTransform={props.subtitleStyle?.textTransform}
+          w={props.subtitleStyle?.w}
+          opacity={props.subtitleStyle?.opacity}
+        >
+          {props.subtitle}
+        </EMCText>
+      </EMCBox>
+    )
   }
 
   return (
@@ -114,7 +185,13 @@ const EMCButton = (props: CustomButtonProps) => {
         props.loading ? (
           <LoadingComponent />
         ) : props.title ? (
-          <TextComponent />
+          <EMCBox
+            flex={1}
+            align='center'
+          >
+            <TitleComponent />
+            {props.subtitle && <SubTitleComponent />}
+          </EMCBox>
         ) : (
           props.children
         )
@@ -140,7 +217,13 @@ const EMCButton = (props: CustomButtonProps) => {
             </View>
           )}
 
-          <TextComponent />
+          <EMCBox
+            flex={1}
+            align='center'
+          >
+            <TitleComponent />
+            {props.subtitle && <SubTitleComponent />}
+          </EMCBox>
 
           {props.rightIcon && (
             <View

@@ -238,7 +238,9 @@ export interface CustomImageProps extends ImageProps {
 export interface CustomButtonProps extends PressableProps {
   variant?: ButtonVariants
   title?: string
+  subtitle?: string
   titleStyle?: CustomTextProps
+  subtitleStyle?: CustomTextProps
   bg?: ColorValue
   position?: 'absolute' | 'relative'
   left?: DimensionValue

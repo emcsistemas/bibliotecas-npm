@@ -32,7 +32,7 @@ npx expo install expo-haptics react-native-safe-area-context
 - **EMCCenter**: implementa uma ```View``` com orientação centralizada
 - **EMCCenterSafe**: implementa uma ```View``` com orientação centralizada dentro de uma ```SafeAreaView```
 - **EMCDivider**: linha fina horizontal para divisão de itens na tela
-- **EMCButton**: implementa um ```Pressed``` nativo que pode conter dentro outro componente
+- **EMCButton**: implementa um ```Pressed``` nativo com propriedades personalizadas
 - **EMCScrollView**: implementa uma ```ScrollView``` nativa sem barra de rolagem na vertical
 - **EMCText**: implementa um ```Text``` nativo
 - **EMCTextArea**: implementa um ```TextInput``` nativo com suporte a múltiplas linhas

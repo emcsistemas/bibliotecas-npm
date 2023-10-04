@@ -11,7 +11,7 @@ interface EMCBannerDemoProps extends ModalProps {
   appName: string
   isTablet?: boolean
   dataRequisicaoAtivacao?: string | null
-  isClienteEMC?: boolean
+  isClienteEMC?: boolean | null
   onClose: () => void
 }
 
@@ -35,7 +35,7 @@ const EMCBannerDemo = ({
         top={0}
         w='full'
         h='full'
-        px={6}
+        px={isTablet ? 20 : 6}
         bg='rgba(26, 22, 22, 0.6)'
         align='center'
         justify='center'

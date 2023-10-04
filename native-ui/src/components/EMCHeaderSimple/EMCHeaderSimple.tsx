@@ -51,7 +51,7 @@ const EMCHeaderSimple = ({
         justify='center'
         style={{
           zIndex: 1,
-          height: isTablet ? 48 : 40,
+          height: isTablet ? 56 : 48,
           paddingBottom: 6,
           paddingHorizontal: Platform.OS === 'android' ? 24 : 20,
         }}

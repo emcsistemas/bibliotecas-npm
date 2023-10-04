@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/native-ui",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "Biblioteca de componentes react native",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
@@ -30,16 +30,22 @@
   "devDependencies": {
     "@expo/vector-icons": "^13.0.0",
     "@types/react": "^18.2.22",
+    "date-fns": "^2.30.0",
     "expo-haptics": "^12.6.0",
+    "lottie-react-native": "^6.3.1",
     "react": "^18.2.0",
     "react-native": "^0.72.4",
+    "react-native-calendars": "^1.1301.0",
+    "react-native-gesture-handler": "^2.13.1",
+    "react-native-reanimated": "^3.5.4",
+    "react-native-root-toast": "^3.5.1",
     "react-native-safe-area-context": "^4.7.2",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@expo/vector-icons": "*",
-    "expo-haptics": "*",
     "@types/react": "*",
+    "expo-haptics": "*",
     "react": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*"

@@ -103,15 +103,19 @@ export function getFontFamily(fFamily?: string, fWeight?: FontWeightAcronymes) {
       return fFamily
     }
 
+    let fontFamily = 'Roboto_400Regular'
+
+    if (!fWeight) {
+      return fontFamily
+    }
+
     if (fWeight === 'semiBold'){
-      return 'Roboto_500Medium'
+      fontFamily = 'Roboto_500Medium'
+    }else if (fWeight === 'bold'){
+      fontFamily = 'Roboto_700Bold'
     }
 
-    if (fWeight === 'bold'){
-      return 'Roboto_700Bold'
-    }
-
-    return 'Roboto_400Regular'  
+    return fontFamily
 }
 
 export function marginCalculate(

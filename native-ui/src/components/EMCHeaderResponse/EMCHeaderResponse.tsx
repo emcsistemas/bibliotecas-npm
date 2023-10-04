@@ -50,8 +50,8 @@ const EMCHeaderResponse = ({
           }}
           source={
             responseType !== 'error'
-              ? require('./assets/success-200.json')
-              : require('./assets/fail.json')
+              ? require('../../assets/success-200.json')
+              : require('../../assets/fail.json')
           }
         />
         <EMCText

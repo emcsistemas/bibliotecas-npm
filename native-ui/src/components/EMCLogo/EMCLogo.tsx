@@ -40,15 +40,15 @@ const EMCLogo = (props: EMCLogoProps) => {
           props.logoBase64
             ? { uri: 'data:image/png;base64,' + props.logoBase64 }
             : props.logoType === 'white'
-            ? require('./assets/logo-redondo-bc.png')
-            : require('./assets/logo-redondo-az.png')
+            ? require('../../assets/logo-redondo-bc.png')
+            : require('../../assets/logo-redondo-az.png')
         }
         defaultSource={
           props.logoBase64
             ? { uri: 'data:image/png;base64,' + props.logoBase64 }
             : props.logoType === 'white'
-            ? require('./assets/logo-redondo-bc.png')
-            : require('./assets/logo-redondo-az.png')
+            ? require('../../assets/logo-redondo-bc.png')
+            : require('../../assets/logo-redondo-az.png')
         }
       />
     </EMCBox>

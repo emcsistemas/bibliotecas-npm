@@ -33,8 +33,8 @@ const EMCWait = ({ waitMessage, subTitle, showAnimation }: EMCWaitProps) => {
           }}
           source={
             Platform.OS === 'android'
-              ? require('./assets/loading-cubes-droid.json')
-              : require('./assets/loading-cubes.json')
+              ? require('../../assets/loading-cubes-droid.json')
+              : require('../../assets/loading-cubes.json')
           }
         />
       )}

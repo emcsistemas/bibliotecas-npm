@@ -41,7 +41,7 @@ const showToast = (text: string, variant: EMCToastVariant, timeout?: number) => 
     textStyle: {
       color: Colors.white,
       fontFamily: getFontFamily(),
-      fontSize: EMCFontSizes.md,
+      fontSize: EMCFontSizes.toastPhone,
     },
   })
 }

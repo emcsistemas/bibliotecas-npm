@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, ColorValue, Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, ColorValue, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Colors } from "../../theme"
 import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -49,7 +49,7 @@ const EMCHeader = (props: EMCHeaderProps) => {
           zIndex: 1,
           height: props.isTablet ? 56 : 48,
           paddingBottom: 6,
-          paddingHorizontal: Platform.OS === 'android' ? 24 : 20,
+          paddingHorizontal: 20,
         }}
       >
         <EMCHStack align='center'>

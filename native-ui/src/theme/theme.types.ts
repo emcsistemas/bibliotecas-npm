@@ -65,6 +65,8 @@ export type EMCThemeColorProps = {
 }
 
 export type EMCThemeFontSizesProps = {
+  toastPhone: number
+  toastTablet: number
   '2xs': number
   xs: number
   sm: number

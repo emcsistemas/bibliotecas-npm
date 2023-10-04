@@ -10,6 +10,7 @@ import EMCBox from "../EMCBox"
 import EMCHStack from "../EMCHStack"
 import EMCText from "../EMCText"
 import { Colors } from "../../theme"
+import FontSizes from "../../theme/FontSizes"
 
 interface EMCToastModalProps {
   text: string
@@ -102,7 +103,7 @@ const EMCToastModal = ({
           <EMCBox flex={1}>
             <EMCText
               fColor={Colors.white}
-              fSize={isTablet ? 17 : 15}
+              fSize={isTablet ? FontSizes.toastTablet : FontSizes.toastPhone}
               maxFontSizeMultiplier={1}
               wordWrap
               numberOfLines={4}

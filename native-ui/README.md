@@ -82,6 +82,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **EMCSwitch**: implementa um ```Switch``` nativo
 - **EMCDiscountSwitch**: exibe um switch personalizado para seleção do tipo de desconto (percentual ou valor)
 - **EMCWait**: exibe um modal com fundo escuro e semi-transparente para indicar processamento de alguma operação
+- **EMCBannerDemo**: banner que é exibido ao entrar no app quando se trata de um cliente de demonstração
 
 ## 5. Tema
 

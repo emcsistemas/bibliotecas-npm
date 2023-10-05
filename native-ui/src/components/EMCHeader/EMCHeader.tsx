@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, ColorValue, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, ColorValue, Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Colors } from "../../theme"
 import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -36,17 +36,17 @@ const EMCHeader = (props: EMCHeaderProps) => {
   const styles = StyleSheet.create({
     container: {
       backgroundColor: Colors.blue[400],
-      paddingTop: insets.top,
+      paddingTop: insets.top + (Platform.OS === 'android' ? 4 : 0),
     },
   })
 
   return (
     <View style={styles.container}>
       <EMCVStack
-        bg={Colors.blue[400]}
-        justify='center'
         style={{
           zIndex: 1,
+          justifyContent: 'center',
+          backgroundColor: Colors.blue[400],
           height: props.isTablet ? 56 : 48,
           paddingBottom: 6,
           paddingHorizontal: 20,

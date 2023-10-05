@@ -40,18 +40,18 @@ const EMCHeaderSimple = ({
   const styles = StyleSheet.create({
     container: {
       backgroundColor: Colors.blue[400],
-      paddingTop: isModal && Platform.OS === 'android' ? 0 : insets.top,
+      paddingTop: isModal && Platform.OS === 'android' ? 4 : insets.top + (Platform.OS === 'android' ? 4 : 0),
     },
   })
 
   return (
     <View style={styles.container}>
       <EMCVStack
-        bg={Colors.blue[400]}
-        justify='center'
         style={{
           zIndex: 1,
-          height: isTablet ? 56 : 48,
+          justifyContent: 'center',
+          backgroundColor: Colors.blue[400],
+          height: isTablet ? 56 : Platform.OS === 'android' ? 44 : 48,
           paddingBottom: isTablet ? 6 : 4,
           paddingHorizontal: 20,
         }}

@@ -78,6 +78,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **showToast**: função que mostra uma mensagem temporária no formato ```Toast```
 - **EMCToastModal**: componente que exibe um toast como na função ```showToast``` para utilização em modals sem transparência
 - **EMCDropDown**: exibe um fake dropdown (deve ser implementado um modal para exibir a lista de itens)
+- **EMCAvatar**: exibe uma view de avatar em formato circular com a imagem passada
 - **EMCLogo**: exibe uma logomarca passada como parâmetro (base64) ou a logo da EMC Sistemas caso a base64 não seja passada
 - **EMCSwitch**: implementa um ```Switch``` nativo
 - **EMCDiscountSwitch**: exibe um switch personalizado para seleção do tipo de desconto (percentual ou valor)
@@ -87,7 +88,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 ## 5. Tema
 
 - **Colors**: padrão de cores utilizado pela empresa
-- **Fonts**: configurações de fontes de texto utilizadas pela empresa
+- **FontSizes**: configurações de tamanhos de fontes utilizadas pela empresa
 - **Sizes**: definições de tamanhos utilizados pela empresa
 
 ## 6. Contribuição

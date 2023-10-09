@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/native-util",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Biblioteca de utilidades para react native",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",

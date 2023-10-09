@@ -32,15 +32,25 @@ npm i expo-clipboard expo-constants expo-crypto expo-device expo-splash-screen d
 
 ## 3. O que está incluído?
 
-- **consts.general**: constantes gerais utilizadas nos apps da empresa
-- **consts.regex**: constantes de expressão regular utilizadas na validação de dados
-- **util.dates**: funções para manipulação e validação de datas
-- **util.format**: funções para formatação de dados diversos
-- **util.general**: funções gerais utilizadas nos apps da empresa
-- **util.masks**: funções para aplicação de máscara em determinadas informações (telefone, cpf, etc)
-- **util.network**: funções para manipulação de dados de rede
-- **util.numbers**: funções para manipulação de dados numéricos
-- **util.validation**: funções para validação de dados diversos 
+- **EMCGeneralConsts**: objeto com constantes gerais utilizadas nos apps da empresa
+- **EMCRegexConsts**: objeto com constantes de expressão regular utilizadas na validação de dados
+- **EMCDateUtils**: classe com funções para manipulação e validação de datas
+- **EMCFormatUtils**: classe com funções para formatação de dados diversos
+- **EMCGeneralUtils**: classe com funções gerais utilizadas nos apps da empresa
+- **EMCMaskUtils**: classe com funções para aplicação de máscara em determinadas informações (telefone, cpf, etc)
+- **EMCNetworkUtils**: classe com funções para manipulação de dados de rede
+- **EMCNumberUtils**: classe com funções para manipulação de dados numéricos
+- **EMCValidationUtils**: classe com funções para validação de dados diversos 
+
+Exemplo de uso: 
+
+```bash
+import { EMCNetworkUtils } from '@emcsistemas/native-util'
+
+if (EMCNetworkUtils.isInternalNetwork('http://www.meusite.com.br')){
+  ...
+}
+```
 
 ## 4. Contribuição
 

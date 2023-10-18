@@ -1,4 +1,4 @@
-import { Platform, StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
+import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 import {
   CustomDividerProps,
   CustomViewProps,
@@ -206,7 +206,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
     backgroundColor: props.bg 
       ? props.bg
       : props.readOnly 
-      ? Platform.OS === 'android' ? Colors.muted[100] : Colors.muted[200]
+      ? Colors.muted[200]
       : Colors.white,
     borderColor: props.noBorder
       ? undefined

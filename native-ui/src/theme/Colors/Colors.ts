@@ -63,7 +63,6 @@ const EMCColors: EMCThemeColorProps = {
     600: '#d97706',
   },
   muted: {
-    100: '#f5f5f5',
     200: '#e5e5e5',
     300: '#d4d4d4',
   }  

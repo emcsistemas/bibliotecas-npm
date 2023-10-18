@@ -6,7 +6,7 @@ const Consts = {
   DEFAULT_BUTTON_ICON_SIZE: 6,
   DEFAULT_OPACITY_CLICK: 0.8,
   OPACITY_CLICK_HARD: 0.6,
-  DISABLED_OPACITY: Platform.OS === 'android' ? 0.85 : 0.7,
+  DISABLED_OPACITY: Platform.OS === 'android' ? 1 : 0.7,
   MAX_ACCESSIBILITY_MULTIPLIER: 1.1
 }
 

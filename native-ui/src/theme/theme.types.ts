@@ -59,6 +59,7 @@ export type EMCThemeColorProps = {
     600: string
   }
   muted: {
+    100: string
     200: string
     300: string
   }  

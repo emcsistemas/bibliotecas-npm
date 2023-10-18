@@ -1,4 +1,4 @@
-import { StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
+import { Platform, StyleProp, StyleSheet, TextStyle, ViewStyle } from 'react-native'
 import {
   CustomDividerProps,
   CustomViewProps,
@@ -191,7 +191,7 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
   return {
     fontFamily: getFontFamily(props.fFamily, props.fWeight),
     fontSize: convertFontSize(props.fSize),
-    color: props.fColor,
+    color: props.fColor ?? (props.readOnly && Platform.OS === 'android') ? Colors.gray[700] : undefined,
     width: props.w ? dimensionCalculate(props.w) : '100%',
     height: dimensionCalculate(props.h ?? 12),
     margin: dimensionCalculate(props.m),

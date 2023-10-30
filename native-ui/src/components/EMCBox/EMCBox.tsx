@@ -8,7 +8,6 @@ const EMCBox = (props: CustomViewProps) => {
 
   return (
     <View
-      {...props}
       style={[baseStyles, { flexDirection: 'column' }]}
     >
       {props.children}

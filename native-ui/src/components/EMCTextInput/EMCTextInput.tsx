@@ -63,6 +63,8 @@ import Consts from '../../styles/Consts'
                 ? 'phone-pad'
                 : props.onlyNumbers
                 ? 'number-pad'
+                : props.keyboardType
+                ? props.keyboardType
                 : Platform.OS === 'ios'
                 ? 'default'
                 : props.isUpperCase || props.isLowerCase

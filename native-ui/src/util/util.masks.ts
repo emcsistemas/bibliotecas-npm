@@ -6,6 +6,7 @@ export type INPUT_MASK_TYPES =
   | 'cpf'
   | 'cnpj'
   | 'cpfcnpj'
+  | 'time'
 
 export function inputMaskCEP(value: string) {
   value = value.replace(/\D/g, '')
@@ -70,5 +71,19 @@ export function inputMaskCPFCNPJ(value: string) {
 
 export function inputMaskNumbers(value: string) {
   value = value.replace(/\D/g, '')
+  return value
+}
+
+export function inputMaskTime(value: string) {
+  value = value.replace(/\D/g, '')
+
+  if (value.length === 4) {
+    return value.replace(/^(\d{2})(\d)/, '$1:$2')    
+  }
+
+  if (value.length === 6) {
+    return value.replace(/^(\d{2})(\d)(\d)/, '$1:$2:$3')    
+  }
+
   return value
 }

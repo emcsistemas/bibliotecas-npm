@@ -12,6 +12,7 @@ import {
   inputMaskCurrency,
   inputMaskNumbers,
   inputMaskPhone,
+  inputMaskTime
 } from '../../util/util.masks'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 
@@ -46,6 +47,9 @@ const EMCMaskedInput = (props: MaskedInputProps, ref: any) => {
             break
           case 'telephone':
             value = inputMaskPhone(value)
+            break
+          case 'time':
+            value = inputMaskTime(value)
             break
         }
         props.onChangeValue(value)

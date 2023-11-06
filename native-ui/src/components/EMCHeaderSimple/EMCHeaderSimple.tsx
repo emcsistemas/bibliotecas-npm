@@ -24,6 +24,8 @@ interface EMCHeaderSimpleProps {
     onPress(): void
   }
   centerTitle?: string
+  centerSubTitle?: string
+  titleBold?: boolean
   isModal?: boolean
   isTablet?: boolean
 }
@@ -32,6 +34,8 @@ const EMCHeaderSimple = ({
   leftOption,
   rightOption,
   centerTitle,
+  centerSubTitle,
+  titleBold,
   isModal,
   isTablet,
 }: EMCHeaderSimpleProps) => {
@@ -81,7 +85,7 @@ const EMCHeaderSimple = ({
               </TouchableOpacity>
             )}
           </EMCBox>
-          <EMCBox
+          <EMCVStack
             flex={1}
             align='center'
           >
@@ -89,11 +93,20 @@ const EMCHeaderSimple = ({
               <EMCText
                 fColor={Colors.light[50]}
                 fSize={isTablet ? 'lg' : 'md'}
+                fWeight={titleBold ? 'bold' : 'normal'}
               >
                 {centerTitle}
               </EMCText>
             )}
-          </EMCBox>
+            {centerSubTitle && (
+              <EMCText
+                fColor={Colors.light[50]}
+                fSize={isTablet ? 'lg' : 'md'}
+              >
+                {centerSubTitle}
+              </EMCText>
+            )}
+          </EMCVStack>
           <EMCBox
             w={10}
             align='flex-end'

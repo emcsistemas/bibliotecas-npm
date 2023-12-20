@@ -10,10 +10,12 @@ import EMCButton from "../EMCButton/EMCButton"
 import EMCIcon from "../EMCIcon"
 import EMCText from "../EMCText"
 import EMCVStack from "../EMCVStack"
+import { SvgProps } from 'react-native-svg'
 
 interface EMCButtonMenuProps extends PressableProps {
   title?: string
   icon?: CustomIconProps
+  SvgIcon?: React.FC<SvgProps>
   variant?: 'blue' | 'light-blue' | 'orange' | 'red'
   marginL?: boolean
   marginR?: boolean
@@ -26,6 +28,7 @@ interface EMCButtonMenuProps extends PressableProps {
 const EMCButtonMenu = ({
   title,
   icon,
+  SvgIcon,
   variant,
   isDisabled,
   bagNumber,
@@ -138,6 +141,7 @@ const EMCButtonMenu = ({
               opacity={isDisabled ? 0.3 : 1}
             />
           )}
+          {!icon && SvgIcon && <SvgIcon />}
           {title && (
             <EMCText
               mt={1}

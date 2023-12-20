@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/native-ui",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Biblioteca de componentes react native",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
@@ -43,6 +43,8 @@
     "react-native-reanimated": "^3.5.4",
     "react-native-root-toast": "^3.5.1",
     "react-native-safe-area-context": "^4.7.2",
+    "react-native-svg": "^14.1.0",
+    "react-native-svg-transformer": "^1.2.0",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {

@@ -1,6 +1,6 @@
-import { Platform, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Platform, View, TouchableOpacity, StyleSheet, ColorValue } from 'react-native'
 import { useSafeAreaInsets } from "react-native-safe-area-context"
-import { CustomIconProps } from "../../styles"
+import { CustomIconProps, FontSizeAcronymes, FontWeightAcronymes } from "../../styles"
 import { Colors } from "../../theme"
 import EMCBox from "../EMCBox"
 import EMCHStack from "../EMCHStack"
@@ -24,7 +24,19 @@ interface EMCHeaderSimpleProps {
     onPress(): void
   }
   centerTitle?: string
+  leftTitle?: {
+    title: string
+    fSize?: FontSizeAcronymes | number
+    fColor?: ColorValue
+    fWeight?: FontWeightAcronymes
+  }
   centerSubTitle?: string
+  leftSubTitle?: {
+    title: string
+    fSize?: FontSizeAcronymes | number
+    fColor?: ColorValue
+    fWeight?: FontWeightAcronymes
+  }
   titleBold?: boolean
   isModal?: boolean
   isTablet?: boolean
@@ -35,6 +47,8 @@ const EMCHeaderSimple = ({
   rightOption,
   centerTitle,
   centerSubTitle,
+  leftTitle,
+  leftSubTitle,
   titleBold,
   isModal,
   isTablet,
@@ -98,6 +112,20 @@ const EMCHeaderSimple = ({
                 {centerTitle}
               </EMCText>
             )}
+            {leftTitle && !centerTitle && (
+              <EMCBox
+                w={'full'}
+                align='flex-start'
+              >
+                <EMCText
+                  fColor={leftTitle.fColor || Colors.light[50]}
+                  fSize={leftTitle.fSize || (isTablet ? 'lg' : 'md')}
+                  fWeight={leftTitle.fWeight}
+                >
+                  {leftTitle.title}
+                </EMCText>
+              </EMCBox>
+            )}
             {centerSubTitle && (
               <EMCText
                 fColor={Colors.light[50]}
@@ -105,6 +133,20 @@ const EMCHeaderSimple = ({
               >
                 {centerSubTitle}
               </EMCText>
+            )}
+            {leftSubTitle && !centerSubTitle && (
+              <EMCBox
+                w={'full'}
+                align='flex-start'
+              >
+                <EMCText
+                  fColor={leftSubTitle.fColor || Colors.light[50]}
+                  fSize={leftSubTitle.fSize || (isTablet ? 'lg' : 'md')}
+                  fWeight={leftSubTitle.fWeight}
+                >
+                  {leftSubTitle.title}
+                </EMCText>
+              </EMCBox>
             )}
           </EMCVStack>
           <EMCBox

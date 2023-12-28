@@ -1,4 +1,4 @@
-import { Modal, ModalProps, TouchableWithoutFeedback } from 'react-native'
+import { Modal, ModalProps, Pressable } from 'react-native'
 import { Calendar, LocaleConfig } from 'react-native-calendars'
 import { ptBRLocale, ptBRLocalesConfig } from './/calendarLocale'
 import { format } from 'date-fns'
@@ -97,10 +97,10 @@ const EMCCalendar = ({
   return (
     <Modal
       transparent={true}
-      animationType='fade'
+      animationType='fade'      
       {...rest}
     >
-      <TouchableWithoutFeedback onPress={onCancel}>
+      <Pressable style={{ flex: 1 }} onPress={onCancel}>
         <EMCVStack
           flex={1}
           px={isTablet ? '15%' : 6}
@@ -136,7 +136,7 @@ const EMCCalendar = ({
             onDayPress={(day) => onDateSelect(day.dateString)}
           />
         </EMCVStack>
-      </TouchableWithoutFeedback>
+      </Pressable>
     </Modal>
   )
 }

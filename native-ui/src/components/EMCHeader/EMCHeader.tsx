@@ -16,6 +16,7 @@ interface EMCHeaderProps {
   footer?: string
   goBack?: boolean
   menu?: boolean
+  logoff?: boolean
   send?: boolean
   sending?: boolean
   logo?: boolean
@@ -108,6 +109,18 @@ const EMCHeader = (props: EMCHeaderProps) => {
               <EMCIcon
                 as={MaterialIcons}
                 name='menu'
+                color={Colors.light[50]}
+                size={7}
+              />
+            </TouchableOpacity>
+          ) : props.logoff ? (
+            <TouchableOpacity
+              activeOpacity={Consts.DEFAULT_OPACITY_CLICK}
+              onPress={props.onPressSec || props.onPress}
+            >
+              <EMCIcon
+                as={Ionicons}
+                name='log-out-outline'
                 color={Colors.light[50]}
                 size={7}
               />

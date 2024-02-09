@@ -6,7 +6,8 @@ import {
   CustomButtonProps,
   CustomTextInputProps,
   CustomScrollViewContainerProps,
-  CustomTextProps
+  CustomTextProps,
+  CustomInputSelectorsProps
 } from './Types/ui-components.types'
 import {
   dimensionCalculate,
@@ -226,6 +227,40 @@ export function makeBaseTextInputStyle(props: CustomTextInputProps): StyleProp<T
       : props.readOnly
       ? Consts.DISABLED_OPACITY
       : 1,
+  }
+}
+
+export function makeBaseInputSelectorsStyle(
+  props: CustomInputSelectorsProps,
+): StyleProp<TextStyle> {
+  return {
+    fontFamily: getFontFamily(props.fFamily, props.fWeight),
+    fontSize: convertFontSize(props.fSize),
+    textAlign: 'center',
+    color:
+      props.fColor ?? (props.readOnly && Platform.OS === 'android')
+        ? Colors.gray[700]
+        : undefined,
+    width: dimensionCalculate(props.w ?? 11),
+    height: dimensionCalculate(props.h ?? 9),
+    paddingLeft: dimensionCalculate(props.px ?? 3),
+    paddingRight: dimensionCalculate(props.px ?? 3),
+    paddingTop: dimensionCalculate(props.pt ?? 3),
+    paddingBottom: dimensionCalculate(props.pb ?? 3),
+    backgroundColor: props.bg
+      ? props.bg
+      : props.readOnly
+        ? Colors.muted[200]
+        : Colors.white,
+    borderColor: props.bColor ? props.bColor : Colors.gray[500],
+    borderWidth: 1,
+    opacity: props.disableOpacity
+      ? 1
+      : props.opacity
+        ? props.opacity
+        : props.readOnly
+          ? Consts.DISABLED_OPACITY
+          : 1,
   }
 }
 

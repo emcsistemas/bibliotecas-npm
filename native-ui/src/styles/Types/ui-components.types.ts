@@ -215,6 +215,11 @@ export interface CustomTextInputProps extends TextInputProps {
   }
 }
 
+export interface CustomInputSelectorsProps extends CustomTextInputProps {
+  onMinusPress: () => void
+  onPlusPress: () => void
+}
+
 export interface CustomImageProps extends ImageProps {
   w?: DimensionValue | 'full'
   h?: DimensionValue | 'full'

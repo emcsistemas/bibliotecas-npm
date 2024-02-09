@@ -67,6 +67,7 @@ npx expo install react-native-reanimated react-native-gesture-handler lottie-rea
 - **EMCTextInput**: implementa um ```TextInput``` nativo
 - **EMCFakeInput**: componente que imita um ```TextInput``` desabilitado. Somente para exibição de informação.
 - **EMCIcon**: exibe na tela um ícone de qualquer família de ícones da biblioteca ```@expo/vector-icons```
+- **EMCInputSelectors**: input de texto para conteúdo numérico com seletores nas laterais
 - **EMCMaskedInput**: implementa um ```TextInput``` nativo com máscara automática
 - **EMCMessage**: exibe uma mensagem ao usuário utilizando a função nativa ```Alert.alert```
 - **EMCDialog**: exibe uma caixa de mensagem com a opção de incluir um campo para solicitação de dados

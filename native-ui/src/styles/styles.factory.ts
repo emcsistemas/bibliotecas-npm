@@ -245,8 +245,8 @@ export function makeBaseInputSelectorsStyle(
     height: dimensionCalculate(props.h ?? 9),
     paddingLeft: dimensionCalculate(props.px ?? 3),
     paddingRight: dimensionCalculate(props.px ?? 3),
-    paddingTop: dimensionCalculate(props.pt ?? 3),
-    paddingBottom: dimensionCalculate(props.pb ?? 3),
+    // paddingTop: dimensionCalculate(props.pt ?? 3),
+    // paddingBottom: dimensionCalculate(props.pb ?? 3),
     backgroundColor: props.bg
       ? props.bg
       : props.readOnly

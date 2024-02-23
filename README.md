@@ -14,4 +14,4 @@ Coleção de bibliotecas desenvolvidas pela EMC Sistemas para utilização em su
 
 ## React
 
-- [**react-ui:**](https://github.com/emcsistemas/bibliotecas-npm/tree/6a94b4478deaeda727ea939f273bd775d98b9307/react-ui) Componentes para construção e estilização de interfaces
+- [**react-ui:**](https://github.com/emcsistemas/bibliotecas-npm/tree/95467e360f9b0f5407ac80167d729467b002f5d9/react-ui) Componentes para construção e estilização de interfaces

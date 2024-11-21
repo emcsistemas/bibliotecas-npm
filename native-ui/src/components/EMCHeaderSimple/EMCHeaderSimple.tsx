@@ -88,7 +88,7 @@ const EMCHeaderSimple = ({
                   <EMCIcon
                     as={leftOption.icon?.as}
                     name={leftOption.icon?.name}
-                    size={6}
+                    size={leftOption.icon?.size || 6}
                     color={Colors.light[50]}
                   />
                 ) : (
@@ -174,7 +174,7 @@ const EMCHeaderSimple = ({
                     <EMCIcon
                       as={rightOption.icon?.as}
                       name={rightOption.icon?.name}
-                      size={7}
+                      size={rightOption.icon?.size || 7}
                       color={Colors.light[50]}
                       opacity={rightOption.disabled ? 0.5 : 1}
                     />

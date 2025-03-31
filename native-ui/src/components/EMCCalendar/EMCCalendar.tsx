@@ -1,20 +1,20 @@
-import { Modal, ModalProps, Pressable } from 'react-native'
-import { Calendar, LocaleConfig } from 'react-native-calendars'
-import { ptBRLocale, ptBRLocalesConfig } from './/calendarLocale'
-import { format } from 'date-fns'
-import { pt } from 'date-fns/locale'
-import { Colors } from '../../theme'
-import EMCVStack from '../EMCVStack'
-import { getFontFamily } from '../../styles/styles.util'
+import { Modal, ModalProps, Pressable } from "react-native";
+import { Calendar, LocaleConfig } from "react-native-calendars";
+import { format } from "date-fns";
+import { pt } from "date-fns/locale";
+import { Colors } from "../../theme";
+import EMCVStack from "../EMCVStack";
+import { getFontFamily } from "../../styles/styles.util";
+import { ptBRLocale, ptBRLocalesConfig } from "./calendarLocale";
 
-LocaleConfig.defaultLocale = ptBRLocale
-LocaleConfig.locales['pt-BR'] = ptBRLocalesConfig
+LocaleConfig.defaultLocale = ptBRLocale;
+LocaleConfig.locales["pt-BR"] = ptBRLocalesConfig;
 
 interface EMCCalendarProps extends ModalProps {
-  isTablet?: boolean
-  initialDate?: string
-  onDateSelect(selectedDate: string): void
-  onCancel(): void
+  isTablet?: boolean;
+  initialDate?: string;
+  onDateSelect(selectedDate: string): void;
+  onCancel(): void;
 }
 
 const EMCCalendar = ({
@@ -28,20 +28,20 @@ const EMCCalendar = ({
     try {
       if (
         date &&
-        date.includes('/') &&
+        date.includes("/") &&
         (date.length === 6 ||
           date.length === 7 ||
           date.length === 8 ||
           date.length === 10)
       ) {
-        const dateParts = date.split('/')
+        const dateParts = date.split("/");
 
         if (dateParts.length === 3) {
-          dateParts[0] = dateParts[0].padStart(2, '0')
-          dateParts[1] = dateParts[1].padStart(2, '0')
+          dateParts[0] = dateParts[0].padStart(2, "0");
+          dateParts[1] = dateParts[1].padStart(2, "0");
 
           if (dateParts[2].length === 2) {
-            dateParts[2] = '20' + dateParts[2]
+            dateParts[2] = "20" + dateParts[2];
           }
 
           if (
@@ -49,63 +49,55 @@ const EMCCalendar = ({
             dateParts[1].length !== 2 ||
             dateParts[2].length !== 4
           ) {
-            return undefined
+            return undefined;
           }
 
           const dateValidate = new Date(
-            dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0],
-          )
+            dateParts[2] + "-" + dateParts[1] + "-" + dateParts[0]
+          );
 
-          const validDate = dateValidate.getTime()
+          const validDate = dateValidate.getTime();
 
           if (!isNaN(validDate)) {
-            return dateParts[0] + '/' + dateParts[1] + '/' + dateParts[2]
+            return dateParts[0] + "/" + dateParts[1] + "/" + dateParts[2];
           } else {
-            return undefined
+            return undefined;
           }
         } else {
-          return undefined
+          return undefined;
         }
       } else {
-        return undefined
+        return undefined;
       }
     } catch (e) {
-      return undefined
+      return undefined;
     }
   }
 
   function dateStringBRToDateStringUS(date?: string) {
-    const dateBR = validateDateString(date)
+    const dateBR = validateDateString(date);
 
     if (dateBR) {
-      const dateParts = dateBR.split('/')
-      return dateParts[2] + '-' + dateParts[1] + '-' + dateParts[0]
+      const dateParts = dateBR.split("/");
+      return dateParts[2] + "-" + dateParts[1] + "-" + dateParts[0];
     } else {
-      return ''
+      return "";
     }
   }
 
-  const currentDaySelected = dateStringBRToDateStringUS(initialDate)
-  let initialDateFormated: string | undefined
+  const currentDaySelected = dateStringBRToDateStringUS(initialDate);
+  let initialDateFormated: string | undefined;
 
   if (currentDaySelected.length > 0) {
-    initialDateFormated = format(new Date(currentDaySelected), 'yyyy-MM-01', {
+    initialDateFormated = format(new Date(currentDaySelected), "yyyy-MM-01", {
       locale: pt,
-    })
+    });
   }
 
   return (
-    <Modal
-      transparent={true}
-      animationType='fade'      
-      {...rest}
-    >
+    <Modal transparent={true} animationType="fade" {...rest}>
       <Pressable style={{ flex: 1 }} onPress={onCancel}>
-        <EMCVStack
-          flex={1}
-          px={isTablet ? '15%' : 6}
-          justify='center'
-        >
+        <EMCVStack flex={1} px={isTablet ? "15%" : 6} justify="center">
           <Calendar
             style={{
               paddingBottom: 10,
@@ -138,7 +130,7 @@ const EMCCalendar = ({
         </EMCVStack>
       </Pressable>
     </Modal>
-  )
-}
+  );
+};
 
-export default EMCCalendar
+export default EMCCalendar;

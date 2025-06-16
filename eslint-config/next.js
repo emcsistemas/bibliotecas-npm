@@ -1,59 +1,14 @@
+const react = require("./react.js");
+
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    jest: true,
-  },
-  extends: [
-    'standard',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 'latest',
-    sourceType: 'module'
-  },
+  ...react,
+  extends: [...react.extends, "plugin:@next/next/recommended"],
   plugins: [
-    'jsx-a11y',
-    '@typescript-eslint',
-    'prefix-types'
+    ...react.plugins,
+    // O plugin do Next.js já é instalado junto com o next
   ],
   rules: {
-    'prettier/prettier': ["error", {
-      'printWidth': 80,
-      'tabWidth': 2,
-      'singleQuote': true,
-      'trailingComma': 'all',
-      'arrowParens': 'always',
-      'semi': false,
-      'endOfLine': 'auto',
-      'camelcase': ["error", {"properties": "never", "ignoreImports": true, "ignoreDestructuring": true, "ignoreGlobals": true}],
-      'no-useless-constructor': "off",
-      'prefix-types/prefer-interface-prefix': ["error", { "allow": "always" }]
-    }],
-    'jsx-a11y/alt-text': [
-      'warn',
-      {
-        elements: ['img'],
-        img: ['Image'],
-      },
-    ],
-    'jsx-a11y/aria-props': 'warn',
-    'jsx-a11y/aria-proptypes': 'warn',
-    'jsx-a11y/aria-unsupported-elements': 'warn',
-    'jsx-a11y/role-has-required-aria-props': 'warn',
-    'jsx-a11y/role-supports-aria-props': 'warn',
+    ...react.rules,
+    // Adicione ou sobrescreva regras específicas para Next.js aqui, se necessário
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-    'import/parsers': {
-      [require.resolve('@typescript-eslint/parser')]: ['.ts', '.tsx', '.d.ts'],
-    },
-  }
-}
+};

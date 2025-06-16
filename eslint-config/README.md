@@ -11,24 +11,48 @@
 ```sh
 npm i -D eslint @emcsistemas/eslint-config
 ```
+
 ou
+
 ```sh
-yarn i -D eslint @emcsistemas/eslint-config
+yarn add -D eslint @emcsistemas/eslint-config
 ```
+
 ou
+
 ```sh
-pnpm i -D eslint @emcsistemas/eslint-config
+pnpm add -D eslint @emcsistemas/eslint-config
 ```
 
 ## 2. Configuração
+
+### Para projetos Node.js
 
 - Crie o arquivo `.eslintrc.json` na raiz do projeto e adicione o seguinte conteúdo:
 
 ```
 {
+  "extends": "@emcsistemas/eslint-config/node"
+}
+```
+
+### Para projetos React
+
+- Crie o arquivo `.eslintrc.json` na raiz do projeto e adicione:
+
+```
+{
   "extends": "@emcsistemas/eslint-config/react"
-  // "extends": "@emcsistemas/eslint-config/next"
-  // "extends": "@emcsistemas/eslint-config/node"
+}
+```
+
+### Para projetos Next.js
+
+- Crie o arquivo `.eslintrc.json` na raiz do projeto e adicione:
+
+```
+{
+  "extends": "@emcsistemas/eslint-config/next"
 }
 ```
 
@@ -37,6 +61,7 @@ pnpm i -D eslint @emcsistemas/eslint-config
 ```
 node_modules
 build
+dist
 ```
 
 ## 3. Contribuição

@@ -1,6 +1,6 @@
 {
   "name": "@emcsistemas/eslint-config",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Configuração ESLint utilizada pela EMC Sistemas",
   "author": "Leandro Fernandes <desenvolvedor_emc@emcsistemas.com.br>",
   "license": "MIT",
@@ -26,8 +26,8 @@
     "postpub": "echo 'package has been published'"
   },
   "peerDependencies": {
-    "eslint": "^8.57.1",
-    "typescript": ">=5.7.0"
+    "eslint": "^9.0.0",
+    "typescript": ">=5.8.3"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -35,16 +35,15 @@
     }
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.31.1",
-    "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.2",
-    "eslint-config-standard": "^17.1.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.5",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-n": "^17.17.0",
+    "eslint-plugin-n": "^17.20.0",
     "eslint-plugin-prefix-types": "^2.0.0",
-    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-prettier": "^5.4.1",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
